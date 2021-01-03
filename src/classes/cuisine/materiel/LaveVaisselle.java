@@ -56,8 +56,6 @@ public class LaveVaisselle extends Materiel {
             assiette = (Assiette) this.objetsContenus.get(i) ;
             // on vide le contenu
             assiette.objetsContenus.clear() ;
-            // on rénitialise le nom du plat contenu
-            assiette.setPlat(null);
         }
         return true ;
     }

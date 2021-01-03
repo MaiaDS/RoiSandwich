@@ -7,80 +7,78 @@ import classes.cuisine.Ingredient.Nom;
 /**
  * Classe enfant de matériel, assiette contenant des ingrédients / un plat
  * 
- * @version 1.0
+ * @version 1.0 & 3.0
  * @author Mickeal PIRRES
+ *
+ * @version 2.0
+ * @author Maïa DA SILVA
  */
 public class Assiette extends Materiel {
 
-	private Recette.Noms nomPlat;
-
-//    Mickael ajout de l etat de l'assiette. 
-	private EtatAssiette etatAssiette;
-
-	public EtatAssiette getEtatAssiette() {
-		return etatAssiette;
-	}
-
-	public void setEtatAssiette(EtatAssiette etatAssiette) {
-		this.etatAssiette = etatAssiette;
-	}
-
+	/**
+	 * Etats que peut prendre l'assiette lors d'une partie
+	 */
 	public enum EtatAssiette {
 		PROPRE, SALE, PLAT
 	}
 
-	public String getImgAssiette() {
-		String s = null;
-		switch (etatAssiette) {
-		case PROPRE:
-			s = "../image/assiette.png";
-			break;
-		case SALE:
-			s = "../image/assiettesSales.png";
-			break;
-		case PLAT:
-			s = "../image/plat-simple.png";
-			break;
-		}
-		return s;
-
-	}
+	/**
+	 * etat de l'assiette
+	 */
+	private EtatAssiette etatAssiette;
 
 	/**
 	 * Constructeur
 	 */
 	public Assiette() {
 		super(10, 10);
-		this.nomPlat = null;
 		this.etatAssiette = EtatAssiette.PROPRE;
 	}
 
-	// Getteur
+	// Getteurs
 
 	/**
-	 * @return le nom du plat contenu dans l'assiette
-	 * @return null si aucun plat n'a été créé par le joueur
+	 * @return l'état de l'assiette
 	 */
-	public Recette.Noms getPlat() {
-		return this.nomPlat;
+	public EtatAssiette getEtatAssiette() {
+		return etatAssiette;
+	}
+
+	/**
+	 * @return l'image correspondant à l'état de l'assiette
+	 */
+	public String getImgAssiette() {
+		String s = null;
+		switch (etatAssiette) {
+			case PROPRE:
+				s = "../image/assiette.png";
+				break;
+			case SALE:
+				s = "../image/assiette_sale.png";
+				break;
+			case PLAT:
+				s = "../image/plat-simple.png";
+				break;
+		}
+		return s;
+
 	}
 
 	// Setteur
 
 	/**
-	 * Permet au joueur d'indiqquer quel plat il a créé
-	 * 
-	 * @param nomRecette
+	 * Permet de modifier l'état de l'assiette
+	 * @param etatAssiette
 	 */
-	public void setPlat(Recette.Noms nomRecette) {
-		this.nomPlat = nomRecette;
+	public void setEtatAssiette(EtatAssiette etatAssiette) {
+		this.etatAssiette = etatAssiette;
 	}
 
 	// Méthodes
 
 	/**
-	 * @Override méthode ajouterObjet(Objet objet) de la classe Matériel Permet
-	 *           d'ajouter un ingrédient "dans" l'assiette
+	 * @Override méthode ajouterObjet(Objet objet) de la classe Matériel
+	 * Permet d'ajouter un ingrédient "dans" l'assiette
 	 * @param ingredient
 	 * @return true si l'ingrédient a bien été ajouté
 	 * @throws IllegalAccessException
@@ -91,19 +89,21 @@ public class Assiette extends Materiel {
 	}
 
 	/**
-	 * @Override méthode retirerObjet(Objet objet) de la classe Matériel Permet de
-	 *           retirer un ingredient de l'assiette
+	 * @Override méthode retirerObjet(Objet objet) de la classe Matériel
+	 * Permet de retirer un ingredient de l'assiette
 	 * @param ingredient
 	 * @return true si la l'ingredient a bien été retiré
-	 *
-	 * @version 1.0
-	 * @author Maia DA SILVA
 	 */
 	public boolean retirerObjet(Ingredient ingredient) {
 		return this.objetsContenus.remove(ingredient);
 	}
-	
 
+
+	/**
+	 * Permet de verifier si un infrédient est présent dans l'assiette
+	 * @param ingredient
+	 * @return true s'il est dans l'assiette
+	 */
 	public boolean verifierSiIngredientPresentDansAssiette(Ingredient ingredient) {
 		boolean estContenu = false;
 		for (int i = 0; i < this.objetsContenus.size(); i++) {

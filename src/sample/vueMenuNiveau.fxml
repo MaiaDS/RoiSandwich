@@ -21,7 +21,7 @@
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                  <GridPane alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="245.0">
+                  <GridPane alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="265.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="70.4" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="124.4" />
@@ -33,13 +33,13 @@
                         <RowConstraints maxHeight="47.8" minHeight="10.0" prefHeight="37.99999999999999" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="NIVEAU EN COUR" textFill="WHITE" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+                        <Label text="NIVEAU EN COURS" textFill="WHITE" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
                         <Label text="TOTAL" textFill="WHITE" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
-                        <Label text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                        <Label text="Label" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                        <Label text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                        <Label text="Label" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                        <Label text="ARGENT" textFill="WHITE" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Label text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Label text="0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Label text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Label text="0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Label prefHeight="18.0" prefWidth="72.0" text="ARGENT" textFill="WHITE" GridPane.rowIndex="1" GridPane.valignment="TOP" />
                         <Label text="SCORE" textFill="WHITE" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                      </children>
                   </GridPane>
@@ -49,22 +49,23 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="127.0" layoutY="164.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: #fff;" text="Recommencer">
+                  <Button layoutX="272.0" layoutY="63.0" mnemonicParsing="false" style="-fx-background-color: #fff;" text="Recettes">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font></Button>
-                  <Button layoutX="345.0" layoutY="85.0" mnemonicParsing="false" style="-fx-background-color: #fff;" text="Recettes">
+                  <Button layoutX="54.0" layoutY="63.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: #fff;" text="Ingrédients">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font></Button>
-                  <Button layoutX="127.0" layoutY="85.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: #fff;" text="Ingrédients">
+                  <Button layoutX="419.0" layoutY="63.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="127.0" style="-fx-background-color: #fff;" text="Quitter">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font></Button>
-                  <Button layoutX="345.0" layoutY="164.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="127.0" style="-fx-background-color: #fff;" text="Quitter">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font></Button>
+                  <ImageView fitHeight="104.0" fitWidth="104.0" layoutX="248.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/logoFondNoir.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </center>

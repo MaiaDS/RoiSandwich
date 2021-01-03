@@ -7,7 +7,7 @@ import classes.cuisine.Ingredient;
  * @version 1.0
  * @author Mickeal PIRRES
  *
- * @version 3.0
+ * @version 2.0
  * @author Maïa DA SILVA
  */
 public class Decoupe extends Materiel {
@@ -26,7 +26,6 @@ public class Decoupe extends Materiel {
      */
     public boolean decouper () {
         Ingredient ingredient = (Ingredient) this.objetsContenus.get(0);
-        // gestion du temps ...
         ingredient.setTransformer(true) ;
         return true ;
     }

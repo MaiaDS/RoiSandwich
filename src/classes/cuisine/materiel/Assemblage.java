@@ -20,7 +20,7 @@ public class Assemblage extends Materiel {
      * @Override méthode ajouterObjet(Objet objet) de la classe Matériel
      * Permet d'ajouter une assiette sur la station d'assemblage
      * @param assiette
-     * @return true si l'assiette a bien été ajouté
+     * @return true si l'assiette a bien été ajoutée
      * @throws IllegalAccessException
      */
     public boolean ajouterObjet (Assiette assiette) {
@@ -31,7 +31,7 @@ public class Assemblage extends Materiel {
      * @Override méthode retirerObjet(Objet objet) de la classe Matériel
      * Permet de retirer une assiette de la station d'assemblage
      * @param assiette
-     * @return true si la l'assiette a bien été retiré
+     * @return true si la l'assiette a bien été retirée
      *
      * @version 1.0
      * @author Maia DA SILVA

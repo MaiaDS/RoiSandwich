@@ -12,17 +12,29 @@
          <image>
             <Image url="@../image/logo_couleur.png" />
          </image></ImageView>
+
       <Button fx:id="btn1" layoutX="66.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: #000;" text="NIVEAU 1" textFill="WHITE">
+
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="393.0" layoutY="248.0" mnemonicParsing="false" style="-fx-background-color: #000;" text="NIVEAU 3" textFill="WHITE">
+      <Button layoutX="392.0" layoutY="215.0" mnemonicParsing="false" style="-fx-background-color: #000;" text="NIVEAU 3" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="229.0" layoutY="248.0" mnemonicParsing="false" style="-fx-background-color: #000;" text="NIVEAU 2" textFill="WHITE">
+      <Button layoutX="228.0" layoutY="215.0" mnemonicParsing="false" style="-fx-background-color: #000;" text="NIVEAU 2" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="302.0" layoutY="292.0" mnemonicParsing="false" style="-fx-background-color: #000;" text="Ingrédients" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="158.0" layoutY="292.0" mnemonicParsing="false" style="-fx-background-color: #000;" text="Recettes" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

@@ -82,43 +82,6 @@ public class Cuisine {
 			this.assiettes.add(new Assiette());
 		}
 
-		// Création des outils dans la cuisine
-//        Iterator iterator = niveau.getMateriel().keySet().iterator() ;
-//        while (iterator.hasNext()) {
-//            // Création des planches à découper dans la quantité indiquée par le niveau
-//            if (iterator.next() instanceof Decoupe) {
-//                for (int i = 0 ; i < niveau.getMateriel().get(iterator.next()); i++) {
-//                    this.planchesDecoupe.add(new Decoupe()) ;
-//                }
-//
-//            // Création de la station d'assemblage et définition de sa capacité max d'accueil (selon le niveau)
-//            } else if (iterator.next() instanceof Assemblage) {
-//                this.assemblage = new Assemblage() ;
-//                this.laveVaisselle.setCapaciteMax(niveau.getMateriel().get(iterator.next())) ;
-//
-//            // Création du lave vaisselle et définition de sa capacité max d'accueil (selon le niveau)
-//            } else if (iterator.next() instanceof LaveVaisselle) {
-//                this.laveVaisselle = new LaveVaisselle() ;
-//                this.laveVaisselle.setCapaciteMax(niveau.getMateriel().get(iterator.next())) ;
-//
-//            // Création des friteuses dans la quantité indiquée par le niveau
-//            } else if (iterator.next() instanceof Friteuse) {
-//                for (int i = 0; i < niveau.getMateriel().get(iterator.next()); i++) {
-//                    this.friteuses.add(new Friteuse());
-//                }
-//
-//            // Création des plaques de cuisson dans la quantité indiquée par le niveau
-//            } else if (iterator.next() instanceof PlaqueCuisson) {
-//                for (int i = 0; i < niveau.getMateriel().get(iterator.next()); i++) {
-//                    this.plaquesCuisson.add(new PlaqueCuisson());
-//                }
-//
-//            // Création de la poubelle
-//            } else if (iterator.next() instanceof Poubelle) {
-//                this.poubelle = new Poubelle() ;
-//            }
-//        }
-
 		Iterator iterator = niveau.getMateriel().keySet().iterator();
 		while (iterator.hasNext()) {
 			Materiel materiel = (Materiel) iterator.next();
@@ -160,17 +123,26 @@ public class Cuisine {
 		}
 	}
 
+	/**
+	 * @param assiette
+	 */
 	// mickael
 	public void ajouterAssietteDeLaCuisine(Assiette assiette) {
 		assiettes.add(assiette);
 	}
 
+	/**
+	 * @return
+	 */
 	public Assiette retirerAssietteDeLaCuisine() {
 		Assiette a = (Assiette) assiettes.get(0);
 		assiettes.remove(0);
 		return a ;
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList getAssiettes() {
 		return assiettes;
 	}

@@ -1,6 +1,5 @@
 package classes;
-
-import classes.cuisine.*;
+import classes.cuisine.* ;
 import classes.cuisine.materiel.*;
 
 import java.util.ArrayList;
@@ -8,7 +7,6 @@ import java.util.HashMap;
 
 /**
  * Commentaire de documentation de la classe
- * 
  * @version 1.0
  * @author Maïa DA SILVA
  */
@@ -118,7 +116,7 @@ public class Niveau {
 			this.nbAssietteMax = 9;
 			this.nbMaxClients = 50;
 			
-			this.tmpsAttente = 35;
+			this.tmpsAttente = 100;
 
 			nbIngredient = 100;
 
@@ -267,6 +265,14 @@ public class Niveau {
 //		return true;
 //	}
 	
+	public boolean checker_Si_Liste_Des_Clients_Est_Vide() {
+		if(clients.size()==0) {
+		return true;
+		}
+		return false;
+		
+	}
+	
 	public boolean creerClients() {
 		// Pour chaque client
 		for (int a = 0; a < this.nbMaxClients; a++) {
@@ -275,13 +281,16 @@ public class Niveau {
 						int recetteAleatoire = (int)(Math.random() * listeRecettes.size());
 //						System.out.print(recetteAleatoire);
 						// définition de la commande propre au client
-						Recette recette = new Recette(this.listeRecettes.get(recetteAleatoire), Recette.Steaks.values()[0]);
+						int viandeAleatoire = (int)(Math.random() * Recette.Steaks.values().length);
+//						System.out.println(viandeAleatoire);
+						Recette recette = new Recette(this.listeRecettes.get(recetteAleatoire), Recette.Steaks.values()[viandeAleatoire]);
+						
 						
 						int lower = tmpsAttente;
 						int higher = (int) (tmpsAttente*1.50);
 
 						int tmpsAttenteRandom = (int)(Math.random() * (higher-lower)) + lower;
-						System.out.println("random = " + tmpsAttenteRandom);
+//						System.out.println("random = " + tmpsAttenteRandom);
 						
 						// création du client
 						this.clients.add(new Client(tmpsAttenteRandom, recette));

@@ -121,12 +121,15 @@ public class Recette {
         this.ingredients.put(new Ingredient(typeSteak,Etat.CUIT,false), nbSteak);
     }
     
+    
+    //à supprimer
     public void afficherIngredientRecette() {
+    	System.out.println("nombre d'ingredient dans recette " + ingredients.size());
         Iterator it = ingredients.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
-            System.out.println("les ingredients attendus sont = "  +((Ingredient)pair.getKey()).getNom() + " etat = " + ((Ingredient)pair.getKey()).getEtat() + " transformï¿½ ? " + ((Ingredient)pair.getKey()).getTransformer());
-            it.remove(); // avoids a ConcurrentModificationException
+            System.out.println("les ingredients attendus sont = "  +((Ingredient)pair.getKey()).getNom() + " etat = " + ((Ingredient)pair.getKey()).getEtat() + " transformï¿½ ? " + ((Ingredient)pair.getKey()).getTransformer() + " quantité : " + pair.getValue());
+//            it.remove(); // avoids a ConcurrentModificationException
         }
     }
 }

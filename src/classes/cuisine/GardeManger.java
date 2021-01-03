@@ -33,7 +33,7 @@ public class GardeManger {
 
 	/**
 	 * Constructeur
-	 * @param quantit� ingr�dient, correspondant au niveau
+	 * @param niveau
 	 */
 	public GardeManger(Niveau niveau) {
 		this.niveau = niveau;
@@ -43,6 +43,10 @@ public class GardeManger {
 		}
 	}
 
+	/**
+	 * @param ingredient
+	 * @return
+	 */
 	public Ingredient prendreIngredient (Ingredient.Nom ingredient) {
 		int compteur = compteurs.get(ingredient) ;
 		System.out.println(compteur);
@@ -53,7 +57,11 @@ public class GardeManger {
 		}
 		return null ;
 	}
-	
+
+	/**
+	 * @param ingredient
+	 * @return
+	 */
 	public Ingredient mettreIngredient (Ingredient.Nom ingredient) {
 		int compteur = compteurs.get(ingredient) ;
 		System.out.println(compteur);
@@ -65,7 +73,9 @@ public class GardeManger {
 		
 	}
 
-	
+	/**
+	 * @return 
+	 */
 	//Mickael
 	public HashMap<Ingredient.Nom, Integer> getCompteurs() {
 		return compteurs;

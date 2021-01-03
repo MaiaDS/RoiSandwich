@@ -2,33 +2,31 @@ package classes.cuisine;
 
 import classes.Recette;
 import classes.cuisine.materiel.Assiette;
-import sample.Controller.tempsDuJeu;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Classe rep√©sentant un client
+ * Classe reprÈsentant un client
  * 
  * @version 1.0
- * @author Ma√Øa DA SILVA
+ * @author Maia DA SILVA
  */
 public class Client {
 
 	// Variables de classes
 
 	/**
-	 * repr√©sente le temps que le client est pr√™t √† attendre pour √™tre servit
+	 * reprÈsente le temps que le client est prÍt ‡ attendre pour Ítre servit
 	 */
 	private int tmpsAttente;
+
 	/**
-	 * repr√©sente la commande du client
+	 * reprÈsente la commande du client
 	 */
 	private Recette commande;
 
@@ -45,109 +43,83 @@ public class Client {
 
 	// Getteur
 
+	/**
+	 * @return le temps d'attente du client
+	 */
 	public int getTmpsAttente() {
 		return tmpsAttente;
 	}
 
-	// M√©thodes
-
+	/**
+	 * @return la commande du client
+	 */
 	public Recette getCommande() {
 		return commande;
 	}
 
+	// MÈthodes
+
 	/**
-	 * Permet de v√©rifier que l'assiette qu'on lui a servit correspond √† sa
+	 * Permet de vÈrifier que l'assiette qu'on lui a servit correspond ‡ sa
 	 * commande
 	 * 
-	 * @param assiette
+	 * @param a qui reprÈsente l'assiette servie
 	 * @return true si la commande est bonne
 	 * @throws IllegalAccessException
 	 */
-//	public boolean verifierPlat(Assiette assiette) throws IllegalAccessException {
-//		// v√©rifier que le nom du plat servit est le bon
-//		if (verifierNomRecette(assiette)) {
-//			ArrayList<Boolean> checked = new ArrayList<Boolean>();
-//			boolean check = true;
-//			int quantite = 0;
-//
-//			// R√©cup√©ration des ingr√©dient de la recette
-//			Set<Ingredient> listeIngredient = this.commande.ingredients.keySet();
-//			Iterator iterator = listeIngredient.iterator();
-//
-//			// Pour chaque ingr√©dient de la recette
-//			while (iterator.hasNext()) {
-//				// V√©rifier qu'il est pr√©sent dans l'assiette
-//				if (assiette.objetsContenus.contains(iterator.next())) {
-//					Ingredient ingredient = (Ingredient) iterator.next();
-//					// V√©rifier qu'il est pr√©sent en bonne quantit√© dans l'assiette
-//					quantite = this.commande.ingredients.get(iterator.next());
-//					check = verifierQuantite(assiette.objetsContenus, ingredient, quantite);
-//					// S'il s'agit d'un steak ou d'une patate : v√©rifier la cuisson
-//					check = verifierCuisson(ingredient);
-//					// S'il s'agit d'un ingr√©dient d√©coupable : v√©rifier qu'il est d√©coup√©
-//					check = verifierDecoupage(ingredient);
-//				} else {
-//					check = false;
-//				}
-//				// Ajouter le r√©sultat de la v√©rification de l'ingr√©dient √† la liste des
-//				// v√©rifications
-//				checked.add(check);
-//			}
-//
-//			// Si un aliment a un r√©sultat n√©gatif alors la commande n'a pas √©t√©
-//			// respect√©e
-//			return !(checked.contains(false));
-//		}
-//		return false;
-//	}
-
 	public boolean verifierLePlat(Assiette a) {
 		ArrayList<Ingredient> ingredientAssiette = new ArrayList<Ingredient>();
 		ArrayList<Ingredient> ingredientRecette = new ArrayList<Ingredient>();
 		boolean estConforme = false;
-		int nbDeConformitÈ = 0;
+		int nbDeConformite = 0;
 		for (int i = 0; i < a.objetsContenus.size(); i++) {
 			Ingredient ing = (Ingredient) a.objetsContenus.get(i);
 			ingredientAssiette.add(ing);
 		}
 		;
-		Iterator it3 = commande.ingredients.entrySet().iterator();
+		Iterator it = commande.ingredients.entrySet().iterator();
 //		System.out.println("nombre d'ingredtion dans client " + commande.ingredients.size());
 		
-		while (it3.hasNext()) {
-			Map.Entry pair = (Map.Entry) it3.next();
+		while (it.hasNext()) {
+			Map.Entry pair = (Map.Entry) it.next();
+			int b= (int) pair.getValue();
+			for(int i=0; i<b;i++) {
 			ingredientRecette.add((Ingredient) pair.getKey());
-			System.out.println("ingredient ajoutÈ " + pair.getKey());
-			it3.remove(); // avoids a ConcurrentModificationException
+			}
+//			System.out.println("ingredient ajoutÈ " + pair.getKey());
+			it.remove(); // avoids a ConcurrentModificationException
 		}
-
-//		System.out.println("taille ingredientRecette dans client " + ingredientRecette.size());
-
-		for (int i = 0; i < ingredientAssiette.size(); i++) {
-			System.out.println("ingredientAssiette : " + ingredientAssiette.get(i).getNom());
-			Ingredient IngredientAssietteAChecker = ingredientAssiette.get(i);
+		
+		while(ingredientAssiette.size()>0) {
+			Ingredient IngredientAssietteAChecker = ingredientAssiette.get(0);
 			for (int y = 0; y < ingredientRecette.size(); y++) {
 				Ingredient IngredientRecetteAComparer = ingredientRecette.get(y);
+				
 				if (IngredientAssietteAChecker.getNom().equals(IngredientRecetteAComparer.getNom())
 						&& IngredientAssietteAChecker.getTransformer() == IngredientRecetteAComparer.getTransformer()
 						&& IngredientAssietteAChecker.getEtat().equals(IngredientRecetteAComparer.getEtat())) {
-					nbDeConformitÈ++;
+//					System.out.println(IngredientAssietteAChecker.getNom() + " est conforme");
+					nbDeConformite++;
+					y=ingredientRecette.size();
 				}
 			}
+			ingredientAssiette.remove(0);
 		}
+			
+		
 
-		System.out.println("nb conformitÈ = " + nbDeConformitÈ);
+//		System.out.println("nb conformitÈ = " + nbDeConformite);
 //		System.out.println("taille ingredientRecette dans client " + ingredientRecette.size());
-		if (nbDeConformitÈ == ingredientRecette.size()) {
+		if (nbDeConformite == ingredientRecette.size()) {
 			estConforme = true;
 		}
 		
-		System.out.println(" ");
-		for (int i = 0; i < ingredientRecette.size(); i++) {
-			System.out.println("ingredientRecette : " + ingredientRecette.get(i).getNom() + " etat : "
-					+ ingredientRecette.get(i).getEtat() + " transformÈ : "
-					+ ingredientRecette.get(i).getTransformer());
-		}
+//		System.out.println(" ");
+//		for (int i = 0; i < ingredientRecette.size(); i++) {
+//			System.out.println("ingredientRecette : " + ingredientRecette.get(i).getNom() + " etat : "
+//					+ ingredientRecette.get(i).getEtat() + " transformÈ : "
+//					+ ingredientRecette.get(i).getTransformer());
+//		}
 		
 		System.out.println("est conforme ? " + estConforme);
 		return estConforme;
@@ -156,35 +128,23 @@ public class Client {
 	}
 
 	/**
-	 * Permet de v√©rifi√© que le nom plat annonc√© lors du service correspond √† la
-	 * commande
-	 * 
-	 * @param assiette
-	 * @return true si le nom du plat de l'assiette correspond au nom du plat
-	 *         command√©
-	 */
-	public boolean verifierNomRecette(Assiette assiette) {
-		return assiette.getPlat() == this.commande.getNom();
-	}
-
-	/**
-	 * Permet de v√©rifier qu'un ingr√©dient est pr√©sent en bonne quantit√© dans
+	 * Permet de vÈrifier qu'un ingrÈdient est prÈsent en bonne quantitÈ dans
 	 * l'assiette
 	 * 
 	 * @param listeIngredients
 	 * @param ingredient
 	 * @param quantite
-	 * @return true si l'ingr√©dient est pr√©sent en bonne quantit√© dans l'assiette
+	 * @return true si l'ingrÈdient est prÈsent en bonne quantitÈ dans l'assiette
 	 */
 	public boolean verifierQuantite(ArrayList listeIngredients, Ingredient ingredient, int quantite) {
 		return (Collections.frequency(listeIngredients, ingredient) != quantite);
 	}
 
 	/**
-	 * Permet de v√©rifier la cuisson d'un ingr√©dient (cuisable)
+	 * Permet de vÈrifier la cuisson d'un ingrÈdient (cuisable)
 	 * 
 	 * @param ingredient
-	 * @return true si l'ingr√©dient est bien cuit
+	 * @return true si l'ingrÈdient est bien cuit
 	 */
 	public boolean verifierCuisson(Ingredient ingredient) {
 		return ((ingredient.isSteak() || ingredient.getNom() == Ingredient.Nom.PATATE)
@@ -192,22 +152,31 @@ public class Client {
 	}
 
 	/**
-	 * Permet de v√©rifier si un ingr√©dient est d√©coup√© ou non
+	 * Permet de vÈrifier si un ingrÈdient est dÈcoupÈ ou non
 	 * 
 	 * @param ingredient
-	 * @return true si l'ingr√©dient est d√©coup√©
+	 * @return true si l'ingrÈdient est dÈcoupÈ
 	 */
 	public boolean verifierDecoupage(Ingredient ingredient) {
 		return (ingredient.isDecoupable() && ingredient.getTransformer() == false);
 	}
 
+	/**
+	 * DÈbute le timer d'attente du client
+	 */
 	public void debutTimerClient() {
 		Timer timer = new Timer(true);
-		timer.schedule(new start(), 0, this.tmpsAttente);
+		timer.schedule(new Start(), 0, this.tmpsAttente);
 	}
 
-	public class start extends TimerTask {
+	/**
+	 *
+	 */
+	public class Start extends TimerTask {
 
+		/**
+		 *
+		 */
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
