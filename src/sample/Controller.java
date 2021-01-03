@@ -1,5 +1,8 @@
 package sample;
 
+import classes.cuisine.materiel.Assiette;
+import classes.cuisine.materiel.Assiette.EtatAssiette;
+import classes.cuisine.materiel.LaveVaisselle;
 import classes.cuisine.materiel.Materiel;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
@@ -32,6 +35,9 @@ import java.util.TimerTask;
 
 import classes.* ;
 import classes.cuisine.*;
+import classes.cuisine.materiel.*;
+import classes.cuisine.Ingredient.Etat;
+import classes.cuisine.Ingredient.Nom;
 
 public class Controller implements Initializable {
 

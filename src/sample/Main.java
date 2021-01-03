@@ -1,6 +1,7 @@
 package sample;
 
 
+import classes.Joueur;
 import classes.Niveau;
 import classes.cuisine.Ingredient;
 import classes.cuisine.Ingredient.Nom;
@@ -18,6 +19,8 @@ public class Main extends Application {
 	
 
 	public static Niveau niveau1;
+	
+	public static Joueur joueur;
 
 
     @Override
@@ -25,7 +28,7 @@ public class Main extends Application {
 
 //    	Parent root = FXMLLoader.load(getClass().getResource("vueNiveau.fxml"));
     	
-   	
+    	joueur = new Joueur();
     	Parent root = FXMLLoader.load(getClass().getResource("vueMenuPrincipal.fxml"));
 
     	stage.setTitle("RoiSandwich");
