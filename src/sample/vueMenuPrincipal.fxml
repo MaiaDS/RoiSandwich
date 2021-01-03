@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,5 +28,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
+      <Label fx:id="argentJoueur" layoutX="117.0" layoutY="33.0" prefHeight="17.0" prefWidth="53.0" text="argent" />
+      <Label layoutX="31.0" layoutY="33.0" text="Argent total :" />
    </children>
 </AnchorPane>

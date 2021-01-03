@@ -28,4 +28,12 @@ public class Joueur {
         this.argent = 0 ;
         this.scores = new HashMap<Integer,Integer>() ;
     }
+    
+    public void ajouterArgent(int argent) {
+    	this.argent += argent;
+    }
+    
+    public String afficherArgent() {
+    	return String.valueOf(argent);
+    }
 }

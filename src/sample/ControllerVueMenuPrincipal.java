@@ -19,13 +19,14 @@ public class ControllerVueMenuPrincipal implements Initializable {
 
 
 	@FXML
-	private Label lbl1, lbl2;
+	private Label lbl1, lbl2, argentJoueur;
 
 	@FXML
 	private Button btn1, btn2, btn3;
 
 	@FXML
 	private void buttonNiveau1(ActionEvent event) throws Exception {
+		
 			Stage stage;
 			Parent root;
 
@@ -69,7 +70,12 @@ public class ControllerVueMenuPrincipal implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
-	
+		if(Main.niveau1 != null) {
+			Main.joueur.ajouterArgent(Main.niveau1.getTabScoreArgent()[1]);
+			argentJoueur.setText(Main.joueur.afficherArgent());
+		}
+		else {
+			argentJoueur.setText("0");
+		}
 	}
 }
