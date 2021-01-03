@@ -396,12 +396,12 @@ public class Controller implements Initializable {
 			if (container == null) {
 				Object image = e.getSource();
 				String idImage = ((Node) image).getId();
-				Object c = niveau.getGardeManger().prendreIngredient(Nom.valueOf(idImage));
+				Object c = niveau.getCuisine().getGardeManger().prendreIngredient(Nom.valueOf(idImage));
 				mettreDansContainer(c);
 			} else if (container instanceof Ingredient) {
 				Ingredient i = ((Ingredient) container);
 				if (i.getTransformer() == false && i.getEtat().equals(Etat.CRU)) {
-					niveau.getGardeManger().mettreIngredient(i.getNom());
+					niveau.getCuisine().getGardeManger().mettreIngredient(i.getNom());
 					viderContainer();
 					switch (i.getNom()) {
 					case PATATE:

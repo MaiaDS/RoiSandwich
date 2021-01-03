@@ -21,8 +21,6 @@ public class Recette {
     public enum Noms {
         SIMPLE, MENU, MAXI, FRITES,
     }
-    //frites = patate
-    //simple = STEAK_DE_BOEUF , SALADE, TOMATE, OIGNON, FROMAGE, PAIN
 
     /**
      * EnumÃ©ration des diffÃ©rents types de steaks disponibles
@@ -122,13 +120,13 @@ public class Recette {
     }
     
     
-    //à supprimer
+    //ï¿½ supprimer
     public void afficherIngredientRecette() {
     	System.out.println("nombre d'ingredient dans recette " + ingredients.size());
         Iterator it = ingredients.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
-            System.out.println("les ingredients attendus sont = "  +((Ingredient)pair.getKey()).getNom() + " etat = " + ((Ingredient)pair.getKey()).getEtat() + " transformï¿½ ? " + ((Ingredient)pair.getKey()).getTransformer() + " quantité : " + pair.getValue());
+            System.out.println("les ingredients attendus sont = "  +((Ingredient)pair.getKey()).getNom() + " etat = " + ((Ingredient)pair.getKey()).getEtat() + " transformï¿½ ? " + ((Ingredient)pair.getKey()).getTransformer() + " quantitï¿½ : " + pair.getValue());
 //            it.remove(); // avoids a ConcurrentModificationException
         }
     }

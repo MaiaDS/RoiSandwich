@@ -146,4 +146,6 @@ public class Cuisine {
 	}
 
 
+	public GardeManger getGardeManger() { return this.gardeManger ;
+	}
 }
