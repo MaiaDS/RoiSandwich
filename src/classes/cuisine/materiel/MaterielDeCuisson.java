@@ -24,7 +24,7 @@ public class MaterielDeCuisson extends Materiel {
      * @return true si la cuisson a bien été démarrée
      */
     public boolean startCuisson() {
-        // start timer
+        // Start timer
         return true ;
     }
 

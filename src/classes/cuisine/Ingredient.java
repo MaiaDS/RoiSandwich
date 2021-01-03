@@ -1,7 +1,7 @@
 package classes.cuisine;
 
 /**
- * Commentaire de documentation de la classe Ingrédient
+ * Commentaire de documentation de la classe IngrÃ©dient
  * @version 1.0
  * @author Thomas MOSCONI
  *
@@ -11,26 +11,26 @@ package classes.cuisine;
 public class Ingredient {
 
 	/**
-	 * Nom de l'ingrédient
+	 * Nom de l'ingrÃ©dient
 	 */
 	private Nom nom;
 	/**
-	 * Booléen permettant de savoir si l'ingrédient est découpé ou non
+	 * BoolÃ©en permettant de savoir si l'ingrÃ©dient est dÃ©coupÃ© ou non
 	 */
 	private boolean transformer;
 	/**
-	 * Etat de cuisson de l'ingrédient
+	 * Etat de cuisson de l'ingrÃ©dient
 	 */
 	private Etat etat;
 	/**
-	 * Enumération des différents etats de cuisson possibles
+	 * EnumÃ©ration des diffÃ©rents etats de cuisson possibles
 	 */
 	public enum Etat {
 		CRU, CUIT, BRULE
 	}
 
 	/**
-	 * Enumération des noms des ingrédients disponibles
+	 * EnumÃ©ration des noms des ingrÃ©dients disponibles
 	 */
     public enum Nom{PATATE, SALADE, TOMATE, OIGNON, PAIN, FROMAGE, STEAK_DE_SOJA, STEAK_DE_POULET, STEAK_DE_BOEUF}
 
@@ -44,36 +44,41 @@ public class Ingredient {
 		this.etat = Etat.CRU;
     	this.transformer = false ;
 	}
-	
+
+	/**
+	 * @param nom
+	 * @param etat
+	 * @param transformé
+	 */
 	//constructeur pour recette
-	public Ingredient(Nom nom,Etat etat, boolean transform�) {
+	public Ingredient(Nom nom,Etat etat, boolean transformé) {
 		this.nom = nom;
 		this.etat = etat;
-    	this.transformer = transform� ;
+    	this.transformer = transformé ;
 	}
-	
+
 
 
 
 	// Getteurs
 
 	/**
-	 * @return l'état de cuisson d'un ingrédient
+	 * @return l'Ã©tat de cuisson d'un ingrÃ©dient
 	 */
 	public Etat getEtat() {
 		return this.etat;
 	}
 
 	/**
-	 * Retourne l'état de transformation d'un ingrédient
-	 * @return true si l'ingrédient est découpé, false sinon
+	 * Retourne l'Ã©tat de transformation d'un ingrÃ©dient
+	 * @return true si l'ingrÃ©dient est dÃ©coupÃ©, false sinon
 	 */
 	public boolean getTransformer() {
 		return transformer;
 	}
 
 	/**
-	 * @return le nom de l'ingrédient
+	 * @return le nom de l'ingrÃ©dient
 	 */
 	public Nom getNom() {
 		return nom;
@@ -82,7 +87,7 @@ public class Ingredient {
 	// Setteurs
 
 	/**
-	 * Permet de faire passer l'ingrédient d'un état entier à découpé
+	 * Permet de faire passer l'ingrÃ©dient d'un Ã©tat entier Ã  dÃ©coupÃ©
 	 * @param etat
 	 */
 	public void setTransformer(boolean etat) {
@@ -90,17 +95,17 @@ public class Ingredient {
 	}
 
 	/**
-	 * Permet de changer l'état de cuisson d'un ingrédient
+	 * Permet de changer l'Ã©tat de cuisson d'un ingrÃ©dient
 	 * @param etat
 	 */
 	public void setEtat(Etat etat) {
 		this.etat = etat;
 	}
 
-	// Méthodes
+	// MÃ©thodes
 
 	/**
-	 * @return true si l'ingrédient est un steak
+	 * @return true si l'ingrÃ©dient est un steak
 	 */
 	public boolean isSteak () {
 		return (this.getNom() == Nom.STEAK_DE_BOEUF
@@ -109,7 +114,7 @@ public class Ingredient {
 	}
 
 	/**
-	 * @return true si l'ingrédient est découpable
+	 * @return true si l'ingrÃ©dient est dÃ©coupable
 	 */
 	public boolean isDecoupable () {
 		return (this.getNom() == Nom.PATATE
@@ -118,7 +123,7 @@ public class Ingredient {
 				|| this.getNom() == Nom.SALADE) ;
 	}
 	/**
-	 * @return le lien vers l'image correspondant � l'�tat de l'ingr�dient
+	 * @return le lien vers l'image correspondant à l'état de l'ingrédient
 	 */
 	public String getImgIngredient() {
 		

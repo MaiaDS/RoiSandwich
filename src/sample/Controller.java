@@ -1,14 +1,8 @@
 package sample;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,32 +10,19 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
-import java.io.InputStream;
 import java.net.URL;
-import java.sql.Time;
-import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -245,7 +226,7 @@ public class Controller implements Initializable {
 	private Label labelRecetteClient2;
 	@FXML
 	private Label labelRecetteClient3;
-	// <===== a supprimer quand progressBar sera implementée
+	// <===== a supprimer quand progressBar sera implementï¿½e
 	@FXML
 	private Label labelTimerClient1;
 	@FXML
@@ -264,11 +245,11 @@ public class Controller implements Initializable {
 	
 	/**
 	 * methode qui donne l' assiette aux clients.
-	 * si le container n'est pas null et qu'il contient un objet de classe assiette, que cette assiette a pour état PLAT, alors 
-	 * on vérifie qu'il y a bien un client qui attend et cette assiette lui est distribué en cliquant sur lui.
-	 * Le client vérifie que les ingredients dans l'assiette correspondent à sa commande, le score augmente en fonction, et il s'en va.
-	 * L'assiette passe en état SALE.
-	 * Si le container est null et qu'il y a une assiette dans l'emplacement du client, en cliquant sur le client, on récupere l'assiette SALE
+	 * si le container n'est pas null et qu'il contient un objet de classe assiette, que cette assiette a pour ï¿½tat PLAT, alors 
+	 * on vï¿½rifie qu'il y a bien un client qui attend et cette assiette lui est distribuï¿½ en cliquant sur lui.
+	 * Le client vï¿½rifie que les ingredients dans l'assiette correspondent ï¿½ sa commande, le score augmente en fonction, et il s'en va.
+	 * L'assiette passe en ï¿½tat SALE.
+	 * Si le container est null et qu'il y a une assiette dans l'emplacement du client, en cliquant sur le client, on rï¿½cupere l'assiette SALE
 	 * @param e
 	 */
 	public void donnerAssietteClient(MouseEvent e)  {
@@ -286,7 +267,7 @@ public class Controller implements Initializable {
 
 					if (client1.verifierLePlat(assietteTemporaire)) {
 						niveau.setScoreArgent(100, 100);
-						System.out.println("score augmenté");
+						System.out.println("score augmentï¿½");
 						scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
 						argentLabel.setText(String.valueOf(niveau.getTabScoreArgent()[1]));
 					}
@@ -315,7 +296,7 @@ public class Controller implements Initializable {
 					comptoir.getEmplacementAssietteDansComptoire()[1] = (Assiette) container;
 					if (client2.verifierLePlat((Assiette) container)) {
 						niveau.setScoreArgent(100, 100);
-						System.out.println("score augmenté");
+						System.out.println("score augmentï¿½");
 						scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
 					}
 					comptoir.retirerClient(1);
@@ -340,7 +321,7 @@ public class Controller implements Initializable {
 					comptoir.getEmplacementAssietteDansComptoire()[2] = (Assiette) container;
 					if (client3.verifierLePlat((Assiette) container)) {
 						niveau.setScoreArgent(100, 100);
-						System.out.println("score augmenté");
+						System.out.println("score augmentï¿½");
 						scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
 					}
 					comptoir.retirerClient(2);
@@ -478,34 +459,34 @@ public class Controller implements Initializable {
 								.setImage(new Image(getClass().getResourceAsStream(ingredient.getImgIngredient())));
 						materielDecoupe.ajouterObjet(ingredient);
 						viderContainer();
-						// si le container est découpable
+						// si le container est dï¿½coupable
 						if (ingredient.isDecoupable()) {
-							// si cette ingredient découpable n'est pas déja transformé alors le découper
+							// si cette ingredient dï¿½coupable n'est pas dï¿½ja transformï¿½ alors le dï¿½couper
 							if (ingredient.getTransformer() == false) {
 								((Decoupe) materielDecoupe).decouper();
 //								System.out.println(ingredient.getImgIngredient());
 								containerDansDecoupe.setImage(
 										new Image(getClass().getResourceAsStream(ingredient.getImgIngredient())));
-//								System.out.println(ingredient.getNom() + " a été découpé ");
+//								System.out.println(ingredient.getNom() + " a ï¿½tï¿½ dï¿½coupï¿½ ");
 							}
-							// sinon cette ingredient découpable a déja été découpé
+							// sinon cette ingredient dï¿½coupable a dï¿½ja ï¿½tï¿½ dï¿½coupï¿½
 							else {
-//								System.out.println(ingredient.getNom() + " a déja été découpé");
+//								System.out.println(ingredient.getNom() + " a dï¿½ja ï¿½tï¿½ dï¿½coupï¿½");
 							}
 						}
-						// sinon cette ingredient n'est pas découpale
+						// sinon cette ingredient n'est pas dï¿½coupale
 						else {
-//							System.out.println(ingredient.getNom() + " n'est pas découpable");
+//							System.out.println(ingredient.getNom() + " n'est pas dï¿½coupable");
 						}
-//						System.out.println("transformé : " + ingredient.getNom() + " : " + ingredient.getTransformer());
+//						System.out.println("transformï¿½ : " + ingredient.getNom() + " : " + ingredient.getTransformer());
 					} else {
-						System.out.println("Il y a déjà quelque chose dans ce materiel");
+						System.out.println("Il y a dï¿½jï¿½ quelque chose dans ce materiel");
 					}
 				} else {
-					System.out.println("l'ingredient n'est pas découpable");
+					System.out.println("l'ingredient n'est pas dï¿½coupable");
 				}
 			} catch (Exception e2) {
-				System.out.println("seul les ingredients peuvent etre découpés petit malin ;)");
+				System.out.println("seul les ingredients peuvent etre dï¿½coupï¿½s petit malin ;)");
 			}
 		}
 	}
@@ -533,7 +514,7 @@ public class Controller implements Initializable {
 						e1.printStackTrace();
 					}
 				} else {
-					System.out.println(((Ingredient) container).getNom() + " a déja été cuit");
+					System.out.println(((Ingredient) container).getNom() + " a dï¿½ja ï¿½tï¿½ cuit");
 				}
 			} else {
 				System.out.println(((Ingredient) container).getNom() + " ne peut pas etre cuit");
@@ -565,16 +546,16 @@ public class Controller implements Initializable {
 							viderContainer();
 							frireProgression(a, frireProgress, 5);
 						} else {
-							System.out.println(a.getNom() + " a déja été cuit");
+							System.out.println(a.getNom() + " a dï¿½ja ï¿½tï¿½ cuit");
 						}
 					} else {
-						System.out.println(a.getNom() + " doit etre découpé");
+						System.out.println(a.getNom() + " doit etre dï¿½coupï¿½");
 					}
 				} else {
-					System.out.println("seul les patates coupé peuvent être fries");
+					System.out.println("seul les patates coupï¿½ peuvent ï¿½tre fries");
 				}
 			} else {
-				System.out.println("ce que vous avez dans la main n'est même pas un ingrédient");
+				System.out.println("ce que vous avez dans la main n'est mï¿½me pas un ingrï¿½dient");
 			}
 
 		}
@@ -603,7 +584,7 @@ public class Controller implements Initializable {
 				}
 
 			} else {
-				System.out.println("Ceci est déjà propre");
+				System.out.println("Ceci est dï¿½jï¿½ propre");
 			}
 		}
 
@@ -627,7 +608,7 @@ public class Controller implements Initializable {
 		} else if (container instanceof Assiette) {
 			Assiette a = (Assiette) container;
 			if (a.getEtatAssiette().equals(EtatAssiette.SALE)) {
-				System.out.println("l'assiette a déja été utilisé, veuillez la laver");
+				System.out.println("l'assiette a dï¿½ja ï¿½tï¿½ utilisï¿½, veuillez la laver");
 			} else {
 				if(a.getEtatAssiette().equals(EtatAssiette.PLAT)) {
 					emplacementAssiette.setImage(new Image(getClass().getResourceAsStream("../image/assiette.png")));
@@ -638,7 +619,7 @@ public class Controller implements Initializable {
 				}
 				materielAssemblage.ajouterObjet(a);
 				
-				// rechercher les ingredients présents dans l'assiette
+				// rechercher les ingredients prï¿½sents dans l'assiette
 				for (int i = 0; i < a.objetsContenus.size(); i++) {
 					Ingredient ing = (Ingredient) a.objetsContenus.get(i);
 					switch (ing.getNom()) {
@@ -696,7 +677,7 @@ public class Controller implements Initializable {
 
 //			si le container est un ingredient
 		} else if (container instanceof Ingredient &&  materielAssemblage.objetsContenus.size()>0 ) {
-			// récupere l'assiette contenu dans l'assemblage
+			// rï¿½cupere l'assiette contenu dans l'assemblage
 			Assiette assiette = (Assiette) materielAssemblage.objetsContenus.get(0);
 			if (assiette.verifierSiIngredientPresentDansAssiette((Ingredient) container) == true) {
 				if(((Ingredient) container).isSteak() || ((Ingredient)container).getNom().equals(Ingredient.Nom.FROMAGE)){
@@ -705,10 +686,10 @@ public class Controller implements Initializable {
 					viderContainer();
 				}
 				else {
-					System.out.println("ingredient déja présent");
+					System.out.println("ingredient dï¿½ja prï¿½sent");
 				}
 			} else {
-				// ajoute un ingredient à l'assiette
+				// ajoute un ingredient ï¿½ l'assiette
 				switch (((Ingredient) container).getNom()) {
 				case PATATE:
 					emplacementAssemblagePatate.setImage(
@@ -786,7 +767,7 @@ public class Controller implements Initializable {
 			mettreDansContainer(m.objetsContenus.get(0));
 			m.retirerObjet(this.container);
 			System.out.println("contenu du materiel apres " + m.objetsContenus.size());
-			System.out.println("ingredient ajouté à container");
+			System.out.println("ingredient ajoutï¿½ ï¿½ container");
 			return true;
 		}
 	}
@@ -850,7 +831,7 @@ public class Controller implements Initializable {
 	public class tempsDuJeu extends TimerTask {
 
 		private int temps = 240;
-		// permet de ne pas envoyer tout les clients en même temps
+		// permet de ne pas envoyer tout les clients en mï¿½me temps
 		private int attenteEntreClient = 0;
 
 		private int nbrClientEnvoye = 0;
@@ -897,9 +878,9 @@ public class Controller implements Initializable {
 
 					for (int i = 0; i < comptoir.getEmplacementClientDansComptoire().length; i++) {
 						if (niveau.checker_Si_Liste_Des_Clients_Est_Vide()==false) {
-							if (comptoir.checker_Si_Une_Assiette_Est_Presente_Dans_Emplacement_Du_Client(i)==false) {
+							if (comptoir.checkerSiUneAssietteEstPresenteDansEmplacementDuClient(i)==false) {
 
-								if (comptoir.checker_Si_Un_Client_Est_Assis_Dans_Un_Emplacement(i)==false) {
+								if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i)==false) {
 
 									Client client = niveau.getClients().get(0);
 									comptoir.ajouterClient(client, i);
@@ -958,7 +939,7 @@ public class Controller implements Initializable {
 								}
 							}
 						}
-						if (comptoir.checker_Si_Un_Client_Est_Assis_Dans_Un_Emplacement(i)) {
+						if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i)) {
 							if (comptoir.getEmplacementClientDansComptoire()[i].getTmpsAttente() == 0) {
 								System.out.println(
 										"client : " + comptoir.getEmplacementClientDansComptoire()[i] + " est parti");
@@ -1036,7 +1017,7 @@ public class Controller implements Initializable {
 						ingredient.setEtat(Etat.BRULE);
 						progress.setProgress(1);
 						progress.setStyle("-fx-accent: red;");
-						System.out.println("Votre steak est brulé");
+						System.out.println("Votre steak est brulï¿½");
 						return null;
 					}
 				};
@@ -1158,32 +1139,32 @@ public class Controller implements Initializable {
 		
 		niveau = Main.niveau1;
 
-		// mickael : récupere tous l'adresse de tous les materiels du niveau pour le
+		// mickael : rï¿½cupere tous l'adresse de tous les materiels du niveau pour le
 		// controlleur
 		for (Materiel i : niveau.getMateriel().keySet()) {
 			if (i instanceof Decoupe) {
 				materielDecoupe = i;
-//				System.out.println("ajouté");
+//				System.out.println("ajoutï¿½");
 			}
 			if (i instanceof Assemblage) {
 				materielAssemblage = i;
-//				System.out.println("ajouté");
+//				System.out.println("ajoutï¿½");
 			}
 			if (i instanceof Friteuse) {
 				materielFriteuse = i;
-//				System.out.println("ajouté");
+//				System.out.println("ajoutï¿½");
 			}
 			if (i instanceof LaveVaisselle) {
 				materielLaveVaisselle = i;
-//				System.out.println("ajouté");
+//				System.out.println("ajoutï¿½");
 			}
 			if (i instanceof PlaqueCuisson) {
 				materielPlaqueDeCuisson = i;
-//				System.out.println("ajouté");
+//				System.out.println("ajoutï¿½");
 			}
 			if (i instanceof Poubelle) {
 				materielPoubelle = i;
-//				System.out.println("ajouté");
+//				System.out.println("ajoutï¿½");
 			}
 		}
 
@@ -1220,7 +1201,7 @@ public class Controller implements Initializable {
 	public void stockageAssietteSale() {
 
 		// stocker assiette sale dans la pile d'assiette sale
-		// bug à fixer : si l'assiette est vide, puis donné à client sans ingredient,
+		// bug ï¿½ fixer : si l'assiette est vide, puis donnï¿½ ï¿½ client sans ingredient,
 		// elle passe sale !!!!!
 		if (container instanceof Assiette && ((Assiette) container).getEtatAssiette().equals(EtatAssiette.SALE)) {
 			Assiette assiette = (Assiette) container;
@@ -1230,7 +1211,7 @@ public class Controller implements Initializable {
 			viderContainer();
 
 		}
-		// recupérer assiette sale de la pile
+		// recupï¿½rer assiette sale de la pile
 		else if (container == null && niveau.getCuisine().getStock().getAssiettesSale().size() != 0) {
 			mettreDansContainer(niveau.getCuisine().getStock().getAssiettesSale().get(0));
 			niveau.getCuisine().getStock().getAssiettesSale().remove(0);
