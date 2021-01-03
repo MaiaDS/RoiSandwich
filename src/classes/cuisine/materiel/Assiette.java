@@ -12,18 +12,13 @@ import classes.cuisine.Ingredient.Nom;
  */
 public class Assiette extends Materiel {
 
+	/**
+	 *
+	 */
 	private Recette.Noms nomPlat;
 
-//    Mickael ajout de l etat de l'assiette. 
+	// Etat que peur prendre l'assiette.
 	private EtatAssiette etatAssiette;
-
-	public EtatAssiette getEtatAssiette() {
-		return etatAssiette;
-	}
-
-	public void setEtatAssiette(EtatAssiette etatAssiette) {
-		this.etatAssiette = etatAssiette;
-	}
 
 	public enum EtatAssiette {
 		PROPRE, SALE, PLAT
@@ -65,7 +60,15 @@ public class Assiette extends Materiel {
 		return this.nomPlat;
 	}
 
+	public EtatAssiette getEtatAssiette() {
+		return etatAssiette;
+	}
+
 	// Setteur
+
+	public void setEtatAssiette(EtatAssiette etatAssiette) {
+		this.etatAssiette = etatAssiette;
+	}
 
 	/**
 	 * Permet au joueur d'indiqquer quel plat il a créé
