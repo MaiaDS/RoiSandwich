@@ -36,7 +36,7 @@ public class Assiette extends Materiel {
 			s = "../image/assiette.png";
 			break;
 		case SALE:
-			s = "../image/assiettesSales.png";
+			s = "../image/assiette_sale.png";
 			break;
 		case PLAT:
 			s = "../image/plat-simple.png";
