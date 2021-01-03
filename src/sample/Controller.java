@@ -31,7 +31,6 @@ import java.util.TimerTask;
 
 import classes.cuisine.Ingredient.Etat;
 import classes.cuisine.Ingredient.Nom;
-import classes.*;
 import classes.cuisine.*;
 import classes.cuisine.materiel.*;
 import classes.cuisine.materiel.Assiette.EtatAssiette;
@@ -139,7 +138,7 @@ public class Controller implements Initializable {
 	private ImageView containerDansDecoupe;
 
 	@FXML
-	private BorderPane plaque_cuisson;
+	private BorderPane plaqueCuisson;
 
 	@FXML
 	private ImageView containerDansCuisson;
@@ -147,15 +146,16 @@ public class Controller implements Initializable {
 	@FXML
 	private ProgressBar cuissonProgress;
 
-	private Service<Void> CuissonEnCoursSteak;
-
+	private Service<Void> cuissonEnCoursSteak;
+  
 	@FXML
 	private BorderPane friteuse;
 
 	@FXML
 	private ProgressBar frireProgress;
 
-	private Service<Void> FrireEnCours;
+	private Service<Void> frireEnCours;
+
 
 	@FXML
 	private BorderPane assemblage;
@@ -164,7 +164,7 @@ public class Controller implements Initializable {
 	private ImageView containerDansFriteuse;
 
 	@FXML
-	private BorderPane lavevaisselle;
+	private BorderPane laveVaisselle;
 
 	@FXML
 	private ProgressIndicator LaveProgress;
@@ -483,9 +483,9 @@ public class Controller implements Initializable {
 	public void cuire(MouseEvent e) {
 		if (container == null) {
 			checkSiIngredientPresentDansMateriel(materielPlaqueDeCuisson);
-			if (CuissonEnCoursSteak != null) {
-				CuissonEnCoursSteak.cancel();
-				CuissonEnCoursSteak.reset();
+			if (cuissonEnCoursSteak != null) {
+				cuissonEnCoursSteak.cancel();
+				cuissonEnCoursSteak.reset();
 				cuissonProgress.setProgress(0.0);
 			}
 		} else {
@@ -516,9 +516,9 @@ public class Controller implements Initializable {
 			System.out.println("ingredient contenu " + materielFriteuse.objetsContenus.size());
 			if (checkSiIngredientPresentDansMateriel(materielFriteuse)) {
 				containerDansFriteuse.setImage(new Image(getClass().getResourceAsStream("../image/friteuse.png")));
-				if (FrireEnCours != null) {
-					FrireEnCours.cancel();
-					FrireEnCours.reset();
+				if (frireEnCours != null) {
+					frireEnCours.cancel();
+					frireEnCours.reset();
 					frireProgress.setProgress(0.0);
 				}
 
@@ -1000,7 +1000,7 @@ public class Controller implements Initializable {
 				};
 			}
 		};
-		CuissonEnCoursSteak = CuissonMateriel;
+		cuissonEnCoursSteak = CuissonMateriel;
 		CuissonMateriel.start();
 	}
 
@@ -1034,7 +1034,7 @@ public class Controller implements Initializable {
 				};
 			}
 		};
-		FrireEnCours = CuissonMateriel;
+		frireEnCours = CuissonMateriel;
 		CuissonMateriel.start();
 	}
 
