@@ -88,14 +88,6 @@ public class Recette {
     }
 
     /**
-     * @return la viande choisie pour la recette
-     * @return null s'il s'agit de frites
-     */
-    public Steaks getViande() {
-        return viande;
-    }
-
-    /**
      * Permet d'obtenir la liste des ingrédients pour la réalisation d'un burger
      * @param nbSteak
      * @param viande
@@ -117,17 +109,5 @@ public class Recette {
             typeSteak = Ingredient.Nom.STEAK_DE_SOJA;
         }
         this.ingredients.put(new Ingredient(typeSteak,Etat.CUIT,false), nbSteak);
-    }
-    
-    
-    //� supprimer
-    public void afficherIngredientRecette() {
-    	System.out.println("nombre d'ingredient dans recette " + ingredients.size());
-        Iterator it = ingredients.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-            System.out.println("les ingredients attendus sont = "  +((Ingredient)pair.getKey()).getNom() + " etat = " + ((Ingredient)pair.getKey()).getEtat() + " transform� ? " + ((Ingredient)pair.getKey()).getTransformer() + " quantit� : " + pair.getValue());
-//            it.remove(); // avoids a ConcurrentModificationException
-        }
     }
 }
