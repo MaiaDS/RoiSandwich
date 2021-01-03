@@ -24,6 +24,11 @@ public class ControllerFinDePartie implements Initializable {
 	@FXML
 	Label scoreLabel, argentLabel;
 	
+	/**
+	 * Cette fonction est lancer lorsque l'on appuie sur la croix du niveau, 
+	 * elle permet de quitter le niveau et de revenir sur l'�cran principale
+	 */
+	
 	public void quitterNiveau() throws Exception {
 		try {
 			Stage stage = (Stage) btnMenu.getScene().getWindow();

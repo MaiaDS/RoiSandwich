@@ -24,6 +24,10 @@ public class ControllerVueMenuPrincipal implements Initializable {
 	@FXML
 	private Button btn1, btn2, btn3;
 
+	
+	/**
+	 * Permet de lancer le niveau correspondant au boutton associer
+	 */
 	@FXML
 	private void buttonNiveau1(ActionEvent event) throws Exception {
 		
