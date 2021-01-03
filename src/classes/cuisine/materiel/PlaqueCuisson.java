@@ -8,13 +8,13 @@ package classes.cuisine.materiel;
  * @version 2.0
  * @author Maïa DA SILVA
  */
-public class PlaqueCuisson extends MaterielDeCuisson {
+public class PlaqueCuisson extends Materiel {
 
     /**
      * Constructeur
      */
     public PlaqueCuisson() {
-        super();
+        super(1, 10);
     }
     
     
