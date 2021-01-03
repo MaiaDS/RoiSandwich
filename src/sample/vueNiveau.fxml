@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="925.0" prefWidth="1257.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <SplitPane dividerPositions="0.08353033884948778, 0.9227738376674547" layoutX="-14.0" prefHeight="925.0" prefWidth="1271.0">
+        <items>
+            <SplitPane dividerPositions="0.09554831704668838" orientation="VERTICAL" prefHeight="400.0" prefWidth="47.0" style="-fx-background-color: #000; -fx-border-color: #000;">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="73.0" style="-fx-background-color: #000;">
+                     <children>
+                        <ImageView fx:id="btnMenu" fitHeight="38.0" fitWidth="31.0" layoutX="35.0" layoutY="27.0" onMouseClicked="#quitterNiveau" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/fermer.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="741.0" prefWidth="77.0" style="-fx-background-color: #000;" />
+              </items>
+            </SplitPane>
+            <BorderPane prefHeight="748.0" prefWidth="869.0">
+               <top>
+                  <SplitPane dividerPositions="0.5568065506653019" prefHeight="80.0" prefWidth="498.0" BorderPane.alignment="CENTER">
+                    <items>
+                        <GridPane prefHeight="71.0" prefWidth="246.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="24.4" minHeight="10.0" prefHeight="24.4" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="16.400000000000002" minHeight="9.8" prefHeight="10.8" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="31.4" minHeight="10.0" prefHeight="23.6" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="16.4" minHeight="10.0" prefHeight="11.399999999999999" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="compteurPain" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <ImageView id="PAIN" fx:id="PAIN" fitHeight="23.0" fitWidth="36.0" onMouseClicked="#prendreIngredient" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/pains.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="FROMAGE" fitHeight="23.0" fitWidth="36.0" onMouseClicked="#prendreIngredient" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/fromage.png" />
+                                 </image></ImageView>
+                              <ImageView fx:id="OIGNON" fitHeight="23.0" fitWidth="36.0" onMouseClicked="#prendreIngredient" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/oignon_entier.png" />
+                                 </image></ImageView>
+                              <ImageView fx:id="TOMATE" fitHeight="23.0" fitWidth="36.0" onMouseClicked="#prendreIngredient" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/tomate_entiere.png" />
+                                 </image></ImageView>
+                              <ImageView fx:id="SALADE" fitHeight="23.0" fitWidth="36.0" onMouseClicked="#prendreIngredient" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/salade_entiere.png" />
+                                 </image></ImageView>
+                              <ImageView id="PATATE" fx:id="PATATE" fitHeight="21.0" fitWidth="31.0" onMouseClicked="#prendreIngredient" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/patate.png" />
+                                 </image></ImageView>
+                              <ImageView fx:id="STEAK_DE_BOEUF" fitHeight="21.0" fitWidth="32.0" onMouseClicked="#prendreIngredient" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/boeuf.png" />
+                                 </image></ImageView>
+                              <ImageView fx:id="STEAK_DE_POULET" fitHeight="15.0" fitWidth="34.0" onMouseClicked="#prendreIngredient" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/poulet.png" />
+                                 </image></ImageView>
+                              <ImageView fx:id="STEAK_DE_SOJA" fitHeight="23.0" fitWidth="36.0" onMouseClicked="#prendreIngredient" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/soja.png" />
+                                 </image></ImageView>
+                              <ImageView fitHeight="23.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+
+                               <Label fx:id="compteurFromage" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                   <font>
+                                       <Font size="10.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="compteurOignon" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                   <font>
+                                       <Font size="10.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="compteurTomate" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                   <font>
+                                       <Font size="10.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="compteurSalade" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                   <font>
+                                       <Font size="10.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="compteurPatate" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font></Label>
+                               <Label fx:id="compteurSteakDeBoeuf" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                   <font>
+                                       <Font size="10.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="compteurSteakDePoulet" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                   <font>
+                                       <Font size="10.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="compteurSteakDeSoja" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                   <font>
+                                       <Font size="10.0" />
+                                   </font>
+                               </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane prefHeight="68.0" prefWidth="247.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="59.4" minHeight="10.0" prefHeight="44.4" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="29.4" minHeight="9.399999999999999" prefHeight="24.4" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fx:id="assiettePropre" fitHeight="32.0" fitWidth="55.0" onMouseClicked="#prendreAssiettePropre" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/assiettesPropres.png" />
+                                 </image></ImageView>
+                              <ImageView fitHeight="32.0" fitWidth="55.0" onMouseClicked="#stockageAssietteSale" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/assiettesSales.png" />
+                                 </image></ImageView>
+                              <ImageView fitHeight="32.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/plats.png" />
+                                 </image></ImageView>
+                              <Label fx:id="compteurAssitette" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Label fx:id="compteurPileAssietteSale" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Label text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                           </children>
+                        </GridPane>
+                    </items>
+                  </SplitPane>
+               </top>
+                <bottom>
+                    <SplitPane dividerPositions="0.2372262773722628, 0.5150040551500406, 0.8434712084347121" prefHeight="130.0" prefWidth="495.0" BorderPane.alignment="CENTER">
+                    <items>
+                        <BorderPane fx:id="decoupe" onMouseClicked="#decouper" prefHeight="116.0" prefWidth="190.0" style="-fx-background-color: #b8b18d;">
+                           <bottom>
+                              <ProgressBar prefWidth="200.0" progress="0.0" BorderPane.alignment="CENTER" />
+                           </bottom>
+                           <top>
+                              <ImageView fitHeight="18.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../image/couteau.png" />
+                                 </image>
+                                 <BorderPane.margin>
+                                    <Insets top="5.0" />
+                                 </BorderPane.margin></ImageView>
+                           </top>
+                           <center>
+                              <ImageView fx:id="containerDansDecoupe" fitHeight="62.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                           </center>
+                        </BorderPane>
+                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="129.0" prefWidth="132.0">
+                          <items>
+                              <BorderPane fx:id="plaque_cuisson" onMouseClicked="#cuire" prefHeight="72.0" prefWidth="132.0">
+                                 <top>
+                                    <ProgressBar fx:id="cuissonProgress" prefWidth="200.0" progress="0.0" BorderPane.alignment="CENTER" />
+                                 </top>
+                                 <center>
+                                    <ImageView fx:id="containerDansCuisson" fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="@../image/poele.png" />
+                                       </image>
+                                    </ImageView>
+                                 </center>
+                              </BorderPane>
+                              <BorderPane fx:id="friteuse" onMouseClicked="#frire" prefHeight="71.0" prefWidth="131.0">
+                                 <bottom>
+                                    <ProgressBar fx:id="frireProgress" prefHeight="17.0" prefWidth="200.0" progress="0.0" BorderPane.alignment="CENTER" />
+                                 </bottom>
+                                 <center>
+                                    <ImageView fx:id="containerDansFriteuse" fitHeight="27.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="@../image/friteuse.png" />
+                                       </image>
+                                    </ImageView>
+                                 </center>
+                              </BorderPane>
+                          </items>
+                        </SplitPane>
+                        <SplitPane orientation="VERTICAL" prefHeight="162.0" prefWidth="160.0">
+                          <items>
+                              <BorderPane fx:id="assemblage" onMouseClicked="#assembler" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #b8b18d;">
+                                 <center>
+                                    <ImageView fx:id="emplacementAssiette" fitHeight="53.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                                 </center>
+                                 <top>
+                                    <GridPane prefHeight="44.0" prefWidth="158.0" BorderPane.alignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="42.4" minHeight="10.0" prefHeight="22.4" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="26.4" minHeight="10.0" prefHeight="22.4" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="emplacementAssemblagePain" fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="emplacementAssemblageFromage" fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                                          <ImageView fx:id="emplacementAssemblageOignon" fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                                          <ImageView fx:id="emplacementAssemblageTomate" fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                                          <ImageView fx:id="emplacementAssemblageSalade" fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+                                          <ImageView fx:id="emplacementAssemblagePatate" fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <ImageView fx:id="emplacementAssemblageSteak" fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                 </top>
+                              </BorderPane>
+                          </items>
+                        </SplitPane>
+                        <SplitPane dividerPositions="0.6288819875776397" orientation="VERTICAL" prefHeight="58.0" prefWidth="160.0">
+                          <items>
+                               <BorderPane fx:id="laveVaisselle" onMouseClicked="#laveVaisselle" prefHeight="77.0" prefWidth="75.0" style="-fx-background-color: #99aabf;">
+                                 <bottom>
+                                    <ProgressIndicator fx:id="laveProgress" progress="0.0" BorderPane.alignment="CENTER" />
+                                 </bottom>
+                                 <top>
+                                    <Pane prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER" />
+                                 </top>
+                              </BorderPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <ImageView fx:id="poubelle" fitHeight="38.0" fitWidth="47.0" layoutX="58.0" layoutY="9.0" onMouseClicked="#viderContainer" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/poubelle.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children></AnchorPane>
+                          </items>
+                        </SplitPane>
+                    </items>
+                    </SplitPane>
+                </bottom>
+               <center>
+                  <GridPane alignment="BOTTOM_CENTER" prefHeight="355.0" prefWidth="662.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="443.0" minHeight="0.0" prefHeight="442.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="210.0" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="161.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fx:id="imageViewClient1" fitHeight="128.0" fitWidth="170.0" onMouseClicked="#donnerAssietteClient" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                           <image>
+                              <Image url="@../image/client.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imageViewClient2" fitHeight="126.0" fitWidth="170.0" onMouseClicked="#donnerAssietteClient" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                           <image>
+                              <Image url="@../image/client.png" />
+                           </image></ImageView>
+                        <ImageView fx:id="imageViewClient3" fitHeight="128.0" fitWidth="170.0" onMouseClicked="#donnerAssietteClient" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                         <image>
+                             <Image url="@../image/client.png" />
+                         </image></ImageView>
+                        <Pane prefHeight="128.0" prefWidth="317.0" style="-fx-background-color: #c28729;" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView fx:id="emplacementAssietteClient1" fitHeight="56.0" fitWidth="77.0" layoutX="147.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+                              <ProgressBar fx:id="client1Progress" layoutX="90.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
+                           </children></Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c28729;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView fx:id="emplacementAssietteClient2" fitHeight="56.0" fitWidth="80.0" layoutX="137.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+                              <ProgressBar fx:id="client2Progress" layoutX="90.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
+                           </children></Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c28729;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView fx:id="emplacementAssietteClient3" fitHeight="56.0" fitWidth="81.0" layoutX="137.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+                              <ProgressBar fx:id="client3Progress" layoutX="90.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
+                           </children></Pane>
+                        <Label fx:id="labelRecetteClient1" text="Label" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                        <Label fx:id="labelRecetteClient2" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                        <Label fx:id="labelRecetteClient3" text="Label" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                        <VBox fx:id="vBoxClient1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="420.0" prefWidth="353.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <VBox fx:id="vBoxClient2" nodeOrientation="LEFT_TO_RIGHT" prefHeight="218.0" prefWidth="272.0" GridPane.columnIndex="1" />
+                        <VBox fx:id="vBoxClient3" nodeOrientation="LEFT_TO_RIGHT" prefHeight="406.0" prefWidth="316.0" GridPane.columnIndex="2" />
+                     </children>
+                  </GridPane>
+               </center>
+            </BorderPane>
+            <SplitPane dividerPositions="0.5008849557522124, 0.7823008849557522" orientation="VERTICAL" prefHeight="925.0" prefWidth="119.0" style="-fx-background-color: #000; -fx-border-color: #000;">
+              <items>
+                  <AnchorPane prefHeight="458.0" prefWidth="107.0">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="28.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/logoFondNoir.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="tempsEnCours" layoutX="21.0" layoutY="76.0" prefHeight="24.0" prefWidth="53.0" text="temps" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="scoreLabel" layoutX="50.0" layoutY="129.0" prefHeight="17.0" prefWidth="38.0" text="Label" textAlignment="RIGHT" textFill="WHITE" />
+                        <Label fx:id="argentLabel" layoutX="50.0" layoutY="178.0" prefHeight="17.0" prefWidth="38.0" text="Label" textAlignment="RIGHT" textFill="WHITE" />
+                        <Label layoutX="3.0" layoutY="174.0" prefHeight="24.0" prefWidth="59.0" text="Argent :" textFill="WHITE" />
+                        <Label layoutX="3.0" layoutY="125.0" prefHeight="24.0" prefWidth="59.0" text="Score :" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="111.0" style="-fx-background-color: white;">
+                     <children>
+                        <ImageView fx:id="containerView" fitHeight="56.0" fitWidth="40.0" layoutX="14.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+                     </children></AnchorPane>
+                  <Pane prefHeight="216.0" prefWidth="141.0" />
+              </items>
+            </SplitPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
