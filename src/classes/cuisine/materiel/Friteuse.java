@@ -11,7 +11,7 @@ import classes.cuisine.IngredientCuit;
  * @author Mickeal PIRRES
  *
  * @version 2.0
- * @author MaÃ¯a DA SILVA
+ * @author Maia DA SILVA
  */
 public class Friteuse extends Materiel {
 

@@ -12,83 +12,68 @@ import classes.cuisine.Ingredient.Nom;
  */
 public class Assiette extends Materiel {
 
-	private Recette.Noms nomPlat;
-
-//    Mickael ajout de l etat de l'assiette. 
-	private EtatAssiette etatAssiette;
-
-	public EtatAssiette getEtatAssiette() {
-		return etatAssiette;
-	}
-
-	public void setEtatAssiette(EtatAssiette etatAssiette) {
-		this.etatAssiette = etatAssiette;
-	}
-
+	/**
+	 * énumération des etats possibles
+	 */
 	public enum EtatAssiette {
 		PROPRE, SALE, PLAT
 	}
+
+	/**
+	 * etat de l'assiette
+	 */
+	private EtatAssiette etatAssiette;
 
 	/**
 	 * Constructeur
 	 */
 	public Assiette() {
 		super(10, 10);
-		this.nomPlat = null;
 		this.etatAssiette = EtatAssiette.PROPRE;
 	}
 
 	// Getteur
 
 	/**
-	 * @return le nom du plat contenu dans l'assiette
-	 * @return null si aucun plat n'a été créé par le joueur
+	 * @return l'état de l'assiette
 	 */
-	public Recette.Noms getPlat() {
-		return this.nomPlat;
+	public EtatAssiette getEtatAssiette() {
+		return etatAssiette;
+	}
+
+	/**
+	 * @return l'adresse de l'image selon l etat de l'assiette
+	 */
+	public String getImgAssiette() {
+		String s = null;
+		switch (etatAssiette) {
+			case PROPRE:
+				s = "../image/assiette.png";
+				break;
+			case SALE:
+				s = "../image/assiette_sale.png";
+				break;
+			case PLAT:
+				s = "../image/plat-simple.png";
+				break;
+		}
+		return s;
 	}
 
 	// Setteur
 
 	/**
-	 * Permet au joueur d'indiqquer quel plat il a créé
-	 * 
-	 * @param nomRecette
+	 * Peremet de changer l'état de l'assiette
+	 * @param etatAssiette correspond au nouvel etat
 	 */
-	public void setPlat(Recette.Noms nomRecette) {
-		this.nomPlat = nomRecette;
+	public void setEtatAssiette(EtatAssiette etatAssiette) {
+		this.etatAssiette = etatAssiette;
 	}
 
 	// Méthodes
 
 	/**
-	 * @Override méthode ajouterObjet(Objet objet) de la classe Matériel Permet
-	 *           d'ajouter un ingrédient "dans" l'assiette
-	 * @param ingredient
-	 * @return true si l'ingrédient a bien été ajouté
-	 * @throws IllegalAccessException
-	 */
-	public boolean ajouterObjet(Ingredient ingredient) {
-		setEtatAssiette(EtatAssiette.PLAT);
-		return super.ajouterObjet(ingredient);
-	}
-
-	/**
-	 * @Override méthode retirerObjet(Objet objet) de la classe Matériel Permet de
-	 *           retirer un ingredient de l'assiette
-	 * @param ingredient
-	 * @return true si la l'ingredient a bien été retiré
-	 *
-	 * @version 1.0
-	 * @author Maia DA SILVA
-	 */
-	public boolean retirerObjet(Ingredient ingredient) {
-		return this.objetsContenus.remove(ingredient);
-	}
-
-	/**
-	 * verifie si un ingredient mis en parametre est pr�sent dans la liste des
-	 * objets contenus du materiel
+	 * Verifie si un ingredient est présent dans la liste des objets contenus du materiel
 	 * 
 	 * @param ingredient
 	 * @return true si contenu
@@ -100,29 +85,7 @@ public class Assiette extends Materiel {
 			if (ingredient.getNom().equals(ingDansAssiette.getNom())) {
 				estContenu = true;
 			}
-//			else if (ingredient.isSteak() && ingDansAssiette.isSteak()) {
-//				estContenu = true;
-//			}
 		}
 		return estContenu;
-	}
-
-	/**
-	 * @return l'adresse de l'image selon l etat de l'assiette
-	 */
-	public String getImgAssiette() {
-		String s = null;
-		switch (etatAssiette) {
-		case PROPRE:
-			s = "../image/assiette.png";
-			break;
-		case SALE:
-			s = "../image/assiette_sale.png";
-			break;
-		case PLAT:
-			s = "../image/plat-simple.png";
-			break;
-		}
-		return s;
 	}
 }

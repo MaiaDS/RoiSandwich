@@ -30,19 +30,19 @@ public class Materiel {
 	/**
 	 * Constructeur
 	 * 
-	 * @param capaciteMax
-	 * @param tempsExecution
+	 * @param capaciteMax correspond au nombre d'objets maximum que l'outil peut contenir
+	 * @param tempsExecution correspond au temps nécessaire à l'exécution de la tâche
 	 */
 	public Materiel(int capaciteMax, int tempsExecution) {
 		this.capaciteMax = capaciteMax;
 		this.tempsExecution = tempsExecution;
-		objetsContenus = new ArrayList();
+		this.objetsContenus = new ArrayList();
 	}
 
 	// Setteur
 
 	/**
-	 * set la capacit� max d'objet que peut contenir le materiel
+	 * Modifie la capacité max d'objet que peut contenir le materiel
 	 * 
 	 * @param capaciteMax
 	 */
@@ -83,7 +83,7 @@ public class Materiel {
 	}
 
 	/**
-	 * checker s'il n'y a pas d objet contenu dans le materiel
+	 * Vérifier qu'il n'y a pas d objet contenu dans le materiel
 	 * 
 	 * @return retourne vrai si vide, sinon faux
 	 */
@@ -96,7 +96,7 @@ public class Materiel {
 	}
 
 	/**
-	 * afficher les objets contenus dans le materiel
+	 * Permet d'afficher les objets contenus dans le materiel
 	 */
 	public void afficherLaListeDesObjetsContenus() {
 		System.out.println("Classe Materiel : liste des objets contenus");

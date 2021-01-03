@@ -28,7 +28,6 @@ public class Decoupe extends Materiel {
 	 */
 	public boolean decouper() {
 		Ingredient ingredient = (Ingredient) this.objetsContenus.get(0);
-		// gestion du temps ...
 		ingredient.setTransformer(true);
 		return true;
 	}

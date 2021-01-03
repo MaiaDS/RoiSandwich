@@ -23,30 +23,6 @@ public class LaveVaisselle extends Materiel {
 	// Méthodes
 
 	/**
-	 * @Override méthode ajouterObjet(Objet objet) de la classe Matériel Permet
-	 *           d'ajouter une assiette dans l'evier
-	 * @param assiette
-	 * @return true si l'assiette a bien été ajouté
-	 * @throws IllegalAccessException
-	 */
-	public boolean ajouterObjet(Assiette assiette) throws IllegalAccessException {
-		return super.ajouterObjet(assiette);
-	}
-
-	/**
-	 * @Override méthode retirerObjet(Objet objet) de la classe Matériel Permet de
-	 *           retirer une assiette du lave vaisselle
-	 * @param assiette
-	 * @return true si la l'assiette a bien été retirée
-	 *
-	 * @version 1.0
-	 * @author Maia DA SILVA
-	 */
-	public boolean retirerObjet(Assiette assiette) {
-		return this.objetsContenus.remove(assiette);
-	}
-
-	/**
 	 * Permet de nettoyer l'ensemble des objets placés dans le lave vaisselle
 	 * 
 	 * @return true si la méthode a bien été effectuée
@@ -58,8 +34,6 @@ public class LaveVaisselle extends Materiel {
 			assiette = (Assiette) this.objetsContenus.get(i);
 			// on vide le contenu
 			assiette.objetsContenus.clear();
-			// on rénitialise le nom du plat contenu
-			assiette.setPlat(null);
 		}
 		return true;
 	}
