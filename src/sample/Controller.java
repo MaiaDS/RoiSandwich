@@ -301,9 +301,9 @@ public class Controller implements Initializable {
 						tempsEnCours.setText(time);
 	
 						if (temps == 0 || nbrClientEnvoye == clientDuNiveau.size()
-								&& comptoir.getEmplacementClientDansComptoire()[0] == null
-								&& comptoir.getEmplacementClientDansComptoire()[1] == null
-								&& comptoir.getEmplacementClientDansComptoire()[2] == null) {
+								&& comptoir.getEmplacementClientDansComptoir()[0] == null
+								&& comptoir.getEmplacementClientDansComptoir()[1] == null
+								&& comptoir.getEmplacementClientDansComptoir()[2] == null) {
 							this.enCours = false;
 							System.out.println("Fin Du Niveau");
 							try {
@@ -314,7 +314,7 @@ public class Controller implements Initializable {
 							}
 						}
 	
-						for (int i = 0; i < comptoir.getEmplacementClientDansComptoire().length; i++) {
+						for (int i = 0; i < comptoir.getEmplacementClientDansComptoir().length; i++) {
 							if (niveau.checkerSiListeDesClientsEstVide() == false) {
 								if (comptoir.checkerSiUneAssietteEstPresenteDansEmplacementDuClient(i) == false) {
 	
@@ -330,7 +330,7 @@ public class Controller implements Initializable {
 	
 	//											client.getCommande().afficherIngredientRecette();
 	
-												client1 = comptoir.getEmplacementClientDansComptoire()[0];
+												client1 = comptoir.getEmplacementClientDansComptoir()[0];
 												client1EnCours = envoyerUnClient(client1, clientProgress.get(i));
 												labelRecetteClient1.setText(client1.getCommande().getNom().toString());
 	
@@ -343,7 +343,7 @@ public class Controller implements Initializable {
 										}
 										if (i == 1) {
 											try {
-												client2 = comptoir.getEmplacementClientDansComptoire()[1];
+												client2 = comptoir.getEmplacementClientDansComptoir()[1];
 												client2EnCours = envoyerUnClient(client2, clientProgress.get(i));
 												labelRecetteClient2.setText(client2.getCommande().getNom().toString());
 	
@@ -355,7 +355,7 @@ public class Controller implements Initializable {
 										}
 										if (i == 2) {
 											try {
-												client3 = comptoir.getEmplacementClientDansComptoire()[2];
+												client3 = comptoir.getEmplacementClientDansComptoir()[2];
 												client3EnCours = envoyerUnClient(client3, clientProgress.get(i));
 												labelRecetteClient3.setText(client3.getCommande().getNom().toString());
 	
@@ -368,9 +368,9 @@ public class Controller implements Initializable {
 								}
 							}
 							if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i)) {
-								if (comptoir.getEmplacementClientDansComptoire()[i].getTmpsAttente() == 0) {
+								if (comptoir.getEmplacementClientDansComptoir()[i].getTmpsAttente() == 0) {
 									System.out.println(
-											"client : " + comptoir.getEmplacementClientDansComptoire()[i] + " est parti");
+											"client : " + comptoir.getEmplacementClientDansComptoir()[i] + " est parti");
 									comptoir.retirerClient(i);
 									if (i == 0) {
 										client1 = null;
@@ -434,11 +434,11 @@ public class Controller implements Initializable {
 			Assiette assietteTemporaire = (Assiette) container;
 			switch (i.getId()) {
 			case "imageViewClient1":
-				if (client1 != null && comptoir.getEmplacementAssietteDansComptoire()[0] == null) {
+				if (client1 != null && comptoir.getEmplacementAssietteDansComptoir()[0] == null) {
 					emplacementAssietteClient1.setImage(
 							new Image(getClass().getResourceAsStream(((Assiette) container).getImgAssiette())));
 					assietteTemporaire.setEtatAssiette(EtatAssiette.SALE);
-					comptoir.getEmplacementAssietteDansComptoire()[0] = assietteTemporaire;
+					comptoir.getEmplacementAssietteDansComptoir()[0] = assietteTemporaire;
 
 					if (client1.verifierLePlat(assietteTemporaire)) {
 						niveau.setScoreArgent(100, 100);
@@ -454,20 +454,20 @@ public class Controller implements Initializable {
 					client1Progress.setVisible(false);
 					viderContainer();
 					emplacementAssietteClient1.setImage(new Image(getClass().getResourceAsStream(
-							((Assiette) comptoir.getEmplacementAssietteDansComptoire()[0]).getImgAssiette())));
+							((Assiette) comptoir.getEmplacementAssietteDansComptoir()[0]).getImgAssiette())));
 					break;
 				} else {
 					break;
 				}
 			case "imageViewClient2":
-				if (client2 != null && comptoir.getEmplacementAssietteDansComptoire()[1] == null) {
+				if (client2 != null && comptoir.getEmplacementAssietteDansComptoir()[1] == null) {
 					emplacementAssietteClient2.setImage(
 							new Image(getClass().getResourceAsStream(((Assiette) container).getImgAssiette())));
 					vBoxClient2.getChildren().clear();
 					client2EnCours.cancel();
 					client2EnCours.reset();
 					client2Progress.setVisible(false);
-					comptoir.getEmplacementAssietteDansComptoire()[1] = (Assiette) container;
+					comptoir.getEmplacementAssietteDansComptoir()[1] = (Assiette) container;
 					if (client2.verifierLePlat((Assiette) container)) {
 						niveau.setScoreArgent(100, 100);
 						System.out.println("score augment�");
@@ -475,23 +475,23 @@ public class Controller implements Initializable {
 					}
 					comptoir.retirerClient(1);
 					labelRecetteClient2.setText("");
-					comptoir.getEmplacementAssietteDansComptoire()[1].setEtatAssiette(EtatAssiette.SALE);
+					comptoir.getEmplacementAssietteDansComptoir()[1].setEtatAssiette(EtatAssiette.SALE);
 					viderContainer();
 					emplacementAssietteClient2.setImage(new Image(getClass().getResourceAsStream(
-							((Assiette) comptoir.getEmplacementAssietteDansComptoire()[1]).getImgAssiette())));
+							((Assiette) comptoir.getEmplacementAssietteDansComptoir()[1]).getImgAssiette())));
 					break;
 				} else {
 					break;
 				}
 			case "imageViewClient3":
-				if (client3 != null && comptoir.getEmplacementAssietteDansComptoire()[2] == null) {
+				if (client3 != null && comptoir.getEmplacementAssietteDansComptoir()[2] == null) {
 					emplacementAssietteClient3.setImage(
 							new Image(getClass().getResourceAsStream(((Assiette) container).getImgAssiette())));
 					vBoxClient3.getChildren().clear();
 					client3EnCours.cancel();
 					client3EnCours.reset();
 					client3Progress.setVisible(false);
-					comptoir.getEmplacementAssietteDansComptoire()[2] = (Assiette) container;
+					comptoir.getEmplacementAssietteDansComptoir()[2] = (Assiette) container;
 					if (client3.verifierLePlat((Assiette) container)) {
 						niveau.setScoreArgent(100, 100);
 						System.out.println("score augment�");
@@ -499,10 +499,10 @@ public class Controller implements Initializable {
 					}
 					comptoir.retirerClient(2);
 					labelRecetteClient3.setText("");
-					comptoir.getEmplacementAssietteDansComptoire()[2].setEtatAssiette(EtatAssiette.SALE);
+					comptoir.getEmplacementAssietteDansComptoir()[2].setEtatAssiette(EtatAssiette.SALE);
 					viderContainer();
 					emplacementAssietteClient3.setImage(new Image(getClass().getResourceAsStream(
-							((Assiette) comptoir.getEmplacementAssietteDansComptoire()[2]).getImgAssiette())));
+							((Assiette) comptoir.getEmplacementAssietteDansComptoir()[2]).getImgAssiette())));
 					break;
 				} else {
 					break;
@@ -513,18 +513,18 @@ public class Controller implements Initializable {
 			ImageView i = (ImageView) e.getSource();
 			switch (i.getId()) {
 			case "imageViewClient1":
-				mettreDansContainer(((Assiette) comptoir.getEmplacementAssietteDansComptoire()[0]));
-				comptoir.getEmplacementAssietteDansComptoire()[0] = null;
+				mettreDansContainer(((Assiette) comptoir.getEmplacementAssietteDansComptoir()[0]));
+				comptoir.getEmplacementAssietteDansComptoir()[0] = null;
 				emplacementAssietteClient1.setImage(null);
 				break;
 			case "imageViewClient2":
-				mettreDansContainer(((Assiette) comptoir.getEmplacementAssietteDansComptoire()[1]));
-				comptoir.getEmplacementAssietteDansComptoire()[1] = null;
+				mettreDansContainer(((Assiette) comptoir.getEmplacementAssietteDansComptoir()[1]));
+				comptoir.getEmplacementAssietteDansComptoir()[1] = null;
 				emplacementAssietteClient2.setImage(null);
 				break;
 			case "imageViewClient3":
-				mettreDansContainer(((Assiette) comptoir.getEmplacementAssietteDansComptoire()[2]));
-				comptoir.getEmplacementAssietteDansComptoire()[2] = null;
+				mettreDansContainer(((Assiette) comptoir.getEmplacementAssietteDansComptoir()[2]));
+				comptoir.getEmplacementAssietteDansComptoir()[2] = null;
 				emplacementAssietteClient3.setImage(null);
 				break;
 			}

@@ -122,30 +122,32 @@ public class Cuisine {
 	// Getteur
 
 	/**
-	 * @return
+	 * @return le stock de la cuisine
 	 */
 	public Stock getStock() { return stock; }
 
 	/**
-	 * @return
+	 * @return la liste des assiettes de la cuisine
 	 */
 	public ArrayList getAssiettes() {
 		return assiettes;
 	}
 
+	/**
+	 * @return le garde manger de la cuisine
+	 */
+	public GardeManger getGardeManger() { return this.gardeManger ;
+	}
+
 	// Méthodes
 
 	/**
-	 * Permet de ...
-	 * @return ...
+	 * Permet de prendre une assiette propre de la cuisine
+	 * @return l'assiette prise
 	 */
 	public Assiette retirerAssietteDeLaCuisine() {
 		Assiette a = (Assiette) assiettes.get(0);
 		assiettes.remove(0);
 		return a ;
-	}
-
-
-	public GardeManger getGardeManger() { return this.gardeManger ;
 	}
 }

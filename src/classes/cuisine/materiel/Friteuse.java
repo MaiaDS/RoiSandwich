@@ -1,8 +1,5 @@
 package classes.cuisine.materiel;
 
-import classes.cuisine.Ingredient;
-import classes.cuisine.IngredientCuit;
-
 /**
  * Classe enfant de matÃ©rielDeCuisson, contient des pommes de terre
  * dÃ©coupÃ©es

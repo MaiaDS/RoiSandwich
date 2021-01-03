@@ -1,9 +1,5 @@
 package classes.cuisine.materiel;
 
-import classes.Recette;
-import classes.cuisine.Ingredient;
-import classes.cuisine.IngredientCuit;
-
 /**
  * Classe enfant de matériel, contient des ingrédients cuisables
  * 

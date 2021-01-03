@@ -38,7 +38,7 @@ public class Stock {
     // Getteur
 
     /**
-     * @return
+     * @return la liste des assiettes sales stockées
      */
     public ArrayList<Assiette> getAssiettesSale() {
         return assiettesSale;
@@ -52,12 +52,12 @@ public class Stock {
      * @return true si l'assiette a bien été ajoutée à un stock
      */
     public boolean stockerAssiette (Assiette assiette) {
-        if (assiette.getPlat() != null) {
-            return this.plats.add(assiette) ;
-        } else if (assiette.objetsContenus.size() == 0) {
+        if (assiette.getEtatAssiette() == Assiette.EtatAssiette.PROPRE) {
             return this.assiettesPropres.add(assiette) ;
-        } else {
+        } else if (assiette.getEtatAssiette() == Assiette.EtatAssiette.SALE) {
             return this.assiettesSale.add(assiette) ;
+        } else {
+            return this.plats.add(assiette) ;
         }
     }
 	

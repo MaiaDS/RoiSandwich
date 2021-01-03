@@ -66,27 +66,32 @@ public class Client {
 		ArrayList<Ingredient> ingredientRecette = new ArrayList<Ingredient>();
 		boolean estConforme = false;
 		int nbDeConformite = 0;
+
+		// récupérer les ingrédients contenus dans l'assiette
 		for (int i = 0; i < a.objetsContenus.size(); i++) {
 			Ingredient ing = (Ingredient) a.objetsContenus.get(i);
 			ingredientAssiette.add(ing);
 		}
-		;
+
 		Iterator it = commande.ingredients.entrySet().iterator();
-		
+
+		// récupérer les ingrédients nécessaires de la commande du client
 		while (it.hasNext()) {
-			Map.Entry pair = (Map.Entry) it.next();
-			int b= (int) pair.getValue();
-			for(int i=0; i<b;i++) {
-			ingredientRecette.add((Ingredient) pair.getKey());
+			Map.Entry ingCommande = (Map.Entry) it.next();
+			int nbIng = (int) ingCommande.getValue();
+			for(int i=0; i<nbIng;i++) {
+				ingredientRecette.add((Ingredient) ingCommande.getKey());
 			}
 			it.remove();
 		}
-		
+
+		// vérifier la conformité des ingrédients de l'assiette par rapport à la commande client
 		while(ingredientAssiette.size()>0) {
 			Ingredient IngredientAssietteAChecker = ingredientAssiette.get(0);
+
 			for (int y = 0; y < ingredientRecette.size(); y++) {
 				Ingredient IngredientRecetteAComparer = ingredientRecette.get(y);
-				
+				// vérifier que l'ingrédient correspond et qu'il a été correctement cusiné
 				if (IngredientAssietteAChecker.getNom().equals(IngredientRecetteAComparer.getNom())
 						&& IngredientAssietteAChecker.getTransformer() == IngredientRecetteAComparer.getTransformer()
 						&& IngredientAssietteAChecker.getEtat().equals(IngredientRecetteAComparer.getEtat())) {
@@ -96,7 +101,7 @@ public class Client {
 			}
 			ingredientAssiette.remove(0);
 		}
-
+		// si tout les ingrédients sont conformes alors le service est bon
 		if (nbDeConformite == ingredientRecette.size()) {
 			estConforme = true;
 		}
@@ -106,7 +111,7 @@ public class Client {
 	}
 
 	/**
-	 *
+	 * Permet de démarrer le timer d'attente du client
 	 */
 	public void debutTimerClient() {
 		Timer timer = new Timer(true);
@@ -114,7 +119,7 @@ public class Client {
 	}
 
 	/**
-	 *
+	 * Permet de gérer le timer du client
 	 */
 	public class Start extends TimerTask {
 

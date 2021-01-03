@@ -12,15 +12,19 @@ import classes.cuisine.materiel.Assiette;
  */
 public class Comptoir {
 
+	// Constante de classes
+
+	private static final int TAILLE_COMPTOIR = 3 ;
+
     // Variables de classes
 
 	/**
-	 * ...
+	 * tableau des clients présents au comptoir
 	 */
 	private Client[]emplacementClientDansComptoire;
 
 	/**
-	 * ...
+	 * tableau des emplacements du comptoir correspondant à chaque client, reçoit des assiettes
 	 */
 	private Assiette[]emplacementAssietteDansComptoire;
 
@@ -29,23 +33,23 @@ public class Comptoir {
      * Constructeur
      */
     public Comptoir () {
-        this.emplacementClientDansComptoire = new Client[3] ;
-        this.emplacementAssietteDansComptoire = new Assiette[3];
+        this.emplacementClientDansComptoire = new Client[TAILLE_COMPTOIR] ;
+        this.emplacementAssietteDansComptoire = new Assiette[TAILLE_COMPTOIR];
     }
 
     //Getteur
 
 	/**
-	 * @return
+	 * @return le tableau de clients au comptoir
 	 */
-	public Client[] getEmplacementClientDansComptoire() {
+	public Client[] getEmplacementClientDansComptoir() {
 		return emplacementClientDansComptoire;
 	}
 
 	/**
-	 * @return
+	 * @return le tableau des emplacements du comptoir
 	 */
-    public Assiette[] getEmplacementAssietteDansComptoire() {
+    public Assiette[] getEmplacementAssietteDansComptoir() {
 		return emplacementAssietteDansComptoire;
 	}
 
@@ -73,9 +77,9 @@ public class Comptoir {
 	}
 
 	/**
-	 * Permet de ....
-	 * @param i qui correspond à ....
-	 * @return ...
+	 * Permet de vérifier si une assiette est presente dans emplacement donné
+	 * @param i qui correspond à l'emplecement à vérifier
+	 * @return true si l'emplacement est occupé par une assiette
 	 */
 	public boolean checkerSiUneAssietteEstPresenteDansEmplacementDuClient(int i) {
 		if(emplacementAssietteDansComptoire[i]==null) {
@@ -88,9 +92,9 @@ public class Comptoir {
 	}
 
 	/**
-	 * Permet de ....
-	 * @param i qui correspond à ....
-	 * @return ...
+	 * Permet de vérifier si un client est présent à une place du comptoir
+	 * @param i qui correspond à l'emplacement à vérifier
+	 * @return true si l'emplacement est occupé par un client
 	 */
 	public boolean checkerSiUnClientEstAssisDansUnEmplacement(int i) {
 		if(emplacementClientDansComptoire[i]==null) {

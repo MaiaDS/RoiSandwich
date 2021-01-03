@@ -32,6 +32,7 @@ public class GardeManger {
 	public GardeManger(Niveau niveau) {
 		this.niveau = niveau;
 		Ingredient.Nom [] ingredients = Ingredient.Nom.values() ;
+		// ajouter les ingrédients au garde-manger
 		for (int i = 0 ; i < ingredients.length ; i++) {
 			this.compteurs.put(ingredients[i],niveau.getNbIngredient()) ;
 		}
@@ -40,8 +41,7 @@ public class GardeManger {
 	// Getteur
 
 	/**
-	 * @return
-	 * @author Mickael
+	 * @return une liste des ingrédients associés à leur compteur
 	 */
 	public HashMap<Ingredient.Nom, Integer> getCompteurs() {
 		return compteurs;
@@ -50,13 +50,13 @@ public class GardeManger {
 	// Méthodes
 
 	/**
-	 * Permet de ....
-	 * @param ingredient qui correspond à ...
-	 * @return ...
+	 * Permet de prendre un ingrédient du garde-manger
+	 * @param ingredient qui correspond à l'ingrédient à prendre
+	 * @return l'ingrédient pris
 	 */
 	public Ingredient prendreIngredient (Ingredient.Nom ingredient) {
 		int compteur = compteurs.get(ingredient) ;
-		System.out.println(compteur);
+		// System.out.println(compteur);
 		if (compteur > 0) {
 			// décrémenter le compteur
 			compteurs.put(ingredient, compteur-1);
@@ -66,15 +66,13 @@ public class GardeManger {
 	}
 
 	/**
-	 * Permet de ...
-	 * @param ingredient qui correspons à ...
-	 * @return ...
+	 * Permet de remettre un ingrédient dans le garde-manger
+	 * @param ingredient qui correspond à l'ingrédient à déposer
 	 */
-	public Ingredient mettreIngredient (Ingredient.Nom ingredient) {
+	public void mettreIngredient (Ingredient.Nom ingredient) {
 		int compteur = compteurs.get(ingredient) ;
-		System.out.println(compteur);
-		// décrémenter le compteur
+		// System.out.println(compteur);
+		// incrémenter le compteur
 		compteurs.put(ingredient, compteur+1);
-		return new Ingredient(ingredient);
 	}
 }
