@@ -24,22 +24,7 @@ public class Assiette extends Materiel {
 		PROPRE, SALE, PLAT
 	}
 
-	public String getImgAssiette() {
-		String s = null;
-		switch (etatAssiette) {
-		case PROPRE:
-			s = "../image/assiette.png";
-			break;
-		case SALE:
-			s = "../image/assiette_sale.png";
-			break;
-		case PLAT:
-			s = "../image/plat-simple.png";
-			break;
-		}
-		return s;
-
-	}
+	
 
 	/**
 	 * Constructeur
@@ -106,16 +91,41 @@ public class Assiette extends Materiel {
 		return this.objetsContenus.remove(ingredient);
 	}
 
+	/**
+	 * verifie si un ingredient mis en parametre est présent dans la liste des objets contenus du materiel
+	 * @param ingredient
+	 * @return true si contenu
+	 */
 	public boolean verifierSiIngredientPresentDansAssiette(Ingredient ingredient) {
 		boolean estContenu = false;
 		for (int i = 0; i < this.objetsContenus.size(); i++) {
 			Ingredient ingDansAssiette = (Ingredient) this.objetsContenus.get(i);
 			if (ingredient.getNom().equals(ingDansAssiette.getNom())) {
 				estContenu = true;
-			} else if (ingredient.isSteak() && ingDansAssiette.isSteak()) {
-				estContenu = true;
-			}
+			} 
+//			else if (ingredient.isSteak() && ingDansAssiette.isSteak()) {
+//				estContenu = true;
+//			}
 		}
 		return estContenu;
+	}
+	
+	/**
+	 * @return l'adresse de l'image selon l etat de l'assiette
+	 */
+	public String getImgAssiette() {
+		String s = null;
+		switch (etatAssiette) {
+		case PROPRE:
+			s = "../image/assiette.png";
+			break;
+		case SALE:
+			s = "../image/assiette_sale.png";
+			break;
+		case PLAT:
+			s = "../image/plat-simple.png";
+			break;
+		}
+		return s;
 	}
 }
