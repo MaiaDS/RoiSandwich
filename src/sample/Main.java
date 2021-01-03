@@ -26,8 +26,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception{
 
-//    	Parent root = FXMLLoader.load(getClass().getResource("vueNiveau.fxml"));
-    	
     	joueur = new Joueur();
     	Parent root = FXMLLoader.load(getClass().getResource("vueMenuPrincipal.fxml"));
 

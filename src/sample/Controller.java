@@ -705,6 +705,7 @@ public class Controller implements Initializable {
 			if (assiette.verifierSiIngredientPresentDansAssiette((Ingredient) container) == true) {
 				if (((Ingredient) container).isSteak()
 						|| ((Ingredient) container).getNom().equals(Ingredient.Nom.FROMAGE)) {
+					
 					assiette.ajouterObjet((Ingredient) container);
 					assiette.afficherLaListeDesObjetsContenus();
 					viderContainer();
@@ -713,6 +714,7 @@ public class Controller implements Initializable {
 				}
 			} else {
 				// ajoute un ingredient � l'assiette
+				if (assiette.getEtatAssiette() == EtatAssiette.PROPRE) {assiette.setEtatAssiette(EtatAssiette.PLAT);}
 				switch (((Ingredient) container).getNom()) {
 				case PATATE:
 					emplacementAssemblagePatate.setImage(
@@ -1067,7 +1069,6 @@ public class Controller implements Initializable {
 			mettreDansContainer(niveau.getCuisine().getStock().getAssiettesSale().get(0));
 			niveau.getCuisine().getStock().getAssiettesSale().remove(0);
 			compteurPileAssietteSale.setText(String.valueOf(niveau.getCuisine().getStock().getAssiettesSale().size()));
-
 		}
 	}
 	/**
