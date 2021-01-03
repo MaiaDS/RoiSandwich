@@ -29,5 +29,5 @@ public class IngredientCuit extends Ingredient {
 		super(nom);
 		this.tmpsCuisson = tmpsCuisson ;
 	}
-	
+
 }
