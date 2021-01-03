@@ -270,9 +270,8 @@ public class Controller implements Initializable {
 	 * L'assiette passe en état SALE.
 	 * Si le container est null et qu'il y a une assiette dans l'emplacement du client, en cliquant sur le client, on récupere l'assiette SALE
 	 * @param e
-	 * @throws IllegalAccessException
 	 */
-	public void donnerAssietteClient(MouseEvent e) throws IllegalAccessException {
+	public void donnerAssietteClient(MouseEvent e)  {
 		//si le container n'est pas vide et quand dans ce container il s'agit d'une assiette "Plat"
 		if ((container != null) && (container instanceof Assiette) && ((Assiette)container).getEtatAssiette().equals(EtatAssiette.PLAT)) {
 			ImageView i = (ImageView) e.getSource();
