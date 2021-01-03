@@ -2,6 +2,7 @@ package classes.cuisine.materiel;
 
 /**
  * Classe enfant de matérielDeCuisson, contient des steaks
+ * 
  * @version 1.0
  * @author Mickeal PIRRES
  *
@@ -10,13 +11,11 @@ package classes.cuisine.materiel;
  */
 public class PlaqueCuisson extends Materiel {
 
-    /**
-     * Constructeur
-     */
-    public PlaqueCuisson() {
-        super(1, 10);
-    }
-    
-    
+	/**
+	 * Constructeur
+	 */
+	public PlaqueCuisson() {
+		super(1, 10);
+	}
 
 }

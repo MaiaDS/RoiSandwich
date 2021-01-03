@@ -29,8 +29,6 @@ public class Assiette extends Materiel {
 		PROPRE, SALE, PLAT
 	}
 
-	
-
 	/**
 	 * Constructeur
 	 */
@@ -89,7 +87,9 @@ public class Assiette extends Materiel {
 	}
 
 	/**
-	 * verifie si un ingredient mis en parametre est présent dans la liste des objets contenus du materiel
+	 * verifie si un ingredient mis en parametre est présent dans la liste des
+	 * objets contenus du materiel
+	 * 
 	 * @param ingredient
 	 * @return true si contenu
 	 */
@@ -99,14 +99,14 @@ public class Assiette extends Materiel {
 			Ingredient ingDansAssiette = (Ingredient) this.objetsContenus.get(i);
 			if (ingredient.getNom().equals(ingDansAssiette.getNom())) {
 				estContenu = true;
-			} 
+			}
 //			else if (ingredient.isSteak() && ingDansAssiette.isSteak()) {
 //				estContenu = true;
 //			}
 		}
 		return estContenu;
 	}
-	
+
 	/**
 	 * @return l'adresse de l'image selon l etat de l'assiette
 	 */
