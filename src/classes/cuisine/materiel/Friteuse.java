@@ -4,7 +4,9 @@ import classes.cuisine.Ingredient;
 import classes.cuisine.IngredientCuit;
 
 /**
- * Classe enfant de matÃ©rielDeCuisson, contient des pommes de terre dÃ©coupÃ©es
+ * Classe enfant de matÃ©rielDeCuisson, contient des pommes de terre
+ * dÃ©coupÃ©es
+ * 
  * @version 1.0
  * @author Mickeal PIRRES
  *
@@ -13,12 +15,11 @@ import classes.cuisine.IngredientCuit;
  */
 public class Friteuse extends Materiel {
 
-    /**
-     * Constructeur
-     */
-    public Friteuse() {
-        super(1, 10);
-    }
+	/**
+	 * Constructeur
+	 */
+	public Friteuse() {
+		super(1, 10);
+	}
 
 }
-

@@ -3,7 +3,9 @@ package classes.cuisine.materiel;
 import classes.cuisine.Ingredient;
 
 /**
- * Classe enfant de matériel, station de découpe pour les ingrédients découpables uniquement
+ * Classe enfant de matériel, station de découpe pour les ingrédients
+ * découpables uniquement
+ * 
  * @version 1.0
  * @author Mickeal PIRRES
  *
@@ -12,22 +14,22 @@ import classes.cuisine.Ingredient;
  */
 public class Decoupe extends Materiel {
 
-    /**
-     * Constructeur
-     */
-    public Decoupe() {
-        super(1, 10);
-    }
+	/**
+	 * Constructeur
+	 */
+	public Decoupe() {
+		super(1, 10);
+	}
 
-    // Méthodes
+	// Méthodes
 
-    /**
-     * @return true si l'ingrédient a bien été découpé
-     */
-    public boolean decouper () {
-        Ingredient ingredient = (Ingredient) this.objetsContenus.get(0);
-        // gestion du temps ...
-        ingredient.setTransformer(true) ;
-        return true ;
-    }
+	/**
+	 * @return true si l'ingrédient a bien été découpé
+	 */
+	public boolean decouper() {
+		Ingredient ingredient = (Ingredient) this.objetsContenus.get(0);
+		// gestion du temps ...
+		ingredient.setTransformer(true);
+		return true;
+	}
 }

@@ -102,7 +102,6 @@ public class Assiette extends Materiel {
 	public boolean retirerObjet(Ingredient ingredient) {
 		return this.objetsContenus.remove(ingredient);
 	}
-	
 
 	public boolean verifierSiIngredientPresentDansAssiette(Ingredient ingredient) {
 		boolean estContenu = false;
@@ -110,8 +109,7 @@ public class Assiette extends Materiel {
 			Ingredient ingDansAssiette = (Ingredient) this.objetsContenus.get(i);
 			if (ingredient.getNom().equals(ingDansAssiette.getNom())) {
 				estContenu = true;
-			}
-			else if(ingredient.isSteak() && ingDansAssiette.isSteak()) {
+			} else if (ingredient.isSteak() && ingDansAssiette.isSteak()) {
 				estContenu = true;
 			}
 		}

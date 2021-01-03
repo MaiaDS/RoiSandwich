@@ -41,6 +41,11 @@ public class Materiel {
 
 	// Setteur
 
+	/**
+	 * set la capacité max d'objet que peut contenir le materiel
+	 * 
+	 * @param capaciteMax
+	 */
 	public void setCapaciteMax(int capaciteMax) {
 		this.capaciteMax = capaciteMax;
 	}
@@ -77,19 +82,26 @@ public class Materiel {
 		return this.objetsContenus.remove(objet);
 	}
 
-	public boolean getEmplacementVide() {
+	/**
+	 * checker s'il n'y a pas d objet contenu dans le materiel
+	 * 
+	 * @return retourne vrai si vide, sinon faux
+	 */
+	public boolean checkSiObjetsContenusEstVide() {
 		if (objetsContenus.size() >= 1) {
 			return false;
 		} else {
 			return true;
 		}
 	}
-	
-	
-	public void afficher_La_Liste_Des_Objets_Contenus() {
-//		System.out.println("Classe Materiel : liste des objets contenus");
-		for(int i=0; i<objetsContenus.size();i++) {
-//			System.out.print(objetsContenus.get(i) + " ; ");
+
+	/**
+	 * afficher les objets contenus dans le materiel
+	 */
+	public void afficherLaListeDesObjetsContenus() {
+		System.out.println("Classe Materiel : liste des objets contenus");
+		for (int i = 0; i < objetsContenus.size(); i++) {
+			System.out.print(objetsContenus.get(i) + " ; ");
 		}
 	}
 }
