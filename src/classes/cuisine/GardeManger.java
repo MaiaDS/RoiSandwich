@@ -16,7 +16,7 @@ public class GardeManger {
 	// Variables de classe
 
 	/**
-	 * liste des compteurs des ingr�dients : repr�sente le nb d'ingr�dient utilis� par le joueur
+	 * liste des compteurs des ingrédients : représente le nb d'ingrédient utilisé par le joueur
 	 */
 	private HashMap<Ingredient.Nom, Integer> compteurs = new HashMap<>();
 
