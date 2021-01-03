@@ -35,6 +35,15 @@ public class Stock {
         this.plats = new ArrayList<Assiette>() ;
     }
 
+    // Getteur
+
+    /**
+     * @return
+     */
+    public ArrayList<Assiette> getAssiettesSale() {
+        return assiettesSale;
+    }
+
     // Méthodes
 
     /**
@@ -51,24 +60,5 @@ public class Stock {
             return this.assiettesSale.add(assiette) ;
         }
     }
-
-    /**
-     * Permet de récupérer une assiette d'un des stock
-     * @param liste
-     * @param assiette
-     * @return true si l'assiette a bien été retirée du stock
-     */
-    //inutile
-//    public boolean recupererAssiette (ArrayList liste, Assiette assiette) {
-//        return liste.remove(assiette) ;
-//    }
-
-	public ArrayList<Assiette> getAssiettesPropres() {
-		return assiettesPropres;
-	}
-
-	public ArrayList<Assiette> getAssiettesSale() {
-		return assiettesSale;
-	}
 	
 }

@@ -11,13 +11,13 @@ import classes.cuisine.IngredientCuit;
  * @version 2.0
  * @author MaÃ¯a DA SILVA
  */
-public class Friteuse extends MaterielDeCuisson {
+public class Friteuse extends Materiel {
 
     /**
      * Constructeur
      */
     public Friteuse() {
-        super();
+        super(1, 10);
     }
 
 }

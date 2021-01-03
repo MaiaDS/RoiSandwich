@@ -51,16 +51,11 @@ public class Cuisine {
 	 * garde-manger disponible dans la cuisine
 	 */
 	private GardeManger gardeManger;
-	
-	private ArrayList pileAssietteSale = new ArrayList<>();
 
-	public Stock getStock() {
-		return stock;
-	}
-
-	public ArrayList getPileAssietteSale() {
-		return pileAssietteSale;
-	}
+	/**
+	 * liste des assiettes sales
+	 */
+	private ArrayList pileAssietteSale ;
 
 	/**
 	 * Constructeur
@@ -72,52 +67,16 @@ public class Cuisine {
 		this.gardeManger = new GardeManger(niveau);
 
 		// Initialisation des listes
-		assiettes = new ArrayList<Assiette>();
+		this.assiettes = new ArrayList<Assiette>();
 		this.planchesDecoupe = new ArrayList<Decoupe>();
 		this.friteuses = new ArrayList<Friteuse>();
 		this.plaquesCuisson = new ArrayList<PlaqueCuisson>();
+		this.pileAssietteSale = new ArrayList<>();
 
 		// Création des assiettes dans la quantité indiquée par le niveau
 		for (int i = 0; i < niveau.getNbAssietteMax(); i++) {
 			this.assiettes.add(new Assiette());
 		}
-
-		// Création des outils dans la cuisine
-//        Iterator iterator = niveau.getMateriel().keySet().iterator() ;
-//        while (iterator.hasNext()) {
-//            // Création des planches à découper dans la quantité indiquée par le niveau
-//            if (iterator.next() instanceof Decoupe) {
-//                for (int i = 0 ; i < niveau.getMateriel().get(iterator.next()); i++) {
-//                    this.planchesDecoupe.add(new Decoupe()) ;
-//                }
-//
-//            // Création de la station d'assemblage et définition de sa capacité max d'accueil (selon le niveau)
-//            } else if (iterator.next() instanceof Assemblage) {
-//                this.assemblage = new Assemblage() ;
-//                this.laveVaisselle.setCapaciteMax(niveau.getMateriel().get(iterator.next())) ;
-//
-//            // Création du lave vaisselle et définition de sa capacité max d'accueil (selon le niveau)
-//            } else if (iterator.next() instanceof LaveVaisselle) {
-//                this.laveVaisselle = new LaveVaisselle() ;
-//                this.laveVaisselle.setCapaciteMax(niveau.getMateriel().get(iterator.next())) ;
-//
-//            // Création des friteuses dans la quantité indiquée par le niveau
-//            } else if (iterator.next() instanceof Friteuse) {
-//                for (int i = 0; i < niveau.getMateriel().get(iterator.next()); i++) {
-//                    this.friteuses.add(new Friteuse());
-//                }
-//
-//            // Création des plaques de cuisson dans la quantité indiquée par le niveau
-//            } else if (iterator.next() instanceof PlaqueCuisson) {
-//                for (int i = 0; i < niveau.getMateriel().get(iterator.next()); i++) {
-//                    this.plaquesCuisson.add(new PlaqueCuisson());
-//                }
-//
-//            // Création de la poubelle
-//            } else if (iterator.next() instanceof Poubelle) {
-//                this.poubelle = new Poubelle() ;
-//            }
-//        }
 
 		Iterator iterator = niveau.getMateriel().keySet().iterator();
 		while (iterator.hasNext()) {
@@ -160,18 +119,33 @@ public class Cuisine {
 		}
 	}
 
-	// mickael
-	public void ajouterAssietteDeLaCuisine(Assiette assiette) {
-		assiettes.add(assiette);
+	// Getteur
+
+	/**
+	 * @return
+	 */
+	public Stock getStock() { return stock; }
+
+	/**
+	 * @return
+	 */
+	public ArrayList getAssiettes() {
+		return assiettes;
 	}
 
+	// Méthodes
+
+	/**
+	 * Permet de ...
+	 * @return ...
+	 */
 	public Assiette retirerAssietteDeLaCuisine() {
 		Assiette a = (Assiette) assiettes.get(0);
 		assiettes.remove(0);
 		return a ;
 	}
 
-	public ArrayList getAssiettes() {
-		return assiettes;
+
+	public GardeManger getGardeManger() { return this.gardeManger ;
 	}
 }

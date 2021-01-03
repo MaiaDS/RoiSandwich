@@ -1,8 +1,3 @@
-/**
- * Commentaire de documentation de la classe IngredientCuit
- * @version 1.0
- * @author Thomas MOSCONI
- */
 package classes.cuisine;
 
 /**
@@ -20,39 +15,14 @@ public class IngredientCuit extends Ingredient {
 	 */
 	private int tmpsCuisson ;
 
-
 	/**
-	 * Constructeur avec temps de cuisson définit par défaut
-	 * @param nom
-	 */
-	public IngredientCuit(Nom nom) {
-		super(nom);
-		this.tmpsCuisson = 10000 ;
-	}
-
-	/**
-	 * Constructeur avec précision du temps de cuisson
-	 * @param nom
-	 * @param tmpsCuisson
+	 * Constructeur
+	 * @param nom correspond au nom de l'ingrédient
+	 * @param tmpsCuisson correspond au temps de cuisson de l'ingrédient
 	 */
 	public IngredientCuit(Nom nom, int tmpsCuisson) {
 		super(nom);
 		this.tmpsCuisson = tmpsCuisson ;
 	}
 
-	// Getteur
-
-	/**
-	 * @return le temps de cuisson optimale d'un ingrédient cuisable
-	 */
-//	public int getTempsCuisson() {
-//		return tmpsCuisson;
-//	}
-	
-	
-	//mickael
-
-	public int getTempsCuisson() {
-		return tmpsCuisson;
-	}
 }
