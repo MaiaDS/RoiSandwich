@@ -15,12 +15,12 @@ public class Comptoir {
     // Variables de classes
 
 	/**
-	 *
+	 * ...
 	 */
 	private Client[]emplacementClientDansComptoire;
 
 	/**
-	 *
+	 * ...
 	 */
 	private Assiette[]emplacementAssietteDansComptoire;
 
@@ -73,8 +73,9 @@ public class Comptoir {
 	}
 
 	/**
-	 * @param i
-	 * @return
+	 * Permet de ....
+	 * @param i qui correspond à ....
+	 * @return ...
 	 */
 	public boolean checkerSiUneAssietteEstPresenteDansEmplacementDuClient(int i) {
 		if(emplacementAssietteDansComptoire[i]==null) {
@@ -87,8 +88,9 @@ public class Comptoir {
 	}
 
 	/**
-	 * @param i
-	 * @return
+	 * Permet de ....
+	 * @param i qui correspond à ....
+	 * @return ... 
 	 */
 	public boolean checkerSiUnClientEstAssisDansUnEmplacement(int i) {
 		if(emplacementClientDansComptoire[i]==null) {
