@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	
 
-	public static Niveau niveau1;
+	public static Niveau niveau;
 	
 	public static Joueur joueur;
 

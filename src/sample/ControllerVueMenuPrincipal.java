@@ -30,7 +30,7 @@ public class ControllerVueMenuPrincipal implements Initializable {
 			Stage stage;
 			Parent root;
 
-			Main.niveau1 = new Niveau(1); //initialise la variable du main avec le niveau sur lequel nous avons cliqu� 
+			Main.niveau = new Niveau(1); //initialise la variable du main avec le niveau sur lequel nous avons cliqu�
 			stage = (Stage) btn1.getScene().getWindow();
 			root = FXMLLoader.load(getClass().getResource("vueNiveau.fxml"));
 
@@ -44,7 +44,7 @@ public class ControllerVueMenuPrincipal implements Initializable {
 		Stage stage;
 		Parent root;
 
-		Main.niveau1 = new Niveau(2);//initialise la variable du main avec le niveau sur lequel nous avons cliqu� 
+		Main.niveau = new Niveau(2);//initialise la variable du main avec le niveau sur lequel nous avons cliqu�
 		stage = (Stage) btn2.getScene().getWindow();
 		root = FXMLLoader.load(getClass().getResource("vueNiveau.fxml"));
 
@@ -58,7 +58,7 @@ public class ControllerVueMenuPrincipal implements Initializable {
 		Stage stage;
 		Parent root;
 
-		Main.niveau1 = new Niveau(3); //initialise la variable du main avec le niveau sur lequel nous avons cliqu� 
+		Main.niveau = new Niveau(3); //initialise la variable du main avec le niveau sur lequel nous avons cliqu�
 		stage = (Stage) btn3.getScene().getWindow();
 		root = FXMLLoader.load(getClass().getResource("vueNiveau.fxml"));
 
@@ -70,8 +70,8 @@ public class ControllerVueMenuPrincipal implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		if(Main.niveau1 != null) {
-			Main.joueur.ajouterArgent(Main.niveau1.getTabScoreArgent()[1]);
+		if(Main.niveau != null) {
+			Main.joueur.ajouterArgent(Main.niveau.getTabScoreArgent()[1]);
 			argentJoueur.setText(Main.joueur.afficherArgent());
 		}
 		else {

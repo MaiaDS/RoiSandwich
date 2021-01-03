@@ -45,393 +45,253 @@ public class Controller implements Initializable {
 
 	private Object container;
 
-	private Materiel materielFriteuse;
-
-	private Materiel materielAssemblage;
-
-	private Materiel materielPlaqueDeCuisson;
-
-	private Materiel materielDecoupe;
-
-	private Materiel materielLaveVaisselle;
-
-	private Materiel materielPoubelle;
+	private Materiel materielFriteuse, materielAssemblage, materielPlaqueDeCuisson, materielDecoupe, materielLaveVaisselle, materielPoubelle;
 
 	private Comptoir comptoir;
 
-	@FXML
-	private ImageView PATATE; // ces attributs sont en majuscule car on l'utilise en tant que param�tres dans la fonction prendreIngredient().
-	@FXML
-	private ImageView SALADE;
-	@FXML
-	private ImageView TOMATE;
-	@FXML
-	private ImageView OIGNON;
-	@FXML
-	private ImageView PAIN;
-	@FXML
-	private ImageView FROMAGE;
-	@FXML
-	private ImageView STEAK_DE_SOJA;
-	@FXML
-	private ImageView STEAK_DE_POULET;
-	@FXML
-	private ImageView STEAK_DE_BOEUF;
+	private Client client1, client2, client3;
+
+	// les attributs suivants (en majuscules) sont utilisés en tant que paramètres dans la fonction prendreIngredient()
 
 	@FXML
-	private ImageView emplacementAssemblagePain;
+	private ImageView PATATE, SALADE, TOMATE, OIGNON, PAIN, FROMAGE, STEAK_DE_SOJA, STEAK_DE_POULET, STEAK_DE_BOEUF;
 
 	@FXML
-	private ImageView emplacementAssemblageFromage;
+	private ImageView emplacementAssemblagePain, emplacementAssemblageFromage, emplacementAssemblageOignon, emplacementAssemblageTomate,
+			emplacementAssemblageSalade, emplacementAssemblagePatate, emplacementAssemblageSteak;
 
 	@FXML
-	private ImageView emplacementAssemblageOignon;
+	private ImageView stock1, stock2, stock3;
 
 	@FXML
-	private ImageView emplacementAssemblageTomate;
+	private ImageView imageViewClient1, imageViewClient2, imageViewClient3;
+	@FXML
+	private ProgressBar client1Progress, client2Progress, client3Progress;
+	private Service<Void> client1EnCours, client2EnCours, client3EnCours;
 
 	@FXML
-	private ImageView emplacementAssemblageSalade;
+	private ImageView emplacementAssiette, emplacementAssietteClient1, emplacementAssietteClient2, emplacementAssietteClient3;
 
 	@FXML
-	private ImageView emplacementAssemblagePatate;
+	private BorderPane decoupe, plaqueCuisson, friteuse, assemblage, laveVaisselle;
 
 	@FXML
-	private ImageView emplacementAssemblageSteak;
+	private ImageView containerDansDecoupe, containerDansCuisson, containerDansFriteuse;
 
 	@FXML
-	private ImageView stock1;
-	@FXML
-	private ImageView stock2;
-	@FXML
-	private ImageView stock3;
-
-	@FXML
-	private ImageView imageViewClient1;
-	@FXML
-	private ProgressBar client1Progress;
-	private Service<Void> client1EnCours;
-
-	@FXML
-	private ImageView imageViewClient2;
-	@FXML
-	private ProgressBar client2Progress;
-	private Service<Void> client2EnCours;
-
-	@FXML
-	private ImageView imageViewClient3;
-	@FXML
-	private ProgressBar client3Progress;
-	private Service<Void> client3EnCours;
-
-	@FXML
-	private ImageView emplacementAssietteClient1;
-
-	@FXML
-	private ImageView emplacementAssietteClient2;
-
-	@FXML
-	private ImageView emplacementAssietteClient3;
-
-	@FXML
-	private BorderPane decoupe;
-
-	@FXML
-	private ImageView containerDansDecoupe;
-
-	@FXML
-	private BorderPane plaque_cuisson;
-
-	@FXML
-	private ImageView containerDansCuisson;
-
-	@FXML
-	private ProgressBar cuissonProgress;
-
-	private Service<Void> CuissonEnCoursSteak;
-
-	@FXML
-	private BorderPane friteuse;
-
-	@FXML
-	private ProgressBar frireProgress;
-
-	private Service<Void> FrireEnCours;
-
-	@FXML
-	private BorderPane assemblage;
-
-	@FXML
-	private ImageView containerDansFriteuse;
-
-	@FXML
-	private BorderPane laveVaisselle;
+	private ProgressBar cuissonProgress, frireProgress;
+	private Service<Void> cuissonEnCoursSteak, frireEnCours;
 
 	@FXML
 	private ProgressIndicator laveProgress;
-
-	private Service<Void> LaveVaisselleEnCours;
-
-	@FXML
-	private ImageView gardeManger;
+	private Service<Void> laveVaisselleEnCours;
 
 	@FXML
-	private ImageView poubelle;
+	private ImageView gardeManger, poubelle, assiettePropre;
 
 	@FXML
 	private ImageView containerView;
 
 	@FXML
-	private ImageView assiettePropre;
-
-	@FXML
-	private Label compteurPain;
-
-	@FXML
-	private Label compteurFromage;
-
-	@FXML
-	private Label compteurOignon;
-
-	@FXML
-	private Label compteurTomate;
-
-	@FXML
-	private Label compteurSalade;
-
-	@FXML
-	private Label compteurPatate;
-
-	@FXML
-	private Label compteurSteakDeBoeuf;
-
-	@FXML
-	private Label compteurSteakDePoulet;
-
-	@FXML
-	private Label compteurSteakDeSoja;
-
-	@FXML
-	private Label compteurAssiette;
-
-	@FXML
-	private ImageView emplacementAssiette;
+	private Label compteurPain, compteurFromage, compteurOignon, compteurTomate, compteurSalade, compteurPatate, compteurSteakDeBoeuf, compteurSteakDePoulet,
+		compteurSteakDeSoja, compteurAssiette, compteurPileAssietteSale;
 
 	@FXML
 	private Label tempsEnCours;
 
 	@FXML
-	private Label labelRecetteClient1;
-
-	@FXML
-	private Label labelRecetteClient2;
-	
-	@FXML
-	private Label labelRecetteClient3;
+	private Label labelRecetteClient1, labelRecetteClient2, labelRecetteClient3;
 
 	@FXML
 	private Label scoreLabel, argentLabel;
 
-	private Client client1;
-	
-	private Client client2;
-	
-	private Client client3;
+	@FXML
+	private VBox vBoxClient1, vBoxClient2, vBoxClient3;
 
 	@FXML
-	private Label compteurPileAssietteSale;
-
-	@FXML
-	private VBox vBoxClient1;
-
-	@FXML
-	private VBox vBoxClient2;
-
-	@FXML
-	private VBox vBoxClient3;
-
-	@FXML
-	private ImageView btnMenu;
+	private ImageView btnClose;
 
 	
 	/**
-	 * un class qui est une extension de la classe TimerTask, celle ci permet de bon d�roulement
+	 * une classe qui est une extension de la classe TimerTask, celle ci permet de bon déroulement
 	 * du jeu en permettant l'envoie des clients et la gestion du temps.
-	 * 
 	 */
-	public class tempsDuJeu extends TimerTask {
+	public class TempsDuJeu extends TimerTask {
+
+		private int temps = 240;
+
+		private int attenteEntreClient = 0; // permet de ne pas envoyer tout les clients en même temps
+
+		private int nbrClientEnvoye = 0;
+
+		private ArrayList<Client> clientDuNiveau = niveau.getClients();
+
+		private boolean enCours = true;
+
+		private ArrayList<ProgressBar> clientProgress = new ArrayList<ProgressBar>();
+
+		/**
+		 * Constructeur
+		 */
+		public TempsDuJeu() {
+			clientProgress.add(client1Progress);
+			clientProgress.add(client2Progress);
+			clientProgress.add(client3Progress);
+
+		}
+
+		/**
+		 * Permet de rajouter du temps d'attente, et ainsi ne pas avoir tout les clients qui arrive en même temps
+		 *
+		 * @param attente correspond au temps d'attente des clients
+		 */
+		public void setAttenteClient(int attente) {
+			this.attenteEntreClient = attente;
+//			System.out.println(clientDuNiveau.size());
+		}
 	
-			private int temps = 240;
-			
-			private int attenteEntreClient = 0;// permet de ne pas envoyer tout les clients en m�me temps
-	
-			private int nbrClientEnvoye = 0;
-	
-			private ArrayList<Client> clientDuNiveau = niveau.getClients();
-	
-			private boolean enCours = true;
-	
-			private ArrayList<ProgressBar> clientProgress = new ArrayList<ProgressBar>();
-	
-			public tempsDuJeu() {
-				clientProgress.add(client1Progress);
-				clientProgress.add(client2Progress);
-				clientProgress.add(client3Progress);
-	
-			}
-			/**
-			 * Permet de rajouter du temps d'attente, et ainsi ne pas avoir tout les clients qui arrive en m�me temps
-			 * 
-			 * @param int le temps d'attente des clients
-			 */
-			public void setAttenteClient(int attente) {
-				this.attenteEntreClient = attente;
-	//			System.out.println(clientDuNiveau.size());
-			}
-	
-			@Override
-			public void run() {
-				while (enCours) {
-	
-					String time = String.valueOf(temps);
-					temps--;
-					attenteEntreClient--;
-	
-					Platform.runLater(() -> {
-						tempsEnCours.setText(time);
-	
-						if (temps == 0 || nbrClientEnvoye == clientDuNiveau.size()
-								&& comptoir.getEmplacementClientDansComptoir()[0] == null
-								&& comptoir.getEmplacementClientDansComptoir()[1] == null
-								&& comptoir.getEmplacementClientDansComptoir()[2] == null) {
-							this.enCours = false;
-							System.out.println("Fin Du Niveau");
-							try {
-								affichageScore();
-							} catch (Exception e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+		@Override
+		public void run() {
+			// pendant la durée de la partie, s'exécute toutes les secondes
+			while (enCours) {
+				String time = String.valueOf(temps);
+				temps--;
+				attenteEntreClient--;
+
+				Platform.runLater(() -> {
+					tempsEnCours.setText(time);
+					// regarde s'il y a encore des clients au comptoir
+					// s'il n'y a plus de client alors la partie se termine
+					if (temps == 0 || nbrClientEnvoye == clientDuNiveau.size()
+							&& comptoir.getEmplacementClientDansComptoir()[0] == null
+							&& comptoir.getEmplacementClientDansComptoir()[1] == null
+							&& comptoir.getEmplacementClientDansComptoir()[2] == null) {
+						this.enCours = false;
+						System.out.println("Fin Du Niveau");
+						try {
+							affichageScore();
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
 						}
-	
-						for (int i = 0; i < comptoir.getEmplacementClientDansComptoir().length; i++) {
-							if (niveau.checkerSiListeDesClientsEstVide() == false) {
-								if (comptoir.checkerSiUneAssietteEstPresenteDansEmplacementDuClient(i) == false) {
-	
-									if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i) == false) {
-	
-										Client client = niveau.getClients().get(0);
-										comptoir.ajouterClient(client, i);
-	
-										niveau.getClients().remove(0);
-	
-										if (i == 0) {
-											try {
-	
-	//											client.getCommande().afficherIngredientRecette();
-	
-												client1 = comptoir.getEmplacementClientDansComptoir()[0];
-												client1EnCours = envoyerUnClient(client1, clientProgress.get(i));
-												labelRecetteClient1.setText(client1.getCommande().getNom().toString());
-	
-												getGalerieImage(client, vBoxClient1);
-	
-											} catch (InterruptedException e) {
-												e.printStackTrace();
-											}
-	
-										}
-										if (i == 1) {
-											try {
-												client2 = comptoir.getEmplacementClientDansComptoir()[1];
-												client2EnCours = envoyerUnClient(client2, clientProgress.get(i));
-												labelRecetteClient2.setText(client2.getCommande().getNom().toString());
-	
-												getGalerieImage(client, vBoxClient2);
-	
-											} catch (InterruptedException e) {
-												e.printStackTrace();
-											}
-										}
-										if (i == 2) {
-											try {
-												client3 = comptoir.getEmplacementClientDansComptoir()[2];
-												client3EnCours = envoyerUnClient(client3, clientProgress.get(i));
-												labelRecetteClient3.setText(client3.getCommande().getNom().toString());
-	
-												getGalerieImage(client, vBoxClient3);
-											} catch (InterruptedException e) {
-												e.printStackTrace();
-											}
-										}
-									}
-								}
-							}
-							if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i)) {
-								if (comptoir.getEmplacementClientDansComptoir()[i].getTmpsAttente() == 0) {
-									System.out.println(
-											"client : " + comptoir.getEmplacementClientDansComptoir()[i] + " est parti");
-									comptoir.retirerClient(i);
+					}
+
+					// parcours les emplacements du comptoir pour y envoyer des clients
+					for (int i = 0; i < comptoir.getEmplacementClientDansComptoir().length; i++) {
+						// si la place est disponible et débarassée envoyer un client
+						if (niveau.checkerSiListeDesClientsEstVide() == false) {
+							if (comptoir.checkerSiUneAssietteEstPresenteDansEmplacementDuClient(i) == false) {
+								if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i) == false) {
+
+									Client client = niveau.getClients().get(0);
+									comptoir.ajouterClient(client, i);
+
+									niveau.getClients().remove(0);
+
 									if (i == 0) {
-										client1 = null;
-										vBoxClient1.getChildren().clear();
-										labelRecetteClient1.setText(null);
-										client1Progress.setVisible(false);
-										client1EnCours.cancel();
-										client1EnCours.reset();
+										try {
+
+//											client.getCommande().afficherIngredientRecette();
+
+											client1 = comptoir.getEmplacementClientDansComptoir()[0];
+											client1EnCours = envoyerUnClient(client1, clientProgress.get(i));
+											labelRecetteClient1.setText(client1.getCommande().getNom().toString());
+
+											getGalerieImage(client, vBoxClient1);
+
+										} catch (InterruptedException e) {
+											e.printStackTrace();
+										}
+
 									}
 									if (i == 1) {
-										client2 = null;
-										vBoxClient2.getChildren().clear();
-										labelRecetteClient2.setText(null);
-										client2Progress.setVisible(false);
-										client2EnCours.cancel();
-										client2EnCours.reset();
+										try {
+											client2 = comptoir.getEmplacementClientDansComptoir()[1];
+											client2EnCours = envoyerUnClient(client2, clientProgress.get(i));
+											labelRecetteClient2.setText(client2.getCommande().getNom().toString());
+
+											getGalerieImage(client, vBoxClient2);
+
+										} catch (InterruptedException e) {
+											e.printStackTrace();
+										}
 									}
 									if (i == 2) {
-										client3 = null;
-										vBoxClient3.getChildren().clear();
-										labelRecetteClient3.setText(null);
-										client3Progress.setVisible(false);
-										client3EnCours.cancel();
-										client3EnCours.reset();
+										try {
+											client3 = comptoir.getEmplacementClientDansComptoir()[2];
+											client3EnCours = envoyerUnClient(client3, clientProgress.get(i));
+											labelRecetteClient3.setText(client3.getCommande().getNom().toString());
+
+											getGalerieImage(client, vBoxClient3);
+										} catch (InterruptedException e) {
+											e.printStackTrace();
+										}
 									}
 								}
 							}
 						}
-					});
-					try {
-	
-						Thread.sleep(1000);
-	
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						// si un client est au comptoir, vérifier son timer d'attente
+						// si le compteur est à 0 faire partir le client
+						if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i)) {
+							if (comptoir.getEmplacementClientDansComptoir()[i].getTmpsAttente() == 0) {
+								System.out.println(
+										"client : " + comptoir.getEmplacementClientDansComptoir()[i] + " est parti");
+								comptoir.retirerClient(i);
+								if (i == 0) {
+									client1 = null;
+									vBoxClient1.getChildren().clear();
+									labelRecetteClient1.setText(null);
+									client1Progress.setVisible(false);
+									client1EnCours.cancel();
+									client1EnCours.reset();
+								}
+								if (i == 1) {
+									client2 = null;
+									vBoxClient2.getChildren().clear();
+									labelRecetteClient2.setText(null);
+									client2Progress.setVisible(false);
+									client2EnCours.cancel();
+									client2EnCours.reset();
+								}
+								if (i == 2) {
+									client3 = null;
+									vBoxClient3.getChildren().clear();
+									labelRecetteClient3.setText(null);
+									client3Progress.setVisible(false);
+									client3EnCours.cancel();
+									client3EnCours.reset();
+								}
+							}
+						}
 					}
+				});
+				try {
+
+					Thread.sleep(1000);
+
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		}
 
+		}
+
 	/**
-	 * methode qui donne l' assiette aux clients. si le container n'est pas null et
-	 * qu'il contient un objet de classe assiette, que cette assiette a pour �tat
-	 * PLAT, alors on v�rifie qu'il y a bien un client qui attend et cette assiette
-	 * lui est distribu� en cliquant sur lui. Le client v�rifie que les ingredients
-	 * dans l'assiette correspondent � sa commande, le score augmente en fonction,
-	 * et il s'en va. L'assiette passe en �tat SALE. Si le container est null et
-	 * qu'il y a une assiette dans l'emplacement du client, en cliquant sur le
-	 * client, on r�cupere l'assiette SALE
+	 * Permet de servir un client qui est au comptoir
 	 * 
 	 * @param e
 	 * @throws IllegalAccessException
 	 */
 	public void donnerAssietteClient(MouseEvent e) throws IllegalAccessException {
-		// si le container n'est pas vide et quand dans ce container il s'agit d'une
-		// assiette "Plat"
+		// si le container n'est pas vide et qu'il s'agit d'une assiette d'état "Plat"
 		if ((container != null) && (container instanceof Assiette)
 				&& ((Assiette) container).getEtatAssiette().equals(EtatAssiette.PLAT)) {
 			ImageView i = (ImageView) e.getSource();
 			Assiette assietteTemporaire = (Assiette) container;
+
+			// servir le client et déclencher la vérification, mettre à jour la vue
 			switch (i.getId()) {
 			case "imageViewClient1":
 				if (client1 != null && comptoir.getEmplacementAssietteDansComptoir()[0] == null) {
@@ -442,7 +302,7 @@ public class Controller implements Initializable {
 
 					if (client1.verifierLePlat(assietteTemporaire)) {
 						niveau.setScoreArgent(100, 100);
-						System.out.println("score augment�");
+						System.out.println("score augmenté");
 						scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
 						argentLabel.setText(String.valueOf(niveau.getTabScoreArgent()[1]));
 					}
@@ -470,7 +330,7 @@ public class Controller implements Initializable {
 					comptoir.getEmplacementAssietteDansComptoir()[1] = (Assiette) container;
 					if (client2.verifierLePlat((Assiette) container)) {
 						niveau.setScoreArgent(100, 100);
-						System.out.println("score augment�");
+						System.out.println("score augmenté");
 						scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
 					}
 					comptoir.retirerClient(1);
@@ -494,7 +354,7 @@ public class Controller implements Initializable {
 					comptoir.getEmplacementAssietteDansComptoir()[2] = (Assiette) container;
 					if (client3.verifierLePlat((Assiette) container)) {
 						niveau.setScoreArgent(100, 100);
-						System.out.println("score augment�");
+						System.out.println("score augmenté");
 						scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
 					}
 					comptoir.retirerClient(2);
@@ -508,7 +368,7 @@ public class Controller implements Initializable {
 					break;
 				}
 			}
-
+		// si l'emplacement n'est pas vide et que le container est vide alors on peut débarrasser le client
 		} else if (container == null) {
 			ImageView i = (ImageView) e.getSource();
 			switch (i.getId()) {
@@ -532,13 +392,10 @@ public class Controller implements Initializable {
 	}
 
 	/**
-	 * Permet de prendre une assiette propre ou d'en remettre une Fonctionne au
-	 * click. l'assiette se situe dans niveau => cuisine
-	 * 
+	 * Permet de prendre une assiette propre ou d'en remettre une dans la pile
 	 */
 	public void prendreAssiettePropre() {
 		if (container == null) {
-//			Object image = e.getSource();
 			Object c = niveau.getCuisine().retirerAssietteDeLaCuisine();
 			mettreDansContainer(c);
 		} else if (container instanceof Assiette
@@ -554,16 +411,12 @@ public class Controller implements Initializable {
 	}
 
 	/**
-	 * Permet de prendre une assiette propre ou d'en remettre une Fonctionne au
-	 * click. l'assiette se situe dans niveau => cuisine
+	 * Permet de prendre une assiette propre ou d'en remettre une dans la pile
 	 * 
-	 * @param MouseEvent permet de prendre, en fonction de l'image s�lectionner, l'ingr�dient dans le garde manger.
+	 * @param e permet de prendre, en fonction de l'image sélectionnée, l'ingrédient dans le garde manger.
 	 */
 	
 	public void prendreIngredient(MouseEvent e) {
-//		if (materielAssemblage.objetsContenus.size() == 0) {
-//			System.out.println("attention, il n'y a pas d'assiette dans l'assemblage");
-//		} else {
 		if (container == null) {
 			Object image = e.getSource();
 			String idImage = ((Node) image).getId();
@@ -604,16 +457,13 @@ public class Controller implements Initializable {
 					break;
 				}
 			}
-		} else {
-			System.out.println("vous ne pouvez pas mettre ceci ici");
 		}
+		// else { System.out.println("vous ne pouvez pas mettre ceci ici"); }
 
 	}
 
-//	}
-
 	/**
-	 *	Permet de d�couper un ingr�dient lorsque cette fonction est affect� � un �l�ment dans la vue.
+	 *	Permet de découper un ingrédient lorsque cette fonction est affectée à un élément dans la vue
 	 * 
 	 *  @throws InterruptedException
 	 */
@@ -636,31 +486,25 @@ public class Controller implements Initializable {
 								.setImage(new Image(getClass().getResourceAsStream(ingredient.getImgIngredient())));
 						materielDecoupe.ajouterObjet(ingredient);
 						viderContainer();
-						// si le container est d�coupable
+						// si le container est découpable
 						if (ingredient.isDecoupable()) {
-							// si cette ingredient d�coupable n'est pas d�ja transform� alors le d�couper
+							// si cette ingredient découpable n'est pas déjà transformé alors le découper
 							if (ingredient.getTransformer() == false) {
 								((Decoupe) materielDecoupe).decouper();
 //								System.out.println(ingredient.getImgIngredient());
 								containerDansDecoupe.setImage(new Image(getClass().getResourceAsStream(ingredient.getImgIngredient())));
 //								System.out.println(ingredient.getNom() + " a �t� d�coup� ");
 							}
-							// sinon cette ingredient d�coupable a d�ja �t� d�coup�
-							else {
-//								System.out.println(ingredient.getNom() + " a d�ja �t� d�coup�");
-							}
+							// sinon cette ingredient découpable a déjà été découpé
+							//else { System.out.println(ingredient.getNom() + " a d�ja �t� d�coup�"); }
 						}
-						// sinon cette ingredient n'est pas d�coupale
-						else {
-//							System.out.println(ingredient.getNom() + " n'est pas d�coupable");
-						}
+						// sinon cette ingredient n'est pas découpale
+						// else { System.out.println(ingredient.getNom() + " n'est pas d�coupable"); }
 //						System.out.println("transform� : " + ingredient.getNom() + " : " + ingredient.getTransformer());
-					} else {
-						//System.out.println("Il y a d�j� quelque chose dans ce materiel");
 					}
-				} else {
-					//System.out.println("l'ingredient n'est pas d�coupable");
+					// else { System.out.println("Il y a d�j� quelque chose dans ce materiel"); }
 				}
+				//else { System.out.println("l'ingredient n'est pas d�coupable");}
 			} catch (Exception e2) {
 				System.out.println("seul les ingredients peuvent etre d�coup�s");
 			}
@@ -668,17 +512,16 @@ public class Controller implements Initializable {
 	}
 
 	/**
-	 *	Permet de rajouter des viandes dans la plaque de cuisson lorsque le joueur clic dessus dans la vue.
+	 *	Permet de rajouter des viandes dans la plaque de cuisson lorsque le joueur clique dessus dans la vue.
 	 * 
 	 * @throws InterruptedException
 	 */
-	
 	public void cuire() {
 		if (container == null) {
 			checkSiIngredientPresentDansMateriel(materielPlaqueDeCuisson);
-			if (CuissonEnCoursSteak != null) {
-				CuissonEnCoursSteak.cancel();
-				CuissonEnCoursSteak.reset();
+			if (cuissonEnCoursSteak != null) {
+				cuissonEnCoursSteak.cancel();
+				cuissonEnCoursSteak.reset();
 				cuissonProgress.setProgress(0.0);
 			}
 		} else {
@@ -693,7 +536,7 @@ public class Controller implements Initializable {
 						e1.printStackTrace();
 					}
 				} else {
-					//System.out.println(((Ingredient) container).getNom() + " a d�ja �t� cuit");
+					//System.out.println(((Ingredient) container).getNom() + " a déjà été cuit");
 				}
 			} else {
 				//System.out.println(((Ingredient) container).getNom() + " ne peut pas etre cuit");
@@ -702,19 +545,16 @@ public class Controller implements Initializable {
 	}
 
 	/**
-	 *	Permet de rajouter des assiettes dans le lave vaisselle lorsque le joueur clic dessus dans la vue.
-	 * 
-	 * 
+	 *	Permet de rajouter des assiettes dans le lave vaisselle lorsque le joueur clique dessus dans la vue.
 	 */
-	
 	public void frire() throws InterruptedException {
-		if (container == null) {// si le container est vide alors on supose que le joueur veut r�cup�rer l'objet dans le mat�riel.
+		if (container == null) {// si le container est vide alors on supose que le joueur veut récupérer l'objet dans le mat�riel.
 			System.out.println("ingredient contenu " + materielFriteuse.objetsContenus.size());
 			if (checkSiIngredientPresentDansMateriel(materielFriteuse)) {
 				containerDansFriteuse.setImage(new Image(getClass().getResourceAsStream("../image/friteuse.png")));
-				if (FrireEnCours != null) {// on arr�te la cuisson si le joueur veut r�cup�rer le contenu
-					FrireEnCours.cancel();
-					FrireEnCours.reset();
+				if (frireEnCours != null) {// on arrete la cuisson si le joueur veut récupérer le contenu
+					frireEnCours.cancel();
+					frireEnCours.reset();
 					frireProgress.setProgress(0.0);
 				}
 
@@ -738,26 +578,24 @@ public class Controller implements Initializable {
 						System.out.println(a.getNom() + " doit etre d�coup�");
 					}
 				} else {
-					System.out.println("seul les patates coup� peuvent �tre fries");
+					System.out.println("seul les patates coup� peuvent être fries");
 				}
 			} else {
-				System.out.println("ce que vous avez dans la main n'est m�me pas un ingr�dient");
+				System.out.println("ce que vous avez dans la main n'est m�me pas un ingrédient");
 			}
 
 		}
 	}
 
 	/**
-	 *	Permet de rajouter des assiettes dans le lave vaisselle lorsque le joueur clic dessus dans la vue.
-	 * 
-	 * 
+	 *	Permet de rajouter des assiettes dans le lave vaisselle lorsque le joueur clique dessus dans la vue.
 	 */
 	public void laveVaisselle() {
 		if (container == null) {// si le container est vide alors on supose que le joueur veut r�cup�rer l'objet dans le mat�riel.
 			checkSiIngredientPresentDansMateriel(materielLaveVaisselle);
-			if (LaveVaisselleEnCours != null) {
-				LaveVaisselleEnCours.cancel();
-				LaveVaisselleEnCours.reset();
+			if (laveVaisselleEnCours != null) {
+				laveVaisselleEnCours.cancel();
+				laveVaisselleEnCours.reset();
 				laveProgress.setProgress(0.0);
 			}
 		} else if (materielLaveVaisselle.checkSiObjetsContenusEstVide()) {
@@ -781,12 +619,9 @@ public class Controller implements Initializable {
 	}
 
 	/**
-	 * Permet de g�rer l'assemblage, si le joueur clic sur l'assemblage est que celle ci contient une assiette, alors le joueur
-	 * pourra rajouter des �l�ments dans l'assiette et verra ces ingr�dients dans l'assemblage.
-	 * 
-	 * 
+	 * Permet de gérer l'assemblage, si le joueur clic sur l'assemblage est que celle ci contient une assiette, alors le joueur
+	 * pourra rajouter des éléments dans l'assiette et verra ces ingrédients dans l'assemblage.
 	 */
-	
 	public void assembler() {
 		if (container == null) {
 			if (materielAssemblage.objetsContenus.size() != 0) {
@@ -845,15 +680,7 @@ public class Controller implements Initializable {
 
 						break;
 					case STEAK_DE_BOEUF:
-						emplacementAssemblageSteak
-								.setImage(new Image(getClass().getResourceAsStream(ing.getImgIngredient())));
-
-						break;
 					case STEAK_DE_POULET:
-						emplacementAssemblageSteak
-								.setImage(new Image(getClass().getResourceAsStream(ing.getImgIngredient())));
-
-						break;
 					case STEAK_DE_SOJA:
 						emplacementAssemblageSteak
 								.setImage(new Image(getClass().getResourceAsStream(ing.getImgIngredient())));
@@ -918,17 +745,7 @@ public class Controller implements Initializable {
 					viderContainer();
 					break;
 				case STEAK_DE_BOEUF:
-					emplacementAssemblageSteak.setImage(
-							new Image(getClass().getResourceAsStream(((Ingredient) container).getImgIngredient())));
-					assiette.ajouterObjet((Ingredient) container);
-					viderContainer();
-					break;
 				case STEAK_DE_POULET:
-					emplacementAssemblageSteak.setImage(
-							new Image(getClass().getResourceAsStream(((Ingredient) container).getImgIngredient())));
-					assiette.ajouterObjet((Ingredient) container);
-					viderContainer();
-					break;
 				case STEAK_DE_SOJA:
 					emplacementAssemblageSteak.setImage(
 							new Image(getClass().getResourceAsStream(((Ingredient) container).getImgIngredient())));
@@ -950,14 +767,13 @@ public class Controller implements Initializable {
 	}
 
 	/**
-	 * Permet de v�rifier si un �l�ment est pr�sent dans un mat�riel.
+	 * Permet de vérifier si un élément est présent dans un matériel.
 	 * 
-	 * @param Material que l'on doit v�rifier, si celui ci est vide ou non
+	 * @param m correspond au matériel visé, il faut vérifier si celui ci est vide ou non
 	 * 
-	 * @return boolean si le mat�riel est vide false, sinon true
+	 * @return boolean si le matériel est vide false, sinon true
 	 * 
 	 */
-	
 	public boolean checkSiIngredientPresentDansMateriel(Materiel m) {
 		if (m.objetsContenus.isEmpty()) {
 //			System.out.println("veuillez selectionner un ingredient");
@@ -978,12 +794,11 @@ public class Controller implements Initializable {
 	/**
 	 * Permet de mettre un �l�ment dans le container.
 	 * 
-	 * @param Nom prend un param�tre le nom d'un �l�ment �l�ment d'un ingredeint (d'apr�s l'�num�ration Nom).
+	 * @param n nom d'un ingredient (d'aprés l'énumération Nom).
 	 * 
 	 * @return int returne un chiffre correspond � la quantit� restant dans le niveau.
 	 * 
 	 */
-	
 	public int compteur(Nom n) {
 		return niveau.getCuisine().getGardeManger().getCompteurs().get(n);
 	}
@@ -991,7 +806,7 @@ public class Controller implements Initializable {
 	/**
 	 * Permet de mettre un �l�ment dans le container.
 	 * 
-	 * @param Object qui est r�cup�r� lors d'un clic du joueur.
+	 * @param o objet r�cup�r� lors d'un clic du joueur.
 	 * 
 	 */
 	
@@ -1042,7 +857,6 @@ public class Controller implements Initializable {
 	 * Permet de vider le container, supprimer le contenu du container et l'image.
 	 * 
 	 */
-	
 	public void viderContainer() {
 		container = null;
 		containerView.setImage(null);
@@ -1052,12 +866,11 @@ public class Controller implements Initializable {
 	 * Permet de de simuler le temps d'attente de la plaque de cuisson dans le niveau, 
 	 * avec la mise � jour du plaque de cuisson (temps d'attente de la ProgressBar) et du changement d'�tat de l'ingredient.
 	 * 
-	 * @param Ingredient qui va etre cuit
-	 * @param ProgressBar correspondant � celui de la plaque de cuisson
-	 * @param double un temps qui permet de d�cider de la dur�e de la cuisson
+	 * @param ingredient qui va etre cuit
+	 * @param progress correspondant � celui de la plaque de cuisson
+	 * @param temps un temps qui permet de d�cider de la dur�e de la cuisson
 	 * 
 	 */
-
 	public void cuissonProgression(Ingredient ingredient, ProgressBar progress, double temps)
 			throws InterruptedException {
 
@@ -1097,16 +910,16 @@ public class Controller implements Initializable {
 				};
 			}
 		};
-		CuissonEnCoursSteak = CuissonMateriel;
+		cuissonEnCoursSteak = CuissonMateriel;
 		CuissonMateriel.start();
 	}
 	
 	/**
 	 * Permet de de simuler le temps d'attente de la friteuse dans le niveau, avec la mise � jour de la friteuse (temps d'attente de la ProgressBar) et du changement d'�tat de l'ingredient.
 	 * 
-	 * @param Ingredient qui va etre frit
-	 * @param ProgressBar correspondant � celui de la friteuse
-	 * @param double un temps qui permet de d�cider de la dur�e de la cuisson
+	 * @param ingredient qui va etre frit
+	 * @param progress correspondant � celui de la friteuse
+	 * @param temps un temps qui permet de d�cider de la dur�e de la cuisson
 	 * 
 	 */
 	
@@ -1140,7 +953,7 @@ public class Controller implements Initializable {
 				};
 			}
 		};
-		FrireEnCours = CuissonMateriel;
+		frireEnCours = CuissonMateriel;
 		CuissonMateriel.start();
 	}
 
@@ -1148,9 +961,9 @@ public class Controller implements Initializable {
 	 * Permet de de simuler le temps d'attente du lave vaisselle dans le niveau
 	 * (temps d'attente de la progressIndicator) avec la mise � jour du lave vaisselle et de l'�tat de l'assiette
 	 * 
-	 * @param Assiette une assiette qui va etre lav�
-	 * @param ProgressIndicator correspondant � celui du lave vaiselle
-	 * @param double un temps qui permet de d�cider de la dur�e du lave vaisselle
+	 * @param assiette une assiette qui va etre lav�
+	 * @param progress correspondant � celui du lave vaiselle
+	 * @param temps un temps qui permet de d�cider de la dur�e du lave vaisselle
 	 * 
 	 */
 	
@@ -1183,18 +996,18 @@ public class Controller implements Initializable {
 				};
 			}
 		};
-		LaveVaisselleEnCours = laveEnCours;
-		LaveVaisselleEnCours.start();
+		laveVaisselleEnCours = laveEnCours;
+		laveVaisselleEnCours.start();
 	}
 
 	
 	/**
 	 * Permet de de simuler le temps d'attente du client dans le niveau, avec la mise � jour du client (temps d'attente de la progressBar).
 	 * 
-	 * @param Client qui va commencer � attendre.
-	 * @param ProgressBar correspondant � l'emplacement du client.
-	 * 
+	 * @param client qui va commencer � attendre.
+	 * @param progressClient
 	 * @return un service avec � l'interieur la gestion du client
+	 * @throws InterruptedException
 	 */
 	
 	public Service<Void> envoyerUnClient(Client client, ProgressBar progressClient) throws InterruptedException {
@@ -1237,11 +1050,8 @@ public class Controller implements Initializable {
 	}
 
 	/**
-	 * 
 	 * Permet de mettre en stock les assiette sale.
-	 *
 	 */
-	
 	public void stockageAssietteSale() {
 
 		// stocker assiette sale dans la pile d'assiette sale
@@ -1261,14 +1071,13 @@ public class Controller implements Initializable {
 		}
 	}
 	/**
-	 * Cette fonction est lanc� lorsque le niveau est termin�, 
+	 * Cette fonction est lancé lorsque le niveau est terminé,
 	 * elle permet d'afficher le score du niveau, elle fait apparaitre la vueAffichageScore
-	 *
 	 */
 	public void affichageScore() throws Exception {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("vueAffichageScore.fxml"));
-			Stage stage = (Stage) btnMenu.getScene().getWindow();
+			Stage stage = (Stage) btnClose.getScene().getWindow();
 			stage.setScene(new Scene(root));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -1278,12 +1087,10 @@ public class Controller implements Initializable {
 	/**
 	 * Cette fonction est lancer lorsque l'on appuie sur la croix du niveau, 
 	 * elle permet de quitter le niveau et de revenir sur l'�cran principale
-	 *
 	 */
-	
 	public void quitterNiveau() throws Exception {
 		try {
-			Stage stage = (Stage) btnMenu.getScene().getWindow();
+			Stage stage = (Stage) btnClose.getScene().getWindow();
 			Parent root = FXMLLoader.load(getClass().getResource("vueMenuPrincipal.fxml"));
 			stage.setScene(new Scene(root));
 		} catch (Exception e) {
@@ -1294,13 +1101,10 @@ public class Controller implements Initializable {
 	/**
 	 * Permet d'afficher la commande du client, elle affiche les images en fonctions de ce que le client veut comme commande 
 	 * 
-	 * @param Client pour par la suite r�cup�rer la recette correspondant � celui-ci.
-	 * @param Prend en param�tre la Vbox correspondant � l'emplacement du Client pour faire afficher les images au dessus de lui.
-	 * 
+	 * @param client pour par la suite r�cup�rer la recette correspondant � celui-ci.
+	 * @param vbox correspond à l'emplacement du Client pour faire afficher les images au dessus de lui.
 	 */
-	
 	public void getGalerieImage(Client client, VBox vbox) {
-		
 		ArrayList<Image> images;
 		ArrayList<ImageView> imagesView;
 		Client clientTemporaire = client;
@@ -1323,61 +1127,67 @@ public class Controller implements Initializable {
 		}
 	}
 
+	/**
+	 * @Override
+	 * Permet d'initialiser le controller
+	 * @param arg0
+	 * @param arg1
+	 */
 	@Override
-		public void initialize(URL arg0, ResourceBundle arg1) {
-		
-			niveau = Main.niveau1; 
-	
-			// controlleur
-			for (Materiel i : niveau.getMateriel().keySet()) {
-				if (i instanceof Decoupe) {
-					materielDecoupe = i;
-	//				System.out.println("ajout�");
-				}
-				if (i instanceof Assemblage) {
-					materielAssemblage = i;
-	//				System.out.println("ajout�");
-				}
-				if (i instanceof Friteuse) {
-					materielFriteuse = i;
-	//				System.out.println("ajout�");
-				}
-				if (i instanceof LaveVaisselle) {
-					materielLaveVaisselle = i;
-	//				System.out.println("ajout�");
-				}
-				if (i instanceof PlaqueCuisson) {
-					materielPlaqueDeCuisson = i;
-	//				System.out.println("ajout�");
-				}
-				if (i instanceof Poubelle) {
-					materielPoubelle = i;
-	//				System.out.println("ajout�");
-				}
+	public void initialize(URL arg0, ResourceBundle arg1) {
+
+		niveau = Main.niveau;
+
+		// controlleur
+		for (Materiel i : niveau.getMateriel().keySet()) {
+			if (i instanceof Decoupe) {
+				materielDecoupe = i;
+//				System.out.println("ajout�");
 			}
-	
-			compteurPatate.setText(String.valueOf(compteur(Nom.PATATE)));
-			compteurFromage.setText(String.valueOf(compteur(Nom.FROMAGE)));
-			compteurPain.setText(String.valueOf(compteur(Nom.PAIN)));
-			compteurOignon.setText(String.valueOf(compteur(Nom.OIGNON)));
-			compteurSalade.setText(String.valueOf(compteur(Nom.SALADE)));
-			compteurSteakDeBoeuf.setText(String.valueOf(compteur(Nom.STEAK_DE_BOEUF)));
-			compteurSteakDePoulet.setText(String.valueOf(compteur(Nom.STEAK_DE_POULET)));
-			compteurSteakDeSoja.setText(String.valueOf(compteur(Nom.STEAK_DE_SOJA)));
-			compteurTomate.setText(String.valueOf(compteur(Nom.TOMATE)));
-	
-			compteurAssiette.setText(String.valueOf(niveau.getCuisine().getAssiettes().size()));
-	
-			Timer timer = new Timer(true);
-			timer.schedule(new tempsDuJeu(), 0, 1000);
-	
-			comptoir = niveau.getComptoir();
-	
-			scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
-			argentLabel.setText(String.valueOf(niveau.getTabScoreArgent()[1]));
-	
-	//		System.out.println("nombre de client dans comptoir client " +comptoir.getEmplacementClientDansComptoire().length);
-	
+			if (i instanceof Assemblage) {
+				materielAssemblage = i;
+//				System.out.println("ajout�");
+			}
+			if (i instanceof Friteuse) {
+				materielFriteuse = i;
+//				System.out.println("ajout�");
+			}
+			if (i instanceof LaveVaisselle) {
+				materielLaveVaisselle = i;
+//				System.out.println("ajout�");
+			}
+			if (i instanceof PlaqueCuisson) {
+				materielPlaqueDeCuisson = i;
+//				System.out.println("ajout�");
+			}
+			if (i instanceof Poubelle) {
+				materielPoubelle = i;
+//				System.out.println("ajout�");
+			}
 		}
+
+		compteurPatate.setText(String.valueOf(compteur(Nom.PATATE)));
+		compteurFromage.setText(String.valueOf(compteur(Nom.FROMAGE)));
+		compteurPain.setText(String.valueOf(compteur(Nom.PAIN)));
+		compteurOignon.setText(String.valueOf(compteur(Nom.OIGNON)));
+		compteurSalade.setText(String.valueOf(compteur(Nom.SALADE)));
+		compteurSteakDeBoeuf.setText(String.valueOf(compteur(Nom.STEAK_DE_BOEUF)));
+		compteurSteakDePoulet.setText(String.valueOf(compteur(Nom.STEAK_DE_POULET)));
+		compteurSteakDeSoja.setText(String.valueOf(compteur(Nom.STEAK_DE_SOJA)));
+		compteurTomate.setText(String.valueOf(compteur(Nom.TOMATE)));
+
+		compteurAssiette.setText(String.valueOf(niveau.getCuisine().getAssiettes().size()));
+
+		Timer timer = new Timer(true);
+		timer.schedule(new TempsDuJeu(), 0, 1000);
+
+		comptoir = niveau.getComptoir();
+
+		scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
+		argentLabel.setText(String.valueOf(niveau.getTabScoreArgent()[1]));
+
+//		System.out.println("nombre de client dans comptoir client " +comptoir.getEmplacementClientDansComptoire().length);
+
+	}
 
 }

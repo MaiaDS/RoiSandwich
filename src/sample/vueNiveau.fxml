@@ -24,7 +24,7 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="73.0" style="-fx-background-color: #000;">
                      <children>
-                        <ImageView fx:id="btnMenu" fitHeight="38.0" fitWidth="31.0" layoutX="35.0" layoutY="27.0" onMouseClicked="#quitterNiveau" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnClose" fitHeight="38.0" fitWidth="31.0" layoutX="35.0" layoutY="27.0" onMouseClicked="#quitterNiveau" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../image/fermer.png" />
                            </image>
@@ -190,7 +190,7 @@
                         </BorderPane>
                         <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="129.0" prefWidth="132.0">
                           <items>
-                              <BorderPane fx:id="plaque_cuisson" onMouseClicked="#cuire" prefHeight="72.0" prefWidth="132.0">
+                              <BorderPane fx:id="plaqueCuisson" onMouseClicked="#cuire" prefHeight="72.0" prefWidth="132.0">
                                  <top>
                                     <ProgressBar fx:id="cuissonProgress" prefWidth="200.0" progress="0.0" BorderPane.alignment="CENTER" />
                                  </top>
