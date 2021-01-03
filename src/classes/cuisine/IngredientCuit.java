@@ -1,8 +1,3 @@
-/**
- * Commentaire de documentation de la classe IngredientCuit
- * @version 1.0
- * @author Thomas MOSCONI
- */
 package classes.cuisine;
 
 /**

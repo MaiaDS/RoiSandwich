@@ -2,7 +2,6 @@ package classes;
 
 import classes.cuisine.*;
 import classes.cuisine.materiel.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -59,14 +58,7 @@ public class Niveau {
 	private int nbAssietteMax;
 
 	private Comptoir comptoir;
-	
-	public Comptoir getComptoir() {
-		return comptoir;
-	}
-
-	private GardeManger gardeManger;
 	private Cuisine cuisine;
-	private Stock stock;
 
 	/**
 	 * Constructeur
@@ -78,22 +70,24 @@ public class Niveau {
 		this.tabScoreArgent = new int[2];
 
 		this.comptoir = new Comptoir();
-
-		this.stock = new Stock();
+		this.cuisine = new Cuisine(this);
 
 		this.clients = new ArrayList<Client>();
 		this.materiel = new HashMap<Materiel, Integer>();
 
-		int capaciteAssemblage;
-		int capaciteLaveVaisselle;
-		int quantiteOutilsCuisson;
-		int quantiteDecoupe;
+		// initialisation des capacités / quantité des matériels
+		int capaciteAssemblage = 1;
+		int capaciteLaveVaisselle = 1;
+		int quantiteOutilsCuisson = 1;
+		int quantiteDecoupe = 1;
 
+		// Initialisation des recettes
 		this.listeRecettes = new ArrayList<Recette.Noms>();
 		this.listeRecettes.add(Recette.Noms.FRITES);
 		this.listeRecettes.add(Recette.Noms.SIMPLE);
 
-		// Réglages du niveau
+		// Réglages des niveaux
+
 		switch (this.numNiveau) {
 		// niveau 1 (par défaut)
 		default:
@@ -106,11 +100,6 @@ public class Niveau {
 			// quantité des ingrédients
 			nbIngredient = 50;
 
-			// définition de la quantité des outils
-			capaciteAssemblage = 1;
-			capaciteLaveVaisselle = 2;
-			quantiteOutilsCuisson = 1;
-			quantiteDecoupe = 1;
 			break;
 		// niveau 2
 		case 2:
@@ -121,12 +110,6 @@ public class Niveau {
 			this.tmpsAttente = 100;
 
 			nbIngredient = 100;
-
-			// définition de la quantité des outils
-			capaciteAssemblage = 2;
-			capaciteLaveVaisselle = 4;
-			quantiteOutilsCuisson = 2;
-			quantiteDecoupe = 2;
 
 			// ajout d'une nouvelle recette
 			this.listeRecettes.add(Recette.Noms.MAXI);
@@ -142,12 +125,6 @@ public class Niveau {
 
 			// quantité des ingrédients
 			nbIngredient = 150;
-
-			// définition de la quantité des outils
-			capaciteAssemblage = 3;
-			capaciteLaveVaisselle = 4;
-			quantiteOutilsCuisson = 2;
-			quantiteDecoupe = 2;
 
 			// ajout d'une nouvelle recette
 			this.listeRecettes.add(Recette.Noms.MENU);
@@ -176,32 +153,42 @@ public class Niveau {
 		
 		this.materiel.put(new LaveVaisselle(), capaciteLaveVaisselle);
 		
-		//cr�er la liste des clients en fonction des recettes du niveau
+		//créer la liste des clients en fonction des recettes du niveau
 		this.creerClients();
-		
-		this.gardeManger = new GardeManger(this);
-		this.cuisine = new Cuisine(this);
-
 	}
 
+	// Getteurs
+
+	/**
+	 * @return la liste des clients du niveau
+	 */
 	public ArrayList<Client> getClients() {
 		return clients;
 	}
 
+	/**
+	 * @return le comptoir du niveau
+	 */
+	public Comptoir getComptoir() {
+		return comptoir;
+	}
 
+	/**
+	 * @return la cuisine du niveau
+	 */
 	public Cuisine getCuisine() {
 		return cuisine;
 	}
 
 	/**
-	 * @return liste des ingrédient et quantité disponibles dans le niveau
+	 * @return le nombre max des ingrédients dans le niveau
 	 */
 	public int getNbIngredient() {
 		return nbIngredient;
 	}
 
 	/**
-	 * @return liste du matériel et quantité disponible dans le niveau
+	 * @return liste du matériel et leur quantité disponibles dans le niveau
 	 */
 	public HashMap<Materiel, Integer> getMateriel() {
 		return materiel;
@@ -215,11 +202,12 @@ public class Niveau {
 	}
 
 	/**
-	 * @return nombre d'assiettes max disponbles dans le niveau
+	 * @return le tableau contenant le score et l'argent obtenus par le joueur
 	 */
-	public GardeManger getGardeManger() {
-		return gardeManger;
+	public int[] getTabScoreArgent() {
+		return tabScoreArgent;
 	}
+
 
 	// Setteurs
 
@@ -227,8 +215,8 @@ public class Niveau {
 	 * Permet de stocker le score et l'argent obtenus dans le tableau à la fin de
 	 * la partie
 	 * 
-	 * @param score
-	 * @param argent
+	 * @param score correspond à la somme des scores au fur et à mesure de la partie
+	 * @param argent correspond à la somme de l'argent gagné au fur et à mesure de la partie
 	 */
 	
 	//modif mickael
@@ -239,65 +227,37 @@ public class Niveau {
 
 	// Méthodes
 
-	public int[] getTabScoreArgent() {
-		return tabScoreArgent;
-	}
-
 	/**
-	 * Permet de remplir le tableau de client avec des clients et leur commande
-	 * 
-	 * @return true si les clients ont bien été créés
+	 * @return true s'il ne reste plus de clients dans la liste
 	 */
-//	public boolean creerClients() {
-//		int attente;
-//		Recette recette;
-//		// Pour chaque client
-//		for (int a = 0; a < this.nbMaxClients; a++) {
-//				// Pour chaque recette
-//				for (int c = 0; c < this.listeRecettes.size(); c++) {
-//					// Pour chaque viande
-//					for (int d = 0; d < Recette.Steaks.values().length; d++) {
-//						// définition de la commande propre au client
-//						recette = new Recette(this.listeRecettes.get(c), Recette.Steaks.values()[d]);
-//						// création du client
-//						this.clients.add(new Client(tmpsAttente, recette));
-//					}
-//				}
-//			}
-//		return true;
-//	}
-	
-	public boolean checker_Si_Liste_Des_Clients_Est_Vide() {
+	public boolean checkerSiListeDesClientsEstVide() {
 		if(clients.size()==0) {
 		return true;
 		}
 		return false;
 		
 	}
-	
+
+	/**
+	 * @return true si la liste des clients à bien été initialisée
+	 */
 	public boolean creerClients() {
 		// Pour chaque client
 		for (int a = 0; a < this.nbMaxClients; a++) {
-			
-						// Pour chaque, je pioche une recette al�atoire
-						int recetteAleatoire = (int)(Math.random() * listeRecettes.size());
-//						System.out.print(recetteAleatoire);
-						// définition de la commande propre au client
-						int viandeAleatoire = (int)(Math.random() * Recette.Steaks.values().length);
-//						System.out.println(viandeAleatoire);
-						Recette recette = new Recette(this.listeRecettes.get(recetteAleatoire), Recette.Steaks.values()[viandeAleatoire]);
-						
-						
-						int lower = tmpsAttente;
-						int higher = (int) (tmpsAttente*1.50);
-
-						int tmpsAttenteRandom = (int)(Math.random() * (higher-lower)) + lower;
-//						System.out.println("random = " + tmpsAttenteRandom);
-						
-						// création du client
-						this.clients.add(new Client(tmpsAttenteRandom, recette));
-		
-				}
+			// Pour chaque, je pioche une recette aléatoire
+			int recetteAleatoire = (int)(Math.random() * listeRecettes.size());
+			// System.out.print(recetteAleatoire);
+			// définition de la commande propre au client
+			int viandeAleatoire = (int)(Math.random() * Recette.Steaks.values().length);
+			// System.out.println(viandeAleatoire);
+			Recette recette = new Recette(this.listeRecettes.get(recetteAleatoire), Recette.Steaks.values()[viandeAleatoire]);
+			int lower = tmpsAttente;
+			int higher = (int) (tmpsAttente*1.50);
+			int tmpsAttenteRandom = (int)(Math.random() * (higher-lower)) + lower;
+			// System.out.println("random = " + tmpsAttenteRandom);
+			// création du client
+			this.clients.add(new Client(tmpsAttenteRandom, recette));
+		}
 		return true;
 	}
 }

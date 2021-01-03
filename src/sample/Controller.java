@@ -877,7 +877,7 @@ public class Controller implements Initializable {
 					}
 
 					for (int i = 0; i < comptoir.getEmplacementClientDansComptoire().length; i++) {
-						if (niveau.checker_Si_Liste_Des_Clients_Est_Vide()==false) {
+						if (niveau.checkerSiListeDesClientsEstVide()==false) {
 							if (comptoir.checkerSiUneAssietteEstPresenteDansEmplacementDuClient(i)==false) {
 
 								if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i)==false) {
