@@ -52,7 +52,7 @@
                               <RowConstraints maxHeight="16.4" minHeight="10.0" prefHeight="11.399999999999999" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label fx:id="compteurPAIN" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <Label fx:id="compteurPain" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
@@ -96,41 +96,41 @@
                                  </image></ImageView>
                               <ImageView fitHeight="23.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
 
-                               <Label fx:id="compteurFROMAGE" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurFromage" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurOIGNON" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurOignon" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurTOMATE" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurTomate" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurSALADE" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurSalade" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurPATATE" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                               <Label fx:id="compteurPatate" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                               <Label fx:id="compteurSTEAK_DE_BOEUF" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurSteakDeBoeuf" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurSTEAK_DE_POULET" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurSteakDePoulet" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurSTEAK_DE_SOJA" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurSteakDeSoja" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
@@ -190,7 +190,7 @@
                         </BorderPane>
                         <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="129.0" prefWidth="132.0">
                           <items>
-                              <BorderPane fx:id="plaque_cuisson" onMouseClicked="#cuir" prefHeight="72.0" prefWidth="132.0">
+                              <BorderPane fx:id="plaque_cuisson" onMouseClicked="#cuire" prefHeight="72.0" prefWidth="132.0">
                                  <top>
                                     <ProgressBar fx:id="cuissonProgress" prefWidth="200.0" progress="0.0" BorderPane.alignment="CENTER" />
                                  </top>
@@ -250,7 +250,7 @@
                         </SplitPane>
                         <SplitPane dividerPositions="0.6288819875776397" orientation="VERTICAL" prefHeight="58.0" prefWidth="160.0">
                           <items>
-                               <BorderPane fx:id="lavevaisselle" onMouseClicked="#lavevaisselle" prefHeight="77.0" prefWidth="75.0" style="-fx-background-color: #99aabf;">
+                               <BorderPane fx:id="laveVaisselle" onMouseClicked="#laveVaisselle" prefHeight="77.0" prefWidth="75.0" style="-fx-background-color: #99aabf;">
                                  <bottom>
                                     <ProgressIndicator fx:id="LaveProgress" progress="0.0" BorderPane.alignment="CENTER" />
                                  </bottom>
@@ -260,7 +260,7 @@
                               </BorderPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <ImageView fx:id="poubelle" fitHeight="38.0" fitWidth="47.0" layoutX="58.0" layoutY="9.0" onMouseClicked="#jeter" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="poubelle" fitHeight="38.0" fitWidth="47.0" layoutX="58.0" layoutY="9.0" onMouseClicked="#viderContainer" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../image/poubelle.png" />
                                        </image>
