@@ -37,7 +37,7 @@ public class Niveau {
 	 */
 	private int nbMaxClients;
 	/**
-	 * Tableau des clients qui apparaitront au cours de la partie
+	 * Tableau des clients qui apparaitront au cours de la partie (en secondes)
 	 */
 	private int tmpsAttente;
 	/**
@@ -80,8 +80,6 @@ public class Niveau {
 		int quantiteOutilsCuisson = 1;
 		int quantiteDecoupe = 1;
 		
-		
-		
 		// Initialisation des recettes
 		this.listeRecettes = new ArrayList<Recette.Noms>();
 		this.listeRecettes.add(Recette.Noms.FRITES);
@@ -93,24 +91,24 @@ public class Niveau {
 		// niveau 1 (par défaut)
 		default:
 			this.scoreMin = 0;
-			this.nbAssietteMax = 25;
-			this.nbMaxClients = 10;
-			
-			this.tmpsAttente = 45 ;
+			this.nbAssietteMax = 40;
+			this.nbMaxClients = 20;
+
+			this.tmpsAttente = 60 ;
 
 			// quantité des ingrédients
-			nbIngredient = 50;
+			nbIngredient = 100;
 
 			break;
 		// niveau 2
 		case 2:
 			this.scoreMin = 300;
-			this.nbAssietteMax = 9;
-			this.nbMaxClients = 50;
+			this.nbAssietteMax = 25;
+			this.nbMaxClients = 25;
 			
-			this.tmpsAttente = 100;
+			this.tmpsAttente = 45;
 
-			nbIngredient = 100;
+			nbIngredient = 50;
 
 			// ajout d'une nouvelle recette
 			this.listeRecettes.add(Recette.Noms.MAXI);
@@ -119,13 +117,13 @@ public class Niveau {
 		// niveau 3
 		case 3:
 			this.scoreMin = 600;
-			this.nbAssietteMax = 6;
-			this.nbMaxClients = 75;
+			this.nbAssietteMax = 15;
+			this.nbMaxClients = 30;
 			
-			this.tmpsAttente = 25;
+			this.tmpsAttente = 30;
 
 			// quantité des ingrédients
-			nbIngredient = 150;
+			nbIngredient = 50;
 
 			// ajout d'une nouvelle recette
 			this.listeRecettes.add(Recette.Noms.MENU);
@@ -138,20 +136,8 @@ public class Niveau {
 		this.materiel.put(new Poubelle(), 1);
 		// définition de la station d'assemblage associée à sa capacité maximum
 		this.materiel.put(new Assemblage(), capaciteAssemblage);
-		
+
 		// définition du lave vaisselle associé à sa capacité maximum
-		this.materiel.put(new LaveVaisselle(), capaciteLaveVaisselle);
-		
-		// définition d'outils associés à leur quantité
-		this.materiel.put(new Decoupe(), quantiteDecoupe);
-		this.materiel.put(new Friteuse(), quantiteOutilsCuisson);
-		this.materiel.put(new PlaqueCuisson(), quantiteOutilsCuisson);
-		this.materiel.put(new Poubelle(), 1);
-		// définition de la station d'assemblage associée à sa capacité maximum
-		
-		this.materiel.put(new Assemblage(), capaciteAssemblage);
-		// définition du lave vaisselle associé à sa capacité maximum
-		
 		this.materiel.put(new LaveVaisselle(), capaciteLaveVaisselle);
 		
 		//créer la liste des clients en fonction des recettes du niveau

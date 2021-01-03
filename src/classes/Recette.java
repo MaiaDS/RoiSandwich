@@ -38,6 +38,7 @@ public class Recette {
      * Steak choisi pour la recette, null si frite
      */
     private Steaks viande;
+
     /**
      * Liste des ingrédients et de leur quantité nécéssaire à la recette
      */
@@ -61,21 +62,21 @@ public class Recette {
                 recetteBurger(2, 2, this.viande);
                 break;
             case MENU:
-                this.ingredients.put(new Ingredient(Ingredient.Nom.PATATE), 1);
+                this.ingredients.put(new Ingredient(Ingredient.Nom.PATATE,Etat.CUIT,true), 1);
             case SIMPLE:
                 recetteBurger(1, 1, this.viande);
         }
     }
 
     /**
-     * Constructeur sans précision de viande > frites
-     * @param nom
+     * Constructeur sans précision de viande : frites
+     * @param nom correspondant à la recette
      */
     public Recette(Noms nom) {
         this.nom = nom;
         this.viande = null;
         this.ingredients = new HashMap<>();
-        this.ingredients.put(new Ingredient(Ingredient.Nom.PATATE), 1);
+        this.ingredients.put(new Ingredient(Ingredient.Nom.PATATE,Etat.CUIT,true), 1);
     }
 
     // Getteur
@@ -90,11 +91,12 @@ public class Recette {
     /**
      * Permet d'obtenir la liste des ingrédients pour la réalisation d'un burger
      * @param nbSteak
+     * @param nbFromage
      * @param viande
      */
     private void recetteBurger(int nbSteak, int nbFromage, Steaks viande) {
         // ingrédients de base
-        this.ingredients.put(new Ingredient(Ingredient.Nom.SALADE,Etat.CRU,false), 1);
+        this.ingredients.put(new Ingredient(Ingredient.Nom.SALADE,Etat.CRU,true), 1);
         this.ingredients.put(new Ingredient(Ingredient.Nom.TOMATE,Etat.CRU,true), 1);
         this.ingredients.put(new Ingredient(Ingredient.Nom.OIGNON,Etat.CRU, true), 1);
         this.ingredients.put(new Ingredient(Ingredient.Nom.PAIN), 1);

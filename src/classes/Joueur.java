@@ -28,11 +28,19 @@ public class Joueur {
         this.argent = 0 ;
         this.scores = new HashMap<Integer,Integer>() ;
     }
-    
+
+    /**
+     * Permet d'ajouter de l'argent à la cagnotte du joueur
+     * @param argent à ajouter
+     */
     public void ajouterArgent(int argent) {
     	this.argent += argent;
     }
-    
+
+
+    /**
+     * @return une chaîne correspondant à la cagnotte du joueur
+     */
     public String afficherArgent() {
     	return String.valueOf(argent);
     }
