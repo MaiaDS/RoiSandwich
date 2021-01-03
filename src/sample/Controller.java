@@ -630,7 +630,7 @@ public class Controller implements Initializable {
 			try {
 
 				if (((Ingredient) container).isDecoupable()) {
-					if (((Decoupe) materielDecoupe).getEmplacementVide()) {
+					if (((Decoupe) materielDecoupe).checkSiObjetsContenusEstVide()) {
 						Ingredient ingredient = (Ingredient) container;
 						containerDansDecoupe
 								.setImage(new Image(getClass().getResourceAsStream(ingredient.getImgIngredient())));
@@ -760,7 +760,7 @@ public class Controller implements Initializable {
 				LaveVaisselleEnCours.reset();
 				laveProgress.setProgress(0.0);
 			}
-		} else if (materielLaveVaisselle.getEmplacementVide()) {
+		} else if (materielLaveVaisselle.checkSiObjetsContenusEstVide()) {
 			//sinon le joueur veut mettre un objet dans le materiel
 			Assiette assiette = ((Assiette) container);
 			if (((Assiette) container).getEtatAssiette() == EtatAssiette.SALE) {
@@ -879,7 +879,7 @@ public class Controller implements Initializable {
 				if (((Ingredient) container).isSteak()
 						|| ((Ingredient) container).getNom().equals(Ingredient.Nom.FROMAGE)) {
 					assiette.ajouterObjet((Ingredient) container);
-					assiette.afficher_La_Liste_Des_Objets_Contenus();
+					assiette.afficherLaListeDesObjetsContenus();
 					viderContainer();
 				} else {
 					System.out.println("ingredient d�ja pr�sent");
