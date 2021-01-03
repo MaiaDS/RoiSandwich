@@ -1,14 +1,8 @@
 package sample;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,32 +10,19 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
-import java.io.InputStream;
 import java.net.URL;
-import java.sql.Time;
-import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -188,10 +169,10 @@ public class Controller implements Initializable {
 	@FXML
 	private ProgressIndicator LaveProgress;
 
-	private Service<Void> LaveVaisselleEnCours;
+	private Service<Void> laveVaisselleEnCours;
 
 	@FXML
-	private ImageView garde_manger;
+	private ImageView gardeManger;
 
 	@FXML
 	private ImageView poubelle;
@@ -379,12 +360,6 @@ public class Controller implements Initializable {
 		}
 	}
 
-	
-	
-	
-	
-	
-	
 	public void prendreAssiettePropre() {
 		if (container == null) {
 //			Object image = e.getSource();
@@ -505,7 +480,7 @@ public class Controller implements Initializable {
 		}
 	}
 
-	public void cuir(MouseEvent e) {
+	public void cuire(MouseEvent e) {
 		if (container == null) {
 			checkSiIngredientPresentDansMateriel(materielPlaqueDeCuisson);
 			if (CuissonEnCoursSteak != null) {
@@ -577,12 +552,12 @@ public class Controller implements Initializable {
 		}
 	}
 
-	public void lavevaisselle(MouseEvent e) {
+	public void laveVaisselle(MouseEvent e) {
 		if (container == null) {
 			checkSiIngredientPresentDansMateriel(materielLaveVaisselle);
-			if (LaveVaisselleEnCours != null) {
-				LaveVaisselleEnCours.cancel();
-				LaveVaisselleEnCours.reset();
+			if (laveVaisselleEnCours != null) {
+				laveVaisselleEnCours.cancel();
+				laveVaisselleEnCours.reset();
 				LaveProgress.setProgress(0.0);
 			}
 		} else if (materielLaveVaisselle.getEmplacementVide()){
@@ -756,8 +731,6 @@ public class Controller implements Initializable {
 			System.out.println("ca c'est rien y a un probleme dans assembler");
 		}
 	}
-	
-	
 
 	public boolean checkSiIngredientPresentDansMateriel(Materiel m) {
 		if (m.objetsContenus.isEmpty()) {
@@ -832,7 +805,7 @@ public class Controller implements Initializable {
 		containerView.setImage(null);
 	}
 
-	public class tempsDuJeu extends TimerTask {
+	public class TempsDuJeu extends TimerTask {
 
 		private int temps = 180;
 		// permet de ne pas envoyer tout les clients en m�me temps
@@ -846,7 +819,7 @@ public class Controller implements Initializable {
 
 		private ArrayList<ProgressBar> clientProgress = new ArrayList<ProgressBar>();
 
-		public tempsDuJeu() {
+		public TempsDuJeu() {
 			clientProgress.add(client1Progress);
 			clientProgress.add(client2Progress);
 			clientProgress.add(client3Progress);
@@ -861,11 +834,6 @@ public class Controller implements Initializable {
 		@Override
 		public void run() {
 			while (enCours) {
-
-
-
-			
-
 
 				String time = String.valueOf(temps);
 				temps--;
@@ -887,9 +855,9 @@ public class Controller implements Initializable {
 
 					for (int i = 0; i < comptoir.getEmplacementClientDansComptoire().length; i++) {
 						if (niveau.checker_Si_Liste_Des_Clients_Est_Vide()==false) {
-							if (comptoir.checker_Si_Une_Assiette_Est_Presente_Dans_Emplacement_Du_Client(i)==false) {
+							if (comptoir.checkerSiUneAssietteEstPresenteDansEmplacementDuClient(i)==false) {
 
-								if (comptoir.checker_Si_Un_Client_Est_Assis_Dans_Un_Emplacement(i)==false) {
+								if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i)==false) {
 
 									Client client = niveau.getClients().get(0);
 									comptoir.ajouterClient(client, i);
@@ -948,7 +916,7 @@ public class Controller implements Initializable {
 								}
 							}
 						}
-						if (comptoir.checker_Si_Un_Client_Est_Assis_Dans_Un_Emplacement(i)) {
+						if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i)) {
 							if (comptoir.getEmplacementClientDansComptoire()[i].getTmpsAttente() == 0) {
 								System.out.println(
 										"client : " + comptoir.getEmplacementClientDansComptoire()[i] + " est parti");
@@ -1099,8 +1067,8 @@ public class Controller implements Initializable {
 				};
 			}
 		};
-		LaveVaisselleEnCours = laveEnCours;
-		LaveVaisselleEnCours.start();
+		laveVaisselleEnCours = laveEnCours;
+		laveVaisselleEnCours.start();
 	}
 
 	public Service<Void> envoyerUnClient(Client client, ProgressBar progressClient) throws InterruptedException {
@@ -1190,7 +1158,7 @@ public class Controller implements Initializable {
 		compteurAssitette.setText(String.valueOf(niveau.getCuisine().getAssiettes().size()));
 
 		Timer timer = new Timer(true);
-		timer.schedule(new tempsDuJeu(), 0, 1000);
+		timer.schedule(new TempsDuJeu(), 0, 1000);
 
 		// mick 28/12
 		comptoir = niveau.getComptoir();
