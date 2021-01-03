@@ -1,12 +1,7 @@
 package classes.cuisine;
 
 import classes.Niveau;
-import classes.cuisine.Ingredient.Etat;
-import classes.cuisine.Ingredient.Nom;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 /**
  * Commentaire de documentation de la classe GardeManger
@@ -21,7 +16,7 @@ public class GardeManger {
 	// Variables de classe
 
 	/**
-	 * liste des compteurs des ingrédients : représente le nb d'ingrédient utilisé par le joueur
+	 * liste des compteurs des ingrï¿½dients : reprï¿½sente le nb d'ingrï¿½dient utilisï¿½ par le joueur
 	 */
 	private HashMap<Ingredient.Nom, Integer> compteurs = new HashMap<>();
 
@@ -32,7 +27,7 @@ public class GardeManger {
 
 	/**
 	 * Constructeur
-	 * @param quantité ingrédient, correspondant au niveau
+	 * @param niveau qui correspond au niveau en cours
 	 */
 	public GardeManger(Niveau niveau) {
 		this.niveau = niveau;
@@ -42,31 +37,44 @@ public class GardeManger {
 		}
 	}
 
+	// Getteur
+
+	/**
+	 * @return
+	 * @author Mickael
+	 */
+	public HashMap<Ingredient.Nom, Integer> getCompteurs() {
+		return compteurs;
+	}
+
+	// MÃ©thodes
+
+	/**
+	 * Permet de ....
+	 * @param ingredient qui correspond Ã  ...
+	 * @return ...
+	 */
 	public Ingredient prendreIngredient (Ingredient.Nom ingredient) {
 		int compteur = compteurs.get(ingredient) ;
 		System.out.println(compteur);
 		if (compteur > 0) {
-			// décrémenter le compteur
+			// dÃ©crÃ©menter le compteur
 			compteurs.put(ingredient, compteur-1);
 			return new Ingredient(ingredient);
 		}
 		return null ;
 	}
-	
+
+	/**
+	 * Permet de ...
+	 * @param ingredient qui correspons Ã  ...
+	 * @return ...
+	 */
 	public Ingredient mettreIngredient (Ingredient.Nom ingredient) {
 		int compteur = compteurs.get(ingredient) ;
 		System.out.println(compteur);
-		
-			// décrémenter le compteur
-			compteurs.put(ingredient, compteur+1);
-			return new Ingredient(ingredient);
-	
-		
-	}
-
-	
-	//Mickael
-	public HashMap<Ingredient.Nom, Integer> getCompteurs() {
-		return compteurs;
+		// dÃ©crÃ©menter le compteur
+		compteurs.put(ingredient, compteur+1);
+		return new Ingredient(ingredient);
 	}
 }
