@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-border-width: 30px; -fx-border-color: #000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerVueMenuPrincipal">
+   <children>
+      <ImageView fitHeight="111.0" fitWidth="148.0" layoutX="245.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/logo_couleur.png" />
+         </image></ImageView>
+      <Button fx:id="btn1" layoutX="66.0" layoutY="248.0" mnemonicParsing="false" onAction="#buttonNiveau1" style="-fx-background-color: #000;" styleClass="btn1" text="NIVEAU 1" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn3" layoutX="393.0" layoutY="248.0" mnemonicParsing="false" onAction="#buttonNiveau3" style="-fx-background-color: #000;" text="NIVEAU 3" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn2" layoutX="229.0" layoutY="248.0" mnemonicParsing="false" onAction="#buttonNiveau2" style="-fx-background-color: #000;" text="NIVEAU 2" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
