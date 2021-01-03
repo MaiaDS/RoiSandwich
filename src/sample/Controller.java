@@ -312,10 +312,10 @@ public class Controller implements Initializable {
 						}
 	
 						for (int i = 0; i < comptoir.getEmplacementClientDansComptoire().length; i++) {
-							if (niveau.checker_Si_Liste_Des_Clients_Est_Vide() == false) {
-								if (comptoir.checker_Si_Une_Assiette_Est_Presente_Dans_Emplacement_Du_Client(i) == false) {
+							if (niveau.checkerSiListeDesClientsEstVide() == false) {
+								if (comptoir.checkerSiUneAssietteEstPresenteDansEmplacementDuClient(i) == false) {
 	
-									if (comptoir.checker_Si_Un_Client_Est_Assis_Dans_Un_Emplacement(i) == false) {
+									if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i) == false) {
 	
 										Client client = niveau.getClients().get(0);
 										comptoir.ajouterClient(client, i);
@@ -364,7 +364,7 @@ public class Controller implements Initializable {
 									}
 								}
 							}
-							if (comptoir.checker_Si_Un_Client_Est_Assis_Dans_Un_Emplacement(i)) {
+							if (comptoir.checkerSiUnClientEstAssisDansUnEmplacement(i)) {
 								if (comptoir.getEmplacementClientDansComptoire()[i].getTmpsAttente() == 0) {
 									System.out.println(
 											"client : " + comptoir.getEmplacementClientDansComptoire()[i] + " est parti");
@@ -564,12 +564,12 @@ public class Controller implements Initializable {
 		if (container == null) {
 			Object image = e.getSource();
 			String idImage = ((Node) image).getId();
-			Object c = niveau.getGardeManger().prendreIngredient(Nom.valueOf(idImage));
+			Object c = niveau.getCuisine().getGardeManger().prendreIngredient(Nom.valueOf(idImage));
 			mettreDansContainer(c);
 		} else if (container instanceof Ingredient) {
 			Ingredient i = ((Ingredient) container);
 			if (i.getTransformer() == false && i.getEtat().equals(Etat.CRU)) {
-				niveau.getGardeManger().mettreIngredient(i.getNom());
+				niveau.getCuisine().getGardeManger().mettreIngredient(i.getNom());
 				viderContainer();
 				switch (i.getNom()) {
 				case PATATE:
@@ -982,7 +982,7 @@ public class Controller implements Initializable {
 	 */
 	
 	public int compteur(Nom n) {
-		return niveau.getGardeManger().getCompteurs().get(n);
+		return niveau.getCuisine().getGardeManger().getCompteurs().get(n);
 	}
 
 	/**

@@ -70,8 +70,7 @@ public class Niveau {
 		this.tabScoreArgent = new int[2];
 
 		this.comptoir = new Comptoir();
-		this.cuisine = new Cuisine(this);
-
+		
 		this.clients = new ArrayList<Client>();
 		this.materiel = new HashMap<Materiel, Integer>();
 
@@ -80,7 +79,9 @@ public class Niveau {
 		int capaciteLaveVaisselle = 1;
 		int quantiteOutilsCuisson = 1;
 		int quantiteDecoupe = 1;
-
+		
+		
+		
 		// Initialisation des recettes
 		this.listeRecettes = new ArrayList<Recette.Noms>();
 		this.listeRecettes.add(Recette.Noms.FRITES);
@@ -155,6 +156,8 @@ public class Niveau {
 		
 		//créer la liste des clients en fonction des recettes du niveau
 		this.creerClients();
+		
+		this.cuisine = new Cuisine(this);
 	}
 
 	// Getteurs
