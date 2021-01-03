@@ -261,42 +261,38 @@ public class Controller implements Initializable {
 	private Client client3;
 
 	
-	//à checker
+	
+	/**
+	 * methode qui donne l' assiette aux clients.
+	 * si le container n'est pas null et qu'il contient un objet de classe assiette, que cette assiette a pour état PLAT, alors 
+	 * on vérifie qu'il y a bien un client qui attend et cette assiette lui est distribué en cliquant sur lui.
+	 * Le client vérifie que les ingredients dans l'assiette correspondent à sa commande, le score augmente en fonction, et il s'en va.
+	 * L'assiette passe en état SALE.
+	 * Si le container est null et qu'il y a une assiette dans l'emplacement du client, en cliquant sur le client, on récupere l'assiette SALE
+	 * @param e
+	 * @throws IllegalAccessException
+	 */
 	public void donnerAssietteClient(MouseEvent e) throws IllegalAccessException {
-//		System.out.println("source donnerassietteclient = " + e.getSource());
 		//si le container n'est pas vide et quand dans ce container il s'agit d'une assiette "Plat"
 		if ((container != null) && (container instanceof Assiette) && ((Assiette)container).getEtatAssiette().equals(EtatAssiette.PLAT)) {
 			ImageView i = (ImageView) e.getSource();
 			Assiette assietteTemporaire = (Assiette) container;
 			switch (i.getId()) {
 			case "imageViewClient1":
-				if (client1!=null) {			
-//					Client client1 = comptoir.getEmplacementClientDansComptoire()[0];
-//					System.out.println("taille ingredient client methode donnerassiette " + client1.getCommande().ingredients.size());						
-//					System.out.println("tu as choisis le client 1");
+				if (client1!=null && comptoir.getEmplacementAssietteDansComptoire()[0]==null) {			
 					emplacementAssietteClient1.setImage(
 							new Image(getClass().getResourceAsStream(((Assiette) container).getImgAssiette())));
-					comptoir.getEmplacementAssietteDansComptoire()[0] = (Assiette) container;
-//					System.out.println("ingredient ajouté à assiette :");
-					
-//					for (int z = 0; z < assietteTemporaire.objetsContenus.size(); z++) {
-//						System.out.println("nom = " + ((Ingredient) assietteTemporaire.objetsContenus.get(z)).getNom() + " ; état = "
-//								+ ((Ingredient) assietteTemporaire.objetsContenus.get(z)).getEtat() + " ; transformé ="
-//								+ ((Ingredient) assietteTemporaire.objetsContenus.get(z)).getTransformer());
-//					}
+					assietteTemporaire.setEtatAssiette(EtatAssiette.SALE);
+					comptoir.getEmplacementAssietteDansComptoire()[0] = assietteTemporaire;
+
 					if (client1.verifierLePlat(assietteTemporaire)) {
 						niveau.setScoreArgent(100, 100);
 						System.out.println("score augmenté");
 						scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
 						argentLabel.setText(String.valueOf(niveau.getTabScoreArgent()[1]));
 					}
-//					System.out.println("verifier assiette : " + comptoir.getEmplacementClientDansComptoire()[0].verifierPlat(a));
-//					comptoir.getEmplacementClientDansComptoire()[0].verifierLePlat(a);
 					comptoir.retirerClient(0);
 					labelRecetteClient1.setText("");
-					Assiette assiette = comptoir.getEmplacementAssietteDansComptoire()[0];
-					assiette.setEtatAssiette(EtatAssiette.SALE);
-//				niveau.getComptoir().ajouterClient(client1EnCours);
 					vBoxClient1.getChildren().clear();
 					client1EnCours.cancel();
 					client1EnCours.reset();
@@ -306,26 +302,23 @@ public class Controller implements Initializable {
 							((Assiette) comptoir.getEmplacementAssietteDansComptoire()[0]).getImgAssiette())));
 					break;
 				}
+				else {
+					break;
+				}
 			case "imageViewClient2":
-				if (client2!=null) {
-//					System.out.println("tu as choisis le client 2");
+				if (client2!=null && comptoir.getEmplacementAssietteDansComptoire()[1]==null) {
 					emplacementAssietteClient2.setImage(
 							new Image(getClass().getResourceAsStream(((Assiette) container).getImgAssiette())));
 					vBoxClient2.getChildren().clear();
 					client2EnCours.cancel();
 					client2EnCours.reset();
 					client2Progress.setVisible(false);
-					// client2EnCours = null;
 					comptoir.getEmplacementAssietteDansComptoire()[1] = (Assiette) container;
-//				// faire un un tableau de variable dans la niveau pour voir les clients à table
 					if (client2.verifierLePlat((Assiette) container)) {
 						niveau.setScoreArgent(100, 100);
 						System.out.println("score augmenté");
 						scoreLabel.setText(String.valueOf(niveau.getTabScoreArgent()[0]));
 					}
-//				client2EnCours = null;
-//					comptoir.getEmplacementClientDansComptoire()[1].verifierPlat((Assiette) container);
-
 					comptoir.retirerClient(1);
 					labelRecetteClient2.setText("");
 					comptoir.getEmplacementAssietteDansComptoire()[1].setEtatAssiette(EtatAssiette.SALE);
@@ -334,8 +327,11 @@ public class Controller implements Initializable {
 							((Assiette) comptoir.getEmplacementAssietteDansComptoire()[1]).getImgAssiette())));
 					break;
 				}
+				else {
+					break;
+				}
 			case "imageViewClient3":
-				if (client3!=null) {
+				if (client3!=null && comptoir.getEmplacementAssietteDansComptoire()[2]==null) {
 					emplacementAssietteClient3.setImage(
 							new Image(getClass().getResourceAsStream(((Assiette) container).getImgAssiette())));
 					vBoxClient3.getChildren().clear();
@@ -356,7 +352,11 @@ public class Controller implements Initializable {
 							((Assiette) comptoir.getEmplacementAssietteDansComptoire()[2]).getImgAssiette())));
 					break;
 				}
+				else {
+					break;
+				}
 			}
+			
 		} else if (container == null) {
 			ImageView i = (ImageView) e.getSource();
 			switch (i.getId()) {
@@ -385,6 +385,12 @@ public class Controller implements Initializable {
 	
 	
 	
+	/**
+	 * Permet de prendre une assiette propre ou d'en remettre une
+	 * Fonctionne au click.
+	 * l'assiette se situe dans niveau => cuisine
+	 * 
+	 */
 	public void prendreAssiettePropre() {
 		if (container == null) {
 //			Object image = e.getSource();
@@ -402,11 +408,11 @@ public class Controller implements Initializable {
 
 	}
 
-	@FXML
+	
 	public void prendreIngredient(MouseEvent e) {
-		if (materielAssemblage.objetsContenus.size() == 0) {
-			System.out.println("attention, il n'y a pas d'assiette dans l'assemblage");
-		} else {
+//		if (materielAssemblage.objetsContenus.size() == 0) {
+//			System.out.println("attention, il n'y a pas d'assiette dans l'assemblage");
+//		} else {
 			if (container == null) {
 				Object image = e.getSource();
 				String idImage = ((Node) image).getId();
@@ -453,7 +459,7 @@ public class Controller implements Initializable {
 
 		}
 
-	}
+//	}
 
 	public void decouper(MouseEvent e) throws IllegalAccessException {
 		// si le container est nul alors il faut selectionner un ingredient
@@ -624,10 +630,15 @@ public class Controller implements Initializable {
 			if (a.getEtatAssiette().equals(EtatAssiette.SALE)) {
 				System.out.println("l'assiette a déja été utilisé, veuillez la laver");
 			} else {
-
+				if(a.getEtatAssiette().equals(EtatAssiette.PLAT)) {
+					emplacementAssiette.setImage(new Image(getClass().getResourceAsStream("../image/assiette.png")));
+				}
+				else {
+					a.setEtatAssiette(EtatAssiette.PROPRE);
+					emplacementAssiette.setImage(new Image(getClass().getResourceAsStream(a.getImgAssiette())));
+				}
 				materielAssemblage.ajouterObjet(a);
-				a.setEtatAssiette(EtatAssiette.PROPRE);
-				emplacementAssiette.setImage(new Image(getClass().getResourceAsStream(a.getImgAssiette())));
+				
 				// rechercher les ingredients présents dans l'assiette
 				for (int i = 0; i < a.objetsContenus.size(); i++) {
 					Ingredient ing = (Ingredient) a.objetsContenus.get(i);
@@ -685,7 +696,7 @@ public class Controller implements Initializable {
 			}
 
 //			si le container est un ingredient
-		} else if (container instanceof Ingredient) {
+		} else if (container instanceof Ingredient &&  materielAssemblage.objetsContenus.size()>0 ) {
 			// récupere l'assiette contenu dans l'assemblage
 			Assiette assiette = (Assiette) materielAssemblage.objetsContenus.get(0);
 			if (assiette.verifierSiIngredientPresentDansAssiette((Ingredient) container) == true) {
@@ -758,7 +769,7 @@ public class Controller implements Initializable {
 			}
 
 		} else {
-			System.out.println("ca c'est rien y a un probleme dans assembler");
+			System.out.println("tu dois mettre une assiette d'abord");
 		}
 	}
 	
