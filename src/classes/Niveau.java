@@ -97,7 +97,7 @@ public class Niveau {
 			this.tmpsAttente = 60 ;
 
 			// quantité des ingrédients
-			nbIngredient = 100;
+			nbIngredient = 9999;
 
 			break;
 		// niveau 2
@@ -196,9 +196,18 @@ public class Niveau {
 	public int[] getTabScoreArgent() {
 		return tabScoreArgent;
 	}
+	
+	/**
+	 * @return le num�ro du niveau
+	 */
+	public int getNumNiveau() {
+		return numNiveau;
+	}
+	
 
 
 	// Setteurs
+
 
 	/**
 	 * Permet de stocker le score et l'argent obtenus dans le tableau à la fin de

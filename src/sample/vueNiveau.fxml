@@ -52,7 +52,7 @@
                               <RowConstraints maxHeight="16.4" minHeight="10.0" prefHeight="11.399999999999999" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label fx:id="compteurPain" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <Label fx:id="compteurPain" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
@@ -96,41 +96,41 @@
                                  </image></ImageView>
                               <ImageView fitHeight="23.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
 
-                               <Label fx:id="compteurFromage" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurFromage" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurOignon" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurOignon" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurTomate" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurTomate" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurSalade" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurSalade" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurPatate" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                               <Label fx:id="compteurPatate" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                               <Label fx:id="compteurSteakDeBoeuf" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurSteakDeBoeuf" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurSteakDePoulet" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurSteakDePoulet" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="compteurSteakDeSoja" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                               <Label fx:id="compteurSteakDeSoja" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                    <font>
                                        <Font size="10.0" />
                                    </font>
