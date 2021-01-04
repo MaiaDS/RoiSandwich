@@ -40,6 +40,9 @@ import classes.cuisine.Ingredient.Etat;
 import classes.cuisine.Ingredient.Nom;
 
 public class Controller implements Initializable {
+	
+	//permet de stopper le run quand on clique sur le bouton pour retourner au menuPrincipale
+	private boolean finDuNiveau = false;
 
 	private Niveau niveau;
 
@@ -158,8 +161,8 @@ public class Controller implements Initializable {
 
 		@Override
 		public void run() {
-			// pendant la durée de la partie, s'exécute toutes les secondes
-			while (enCours) {
+			// pendant la durée de la partie, s'exécute toutes les secondes,
+			while (enCours && finDuNiveau==false) {
 				String time = String.valueOf(temps);
 				temps--;
 				attenteEntreClient--;
@@ -172,7 +175,7 @@ public class Controller implements Initializable {
 							&& comptoir.getEmplacementClientDansComptoir()[0] == null
 							&& comptoir.getEmplacementClientDansComptoir()[1] == null
 							&& comptoir.getEmplacementClientDansComptoir()[2] == null) {
-						this.enCours = false;
+						enCours = false;
 						System.out.println("Fin Du Niveau");
 						try {
 							affichageScore();
@@ -1129,9 +1132,11 @@ public class Controller implements Initializable {
 	 */
 	public void quitterNiveau() throws Exception {
 		try {
+			finDuNiveau=true;
 			Stage stage = (Stage) btnClose.getScene().getWindow();
 			Parent root = FXMLLoader.load(getClass().getResource("vueMenuPrincipal.fxml"));
 			stage.setScene(new Scene(root));
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
