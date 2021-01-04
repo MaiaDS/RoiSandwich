@@ -41,7 +41,7 @@ public class Joueur {
     /**
      * @return une chaîne correspondant à la cagnotte du joueur
      */
-    public String afficherArgent() {
-    	return String.valueOf(argent);
+    public int afficherArgent() {
+    	return argent;
     }
 }
