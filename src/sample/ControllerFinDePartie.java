@@ -16,13 +16,13 @@ import javafx.stage.Stage;
 public class ControllerFinDePartie implements Initializable {
 
 	@FXML
-	Button btnMenu;
+	private Button btnMenu;
 	
 	@FXML
-	ImageView btnClose;
+	private ImageView btnClose;
 	
 	@FXML
-	Label scoreLabel, argentLabel;
+	private Label scoreLabel, argentLabel;
 	
 	/**
 	 * Cette fonction est lancer lorsque l'on appuie sur la croix du niveau, 
