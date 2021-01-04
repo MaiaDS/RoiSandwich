@@ -260,7 +260,7 @@
                               </BorderPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <ImageView fx:id="poubelle" fitHeight="38.0" fitWidth="47.0" layoutX="58.0" layoutY="9.0" onMouseClicked="#viderContainer" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="poubelle" fitHeight="38.0" fitWidth="47.0" layoutX="53.0" layoutY="9.0" onMouseClicked="#viderContainer" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../image/poubelle.png" />
                                        </image>
@@ -300,17 +300,17 @@
                         <Pane prefHeight="128.0" prefWidth="317.0" style="-fx-background-color: #c28729;" GridPane.rowIndex="2">
                            <children>
                               <ImageView fx:id="emplacementAssietteClient1" fitHeight="56.0" fitWidth="77.0" layoutX="128.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-                              <ProgressBar fx:id="client1Progress" layoutX="90.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
+                              <ProgressBar fx:id="client1Progress" layoutX="80.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
                            </children></Pane>
                         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c28729;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
                               <ImageView fx:id="emplacementAssietteClient2" fitHeight="56.0" fitWidth="80.0" layoutX="127.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-                              <ProgressBar fx:id="client2Progress" layoutX="90.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
+                              <ProgressBar fx:id="client2Progress" layoutX="80.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
                            </children></Pane>
                         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c28729;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <children>
                               <ImageView fx:id="emplacementAssietteClient3" fitHeight="56.0" fitWidth="81.0" layoutX="126.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-                              <ProgressBar fx:id="client3Progress" layoutX="90.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
+                              <ProgressBar fx:id="client3Progress" layoutX="80.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
                            </children></Pane>
                         <Label fx:id="labelRecetteClient1" text="Label" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
                         <Label fx:id="labelRecetteClient2" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
