@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="925.0" prefWidth="1257.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="780.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <SplitPane dividerPositions="0.08353033884948778, 0.9227738376674547" layoutX="-14.0" prefHeight="925.0" prefWidth="1271.0">
+      <SplitPane dividerPositions="0.08353033884948778, 0.9227738376674547" prefHeight="779.0" prefWidth="1199.0">
         <items>
             <SplitPane dividerPositions="0.09554831704668838" orientation="VERTICAL" prefHeight="400.0" prefWidth="47.0" style="-fx-background-color: #000; -fx-border-color: #000;">
               <items>
@@ -279,8 +279,8 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="443.0" minHeight="0.0" prefHeight="442.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="210.0" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="443.0" minHeight="0.0" prefHeight="358.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="210.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="161.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
@@ -299,23 +299,23 @@
                          </image></ImageView>
                         <Pane prefHeight="128.0" prefWidth="317.0" style="-fx-background-color: #c28729;" GridPane.rowIndex="2">
                            <children>
-                              <ImageView fx:id="emplacementAssietteClient1" fitHeight="56.0" fitWidth="77.0" layoutX="147.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="emplacementAssietteClient1" fitHeight="56.0" fitWidth="77.0" layoutX="128.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
                               <ProgressBar fx:id="client1Progress" layoutX="90.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
                            </children></Pane>
                         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c28729;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <ImageView fx:id="emplacementAssietteClient2" fitHeight="56.0" fitWidth="80.0" layoutX="137.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="emplacementAssietteClient2" fitHeight="56.0" fitWidth="80.0" layoutX="127.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
                               <ProgressBar fx:id="client2Progress" layoutX="90.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
                            </children></Pane>
                         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c28729;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <children>
-                              <ImageView fx:id="emplacementAssietteClient3" fitHeight="56.0" fitWidth="81.0" layoutX="137.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="emplacementAssietteClient3" fitHeight="56.0" fitWidth="81.0" layoutX="126.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
                               <ProgressBar fx:id="client3Progress" layoutX="90.0" layoutY="2.0" prefHeight="24.0" prefWidth="174.0" progress="0.0" />
                            </children></Pane>
                         <Label fx:id="labelRecetteClient1" text="Label" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
                         <Label fx:id="labelRecetteClient2" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
                         <Label fx:id="labelRecetteClient3" text="Label" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                        <VBox fx:id="vBoxClient1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="420.0" prefWidth="353.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <VBox fx:id="vBoxClient1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="387.0" prefWidth="333.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                         <VBox fx:id="vBoxClient2" nodeOrientation="LEFT_TO_RIGHT" prefHeight="218.0" prefWidth="272.0" GridPane.columnIndex="1" />
                         <VBox fx:id="vBoxClient3" nodeOrientation="LEFT_TO_RIGHT" prefHeight="406.0" prefWidth="316.0" GridPane.columnIndex="2" />
                      </children>

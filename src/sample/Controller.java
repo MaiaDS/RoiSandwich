@@ -1165,11 +1165,11 @@ public class Controller implements Initializable {
 //				System.out.println(ing.getImgIngredient() + " = " + pair.getValue());
 				Image img = new Image(getClass().getResourceAsStream(ing.getImgIngredient()));
 				ImageView imgVw = new ImageView(img);
-				imgVw.setFitWidth(50);
+				imgVw.setFitWidth(45);
 				imgVw.setPreserveRatio(true);
 				vbox.getChildren().add(imgVw);
 				vbox.setAlignment(Pos.CENTER);
-				vbox.setSpacing(10);
+				vbox.setSpacing(5);
 			}
 		}
 	}
