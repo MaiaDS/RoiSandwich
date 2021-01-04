@@ -42,7 +42,9 @@ public class ControllerVueMenuPrincipal implements Initializable {
 			stage.setScene(scene);
 			stage.show();
 	}
-	
+	/**
+	 * Permet de lancer le niveau correspondant au boutton associer
+	 */
 	@FXML
 	private void buttonNiveau2(ActionEvent event) throws Exception {
 		Stage stage;
@@ -56,7 +58,9 @@ public class ControllerVueMenuPrincipal implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+	/**
+	 * Permet de lancer le niveau correspondant au boutton associer
+	 */
 	@FXML
 	private void buttonNiveau3(ActionEvent event) throws Exception {
 		Stage stage;

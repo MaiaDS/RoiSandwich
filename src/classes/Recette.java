@@ -99,8 +99,8 @@ public class Recette {
         this.ingredients.put(new Ingredient(Ingredient.Nom.SALADE,Etat.CRU,true), 1);
         this.ingredients.put(new Ingredient(Ingredient.Nom.TOMATE,Etat.CRU,true), 1);
         this.ingredients.put(new Ingredient(Ingredient.Nom.OIGNON,Etat.CRU, true), 1);
-        this.ingredients.put(new Ingredient(Ingredient.Nom.PAIN), 1);
-        this.ingredients.put(new Ingredient(Ingredient.Nom.FROMAGE), nbFromage);
+        this.ingredients.put(new Ingredient(Ingredient.Nom.PAIN, Etat.CRU, false), 1);
+        this.ingredients.put(new Ingredient(Ingredient.Nom.FROMAGE, Etat.CRU, false), nbFromage);
         // précision du steak
         Ingredient.Nom typeSteak;
         if (viande == Steaks.BOEUF) {
